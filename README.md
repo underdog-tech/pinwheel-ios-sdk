@@ -2,7 +2,23 @@
 
 ## Usage
 
-The Pinwheel iOS SDK's main interface is a UIViewController that you can integrate into your app as you would any UIViewController, e.g. presented as a modal, or used with a UINavigationController. Additionally, you can implement the `PinwheelDelegate` protocol to receive events throughout the `PinwheelViewController`'s lifecycle.
+The Pinwheel iOS SDK's main interface is a `UIViewController` that you can integrate into your app as you would any `UIViewController`, e.g. presented as a modal, or used with a `UINavigationController`. Additionally, you can implement the `PinwheelDelegate` protocol to receive events throughout the `PinwheelViewController`'s lifecycle.
+
+### Installation
+
+The Pinwheel iOS SDK is available via [CocoaPods](https://cocoapods.org/).
+
+To install the SDK with CocoaPods, add `PinwheelSDK` as one of your target dependencies in your Podfile:
+
+```ruby
+use_frameworks!
+
+target 'MyApp' do
+    pod 'PinwheelSDK'
+end
+```
+
+Please be sure to run `pod update` and use `pod install --repo-update` to ensure you have the most recent version of the SDK installed.
 
 ### Link Token
 
@@ -40,15 +56,6 @@ Callback whenever a user interacts with the modal (e.g. clicks something or type
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first. Then, add your API secret to the top of the LinkToken.swift file. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app.
-
-## Installation
-
-PinwheelSDK is available using [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'PinwheelSDK'
-```
 
 ## Author
 
