@@ -20,11 +20,11 @@ public protocol PinwheelDelegate {
 public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     var webView: WKWebView!
     var delegate: PinwheelDelegate
-    private var script: String
+    private var token: String
     
     public init(token: String, delegate: PinwheelDelegate) {
         self.delegate = delegate
-        self.script = getScript(token: token)
+        self.token = token
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -63,7 +63,9 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
     
     public override func loadView() {
-        let wkScript = WKUserScript(source: self.script, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        let now = Int64(Date().timeIntervalSince1970 * 1000)
+        let script = getScript(token: self.token, initializationTime: now)
+        let wkScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
         
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController.addUserScript(wkScript)
@@ -85,7 +87,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
 }
 
-private func getScript(token: String) -> String {
+private func getScript(token: String, initializationTime: Int64) -> String {
     return """
         const uuidKey = 'pinwheel-uuid';
         const localStorage = window.localStorage;
@@ -116,9 +118,11 @@ private func getScript(token: String) -> String {
           {
             type: 'PINWHEEL_INIT',
             payload: {
+              sdk: "ios",
               fullScreen: true,
               linkToken: "\(token)",
-              uniqueUserId: uuid
+              uniqueUserId: uuid,
+              initializationTimestamp: \(initializationTime)
             }
           }
         );
