@@ -122,7 +122,7 @@ private func getScript(token: String, initializationTime: Int64) -> String {
               fullScreen: true,
               linkToken: "\(token)",
               uniqueUserId: uuid,
-              initializationTime: \(initializationTime)
+              initializationTimestamp: \(initializationTime)
             }
           }
         );
