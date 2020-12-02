@@ -78,12 +78,22 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         contentController.add(self, name: "linkMessageHandlerSuccess")
         view = webView
     }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         let myURL = URL(string:"https://cdn.getpinwheel.com/link-v2.html")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
+    }
+    
+    public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        
+        let wv = WKWebView(frame: view.bounds, configuration: configuration)
+        wv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        wv.uiDelegate = self
+        view = wv
+        return wv
     }
 }
 
