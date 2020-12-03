@@ -89,11 +89,15 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     
     public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         
-        let wv = WKWebView(frame: view.bounds, configuration: configuration)
-        wv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        wv.uiDelegate = self
-        view = wv
-        return wv
+        if let url = navigationAction.request.url {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+        }
+        return nil
     }
 }
 
