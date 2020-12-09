@@ -1,5 +1,7 @@
 # PinwheelSDK
 
+The Pinwheel SDK is used to open up as a modal in your application. Through the modal, end-users can select their employer, authenticate with their payroll platform login credentials, and authorize the direct deposit change.
+
 ## Usage
 
 The Pinwheel iOS SDK's main interface is a `UIViewController` that you can integrate into your app as you would any `UIViewController`, e.g. presented as a modal, or used with a `UINavigationController`. Additionally, you can implement the `PinwheelDelegate` protocol to receive events throughout the `PinwheelViewController`'s lifecycle.
@@ -22,7 +24,7 @@ Please be sure to run `pod update` and use `pod install --repo-update` to ensure
 
 ### Link Token
 
-To initialize the `PinwheelViewController`, a short-lived Link token will need to be generated first. Your server can generate the Link token by sending a POST request to the `/v1/link_tokens` endpoint. Your mobile app should fetch the link token from your server. DO NOT ever send this request from the client side and publicly expose your api_secret.
+To initialize the `PinwheelViewController`, a short-lived Link token will need to be generated first. Your server can generate the Link token by sending a POST request to the `/v1/link_tokens` endpoint with details about the direct depoist update. Your mobile app should fetch the link token from your server. DO NOT ever send this request from the client side and publicly expose your api_secret.
 
 The link token returned is valid for 15 minutes, after which it expires and can no longer be used to initialize the `PinwheelViewController`. The expiration time is returned as a unix timestamp.
 
