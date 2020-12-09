@@ -54,7 +54,6 @@ workflows:
   build-test-deploy:
     jobs:
       - deploy-to-cocoapods:
-          context: CocoaPods
           filters:
             tags:
               only: /\d+(\.\d+)*(-.*)*/
