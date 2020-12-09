@@ -1,0 +1,10 @@
+machine:
+  xcode:
+    version: "7.0"
+
+jobs:
+  deployment:
+    release:
+      tag: /.*/
+      commands:
+        - pod trunk push
