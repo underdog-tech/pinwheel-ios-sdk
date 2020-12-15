@@ -133,6 +133,14 @@ private func getScript(token: String, initializationTime: Int64) -> String {
             type: 'PINWHEEL_INIT',
             payload: {
               sdk: "ios",
+              deviceMetadata: {
+                os: "\(UIDevice.current.systemVersion)",
+                manufacturer: "apple",
+                model: "\(utsname())",
+                product: "\(UIDevice.current.userInterfaceIdiom)",
+                device: "\(UIDevice.current.model)",
+                hardware: "",
+              },
               fullScreen: true,
               linkToken: "\(token)",
               uniqueUserId: uuid,
