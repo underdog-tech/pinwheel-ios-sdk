@@ -8,6 +8,6 @@
 import Foundation
 
 public struct PinwheelSuccessEvent: Codable {
-    let type: String
-    let result: PinwheelResult
+    public let type: String
+    public let result: PinwheelResult
 }

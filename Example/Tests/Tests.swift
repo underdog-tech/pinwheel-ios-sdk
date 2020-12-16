@@ -3,48 +3,99 @@
 import Quick
 import Nimble
 import PinwheelSDK
+import WebKit
+
+class PinwheelVCDelegate: PinwheelDelegate {
+    public var actionEvent: PinwheelActionEvent?
+    public var exitEvent: PinwheelExitEvent?
+    public var successEvent: PinwheelSuccessEvent?
+    
+    func onEvent(_ event: PinwheelActionEvent) {
+        self.actionEvent = event
+    }
+    
+    func onExit(_ event: PinwheelExitEvent) {
+        self.exitEvent = event
+    }
+    
+    func onSuccess(_ event: PinwheelSuccessEvent) {
+        self.successEvent = event
+    }
+    
+    
+}
+
+class TestMessage: WKScriptMessage {
+    var messageName: String
+    var bodyString: String
+    
+    override public var name: String {
+        get {
+            return messageName
+        }
+    }
+    
+    override public var body: Any {
+        get {
+            return bodyString
+        }
+    }
+    
+    init(_ name: String, body: String) {
+        self.messageName = name
+        self.bodyString = body
+    }
+}
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
+        let linkToken = "abc-123"
+        
+        describe("Pinwheel") {
+            it("Exit event is called") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let message = TestMessage("linkMessageHandlerExit", body: "{\"type\":\"MODAL_CLOSE\"}")
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.exitEvent?.type).to(equal("MODAL_CLOSE"))
             }
             
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
+            it("receives events") {
+                let bodyString = """
+                {
+                    "type": "PINWHEEL_EVENT",
+                    "name": "Intro",
+                    "payload": {
+                        "job": "direct_deposit_switch"
+                    },
                 }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
-                    }
-                }
+                """
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let message = TestMessage("linkMessageHandlerAction", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.actionEvent?.type).to(equal("ACTION"))
             }
+            
+            it("receives the success callback") {
+                let bodyString = """
+                {
+                    "type": "PINWHEEL_SUCCESS",
+                    "result": {
+                        "tokenId": "abc-123"
+                    }
+                }
+                """
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let message = TestMessage("linkMessageHandlerSuccess", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.successEvent?.type).to(equal("SUCCESS"))
+            }
+            
         }
     }
 }
