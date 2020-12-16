@@ -8,6 +8,6 @@
 import Foundation
 
 public struct PinwheelError: Codable {
-    let errorCode: String
-    let errorMessage: String
+    public let errorCode: String
+    public let errorMessage: String
 }

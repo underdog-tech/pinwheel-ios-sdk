@@ -8,36 +8,36 @@
 import Foundation
 
 public struct PinwheelEventPayload: Codable {
-    var job: String?
-    var mode: String?
-    var orgName: String?
-    var accountName: String?
-    var accountType: String?
-    var accountNumber: String?
-    var routingNumber: String?
-    var platformKey: String?
-    var employerId: String?
-    var amount: String?
-    var skipIntroScreen: Bool?
-    var skipExitSurvey: Bool?
-    var skipEmployerSearch: Bool?
-    var apiKey: String?
-    var employerSearchText: String?
-    var reason: String?
-    var otherReasonText: String?
-    var foundFromSearch: Bool?
-    var inputtedProvider: String?
-    var searchText: String?
-    var step: String?
-    var href: String?
-    var label: String?
-    var errorCode: String?
-    var errorMsg: String?
-    var pageName: String?
-    var actionName: String?
-    var platformId: String?
-    var selectedEmployerId: String?
-    var selectedEmployerName: String?
-    var modalSessionId: String?
-    var uniqueUserId: String?
+    public var job: String?
+    public var mode: String?
+    public var orgName: String?
+    public var accountName: String?
+    public var accountType: String?
+    public var accountNumber: String?
+    public var routingNumber: String?
+    public var platformKey: String?
+    public var employerId: String?
+    public var amount: String?
+    public var skipIntroScreen: Bool?
+    public var skipExitSurvey: Bool?
+    public var skipEmployerSearch: Bool?
+    public var apiKey: String?
+    public var employerSearchText: String?
+    public var reason: String?
+    public var otherReasonText: String?
+    public var foundFromSearch: Bool?
+    public var inputtedProvider: String?
+    public var searchText: String?
+    public var step: String?
+    public var href: String?
+    public var label: String?
+    public var errorCode: String?
+    public var errorMsg: String?
+    public var pageName: String?
+    public var actionName: String?
+    public var platformId: String?
+    public var selectedEmployerId: String?
+    public var selectedEmployerName: String?
+    public var modalSessionId: String?
+    public var uniqueUserId: String?
 }

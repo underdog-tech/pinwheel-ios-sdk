@@ -8,9 +8,9 @@
 import Foundation
 
 public struct PinwheelActionEvent: Codable {
-    var type: String
-    var name: String
-    var payload: PinwheelEventPayload
-    var pageName: String?
-    var actionName: String?
+    public var type: String
+    public var name: String
+    public var payload: PinwheelEventPayload
+    public var pageName: String?
+    public var actionName: String?
 }

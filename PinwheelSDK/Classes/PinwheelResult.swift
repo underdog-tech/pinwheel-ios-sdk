@@ -8,5 +8,5 @@
 import Foundation
 
 public struct PinwheelResult: Codable {
-    let tokenId: String
+    public let tokenId: String
 }

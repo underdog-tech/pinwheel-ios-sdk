@@ -8,7 +8,7 @@
 import Foundation
 
 public struct PinwheelExitEvent: Codable {
-    let type: String
-    let error: PinwheelError?
-    let result: PinwheelResult?
+    public let type: String
+    public let error: PinwheelError?
+    public let result: PinwheelResult?
 }
