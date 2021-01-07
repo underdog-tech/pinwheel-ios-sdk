@@ -76,7 +76,7 @@ class TableOfContentsSpec: QuickSpec {
                 let message = TestMessage("linkMessageHandlerAction", body: bodyString)
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
-                expect(delegate.actionEvent?.type).to(equal("ACTION"))
+                expect(delegate.actionEvent?.type).to(equal("PINWHEEL_EVENT"))
             }
             
             it("receives the success callback") {
@@ -93,7 +93,7 @@ class TableOfContentsSpec: QuickSpec {
                 let message = TestMessage("linkMessageHandlerSuccess", body: bodyString)
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
-                expect(delegate.successEvent?.type).to(equal("SUCCESS"))
+                expect(delegate.successEvent?.type).to(equal("PINWHEEL_SUCCESS"))
             }
             
         }
