@@ -28,3 +28,6 @@ DerivedData
 Carthage/Build
 
 Example/Pods
+
+Example/fastlane/report.xml
+Example/fastlane/test_output
