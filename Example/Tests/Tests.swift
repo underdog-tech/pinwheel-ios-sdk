@@ -55,10 +55,10 @@ class TableOfContentsSpec: QuickSpec {
             it("Exit event is called") {
                 let delegate = PinwheelVCDelegate()
                 let userContentController = WKUserContentController()
-                let message = TestMessage("linkMessageHandlerExit", body: "{\"type\":\"MODAL_CLOSE\"}")
+                let message = TestMessage("linkMessageHandlerExit", body: "{\"type\":\"PINWHEEL_MODAL_CLOSE\"}")
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
-                expect(delegate.exitEvent?.type).to(equal("MODAL_CLOSE"))
+                expect(delegate.exitEvent?.type).to(equal("PINWHEEL_MODAL_CLOSE"))
             }
             
             it("receives events") {

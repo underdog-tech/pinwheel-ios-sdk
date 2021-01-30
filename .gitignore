@@ -27,6 +27,8 @@ DerivedData
 
 Carthage/Build
 
+fastlane/report.xml
+
 Example/Pods
 
 Example/fastlane/report.xml

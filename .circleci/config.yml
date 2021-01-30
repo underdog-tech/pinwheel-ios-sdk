@@ -4,7 +4,7 @@
 version: 2.1
 
 jobs:
-  build:
+  test:
     working_directory: ~/pinwheel-ios-sdk/example
 
     macos:
