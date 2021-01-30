@@ -82,7 +82,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string:"https://cdn.getpinwheel.com/link-v2.html")
+        let myURL = URL(string:"https://cdn.getpinwheel.com/link-v2.1.0.html")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
