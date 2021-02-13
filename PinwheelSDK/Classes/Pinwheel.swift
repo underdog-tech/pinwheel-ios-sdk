@@ -9,7 +9,6 @@ import Foundation
 
 import UIKit
 import WebKit
-import SwiftUI
 
 public protocol PinwheelDelegate {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
@@ -103,14 +102,14 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         let contentController = webView.configuration.userContentController
-        contentController.add(self, name: "openEventHandler")
-        contentController.add(self, name: "selectEmployerEventHandler")
-        contentController.add(self, name: "incorrectPlatformGivenHandler")
-        contentController.add(self, name: "loginEventHandler")
-        contentController.add(self, name: "inputAmountEventHandler")
-        contentController.add(self, name: "exitEventHandler")
-        contentController.add(self, name: "successEventHandler")
-        contentController.add(self, name: "errorEventHandler")
+        contentController.add(self, name: PinwheelEventHandler.openEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.exitEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.successEventHandler.rawValue)
+        contentController.add(self, name: PinwheelEventHandler.errorEventHandler.rawValue)
         view = webView
     }
     
