@@ -235,11 +235,6 @@ private func getScript(token: String, initializationTime: Int64) -> String {
             type: 'PINWHEEL_INIT',
             payload: {
                 sdk: "ios",
-                version: {
-                major: 2,
-                minor: 0,
-                patch: 0,
-                },
                 fullScreen: true,
                 linkToken: "\(token)",
                 uniqueUserId: uuid,
