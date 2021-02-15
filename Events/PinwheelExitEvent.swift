@@ -10,5 +10,5 @@ import Foundation
 public struct PinwheelExitEvent: Codable {
     public let type: String
     public let eventName: String
-    public let error: PinwheelError?
+    public let payload: PinwheelExitPayload?
 }
