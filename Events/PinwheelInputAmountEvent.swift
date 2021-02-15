@@ -10,5 +10,5 @@ import Foundation
 public struct PinwheelInputAmountEvent: Codable {
     public var type: String
     public var eventName: String
-    public var payload: PinwheelInputAmountPayload
+    public var payload: PinwheelAmountPayload
 }
