@@ -43,17 +43,27 @@ With the `PinwheelViewController`, end-users can select their employer, authenti
 
 ## PinwheelDelegate
 
-### `onSuccess(_ event: PinwheelSuccessEvent)`
+The `PinwheelDelegate` protocol is set up such that every event goes through the required `onEvent(name: event:)` handler, and optional convenience methods are provided for the `.exit`, `.success`, `.login`, and `.error` events. Note that the `onEvent(name: event:)` handler will still be called alongside the convenience methods.   
 
-Callback whenever a user completes a Link flow successfully. Note: This is simply a front end callback only. If a user begins a job, closes the app, and the job completes successfully this callback will not be called.
+### `onEvent(name: PinwheelEventType, event: PinwheelEventPayload)`
 
-### `onExit(_ event: PinwheelExitEvent)`
+Callback whenever a user interacts with the modal (e.g. logs in, or initiates a switch). See the [events section](https://getpinwheel.stoplight.io/docs/api/docs/guides/Link.md#events) of the Link documentation.
 
-Callback whenever a user exits the modal either explicitly or if an error occurred that crashed the modal. Error codes can be seen [here](https://docs.getpinwheel.com/link/index.html#errors).
+### `onExit(_ error: PinwheelError?)`
 
-### `onEvent(_ event: PinwheelActionEvent)`
+Optional callback whenever a user exits the modal either explicitly or if an error occurred that crashed the modal. Error codes can be seen [here](https://getpinwheel.stoplight.io/docs/api/docs/guides/Link.md#errors-1).
 
-Callback whenever a user interacts with the modal (e.g. clicks something or types something). The [eventName](https://docs.getpinwheel.com/link/index.html#events) can be used to gain insight into what the user is doing.
+### `onSuccess(_ result: PinwheelSuccessPayload)`
+
+Optional callback whenever a user completes a Link flow successfully. Note: This is simply a front end callback only. If a user begins a job, closes the app, and the job completes successfully this callback will not be called.
+
+### `onLogin(_ result: PinwheelLoginPayload)`
+
+Optional callback for when a user logs in successfully.
+
+### `onError(_ error: PinwheelError)`
+
+Optional callback for when an error occurs.
 
 ## Example
 
