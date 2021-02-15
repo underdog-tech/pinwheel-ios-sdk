@@ -250,13 +250,6 @@ private func getScript(token: String, initializationTime: Int64) -> String {
                     major: \(version[0]),
                     minor: \(version.count > 1 ? version[1] : "0"),
                     patch: \(version.count > 2 ? version[2] : "0")
-                },
-                initializationOptions: {
-                    hasOnSuccess: true,
-                    hasOnEvent: true,
-                    hasOnExit: true,
-                    hasOnError: true,
-                    hasOnLogin: true,
                 }
             }
           }
