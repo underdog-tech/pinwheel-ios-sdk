@@ -14,6 +14,7 @@ jobs:
       - checkout:
           path: ~/pinwheel-ios-sdk
       - run: pod install # Install CocoaPods dependencies
+      - run: bundle install # Install gems
       - run: bundle exec fastlane ios tests # Run tests using Fastlane
 
       # Collect XML test results data to show in the UI, and save the same XML
