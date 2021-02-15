@@ -18,16 +18,16 @@ class PinwheelVCDelegate: PinwheelDelegate {
         onEventPayload = event
     }
     
-    func onExit(_ event: PinwheelError?) {
-        onExitPayload = event
+    func onExit(_ error: PinwheelError?) {
+        onExitPayload = error
     }
     
-    func onSuccess(_ event: PinwheelSuccessPayload) {
-        onSuccessPayload = event
+    func onSuccess(_ result: PinwheelSuccessPayload) {
+        onSuccessPayload = result
     }
     
-    func onLogin(_ event: PinwheelLoginPayload) {
-        onLoginPayload = event
+    func onLogin(_ result: PinwheelLoginPayload) {
+        onLoginPayload = result
     }
     
     func onError(_ error: PinwheelError) {

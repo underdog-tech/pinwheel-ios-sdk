@@ -174,7 +174,7 @@ extension LinkConfigTableViewController: PinwheelDelegate {
         }
     }
     
-    func onExit(_ event: PinwheelError?) {
+    func onExit(_ error: PinwheelError?) {
         print("onExit")
     }
     
@@ -182,11 +182,11 @@ extension LinkConfigTableViewController: PinwheelDelegate {
         print("onError")
     }
     
-    func onSuccess(_ event: PinwheelSuccessPayload) {
+    func onSuccess(_ result: PinwheelSuccessPayload) {
         print("onSuccess")
     }
     
-    func onLogin(_ event: PinwheelLoginPayload) {
+    func onLogin(_ result: PinwheelLoginPayload) {
         print("onLogin")
     }
 }

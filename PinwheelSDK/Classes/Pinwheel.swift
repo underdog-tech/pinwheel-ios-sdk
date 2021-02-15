@@ -12,9 +12,9 @@ import WebKit
 
 public protocol PinwheelDelegate {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
-    func onExit(_ event: PinwheelError?)
-    func onSuccess(_ event: PinwheelSuccessPayload)
-    func onLogin(_ event: PinwheelLoginPayload)
+    func onExit(_ error: PinwheelError?)
+    func onSuccess(_ result: PinwheelSuccessPayload)
+    func onLogin(_ result: PinwheelLoginPayload)
     func onError(_ error: PinwheelError)
 }
 
@@ -70,8 +70,8 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .exit, event: event.error)
-                self.delegate.onExit(event.error)
+                self.delegate.onEvent(name: .exit, event: event.payload?.error)
+                self.delegate.onExit(event.payload?.error)
             }
         case PinwheelEventHandler.successEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
