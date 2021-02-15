@@ -8,13 +8,14 @@ jobs:
     working_directory: ~/pinwheel-ios-sdk/example
 
     macos:
-      xcode: 11.0.0 # Specify the Xcode version to use
+      xcode: 12.0.0 # Specify the Xcode version to use
 
     steps:
       - checkout:
           path: ~/pinwheel-ios-sdk
       - run: pod install # Install CocoaPods dependencies
-      - run: fastlane tests # Run tests using Fastlane
+      - run: bundle install # Install gems
+      - run: bundle exec fastlane ios tests # Run tests using Fastlane
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab

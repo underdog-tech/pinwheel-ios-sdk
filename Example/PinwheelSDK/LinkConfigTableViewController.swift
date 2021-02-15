@@ -149,18 +149,44 @@ extension LinkConfigTableViewController: LinkTokenDelegate {
 
 extension LinkConfigTableViewController: PinwheelDelegate {
     
-    func onEvent(_ event: PinwheelActionEvent) {
-        print(event)
+    func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {
+        switch name {
+        case .open:
+            print("onEvent(name: .open")
+        case .selectEmployer:
+            print("onEvent(name: .selectEmployer")
+        case .selectPlatform:
+            print("onEvent(name: .selectPlatform")
+        case .incorrectPlatformGiven:
+            print("onEvent(name: .incorrectPlatformGiven")
+        case .login:
+            print("onEvent(name: .login")
+        case .inputAmount:
+            print("onEvent(name: .inputAmount")
+        case .exit:
+            print("onEvent(name: .exit")
+            self.dismiss(animated: true)
+        case .success:
+            print("onEvent(name: .success")
+            self.dismiss(animated: true)
+        case .error:
+            print("onEvent(name: .error")
+        }
     }
     
-    func onExit(_ event: PinwheelExitEvent) {
-        print(event)
-        self.dismiss(animated: true)
+    func onExit(_ error: PinwheelError?) {
+        print("onExit")
     }
     
-    func onSuccess(_ event: PinwheelSuccessEvent) {
-        print("Success")
-        print(event)
-        self.dismiss(animated: true)
+    func onError(_ error: PinwheelError) {
+        print("onError")
+    }
+    
+    func onSuccess(_ result: PinwheelSuccessPayload) {
+        print("onSuccess")
+    }
+    
+    func onLogin(_ result: PinwheelLoginPayload) {
+        print("onLogin")
     }
 }
