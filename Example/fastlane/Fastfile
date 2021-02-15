@@ -11,13 +11,19 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
   lane :tests do
-    run_tests(scheme: "PinwheelSDK_Tests")
+    run_tests(
+      workspace: "PinwheelSDK.xcworkspace",
+      app_identifier: "org.cocoapods.demo.PinwheelSDK-Example",
+      devices: ["iPhone 11"],
+      clean: true,
+      reinstall_app: true,
+      scheme: "PinwheelSDK_Tests")
   end
 end
