@@ -18,6 +18,14 @@ public protocol PinwheelDelegate {
     func onError(_ error: PinwheelError)
 }
 
+// These empty implementations are to make them optional to implement
+public extension PinwheelDelegate {
+    func onExit(_ error: PinwheelError?) {}
+    func onSuccess(_ result: PinwheelSuccessPayload) {}
+    func onLogin(_ result: PinwheelLoginPayload) {}
+    func onError(_ error: PinwheelError) {}
+}
+
 public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     var webView: WKWebView!
     var delegate: PinwheelDelegate
