@@ -7,6 +7,6 @@
 
 import Foundation
 
-public struct PinwheelExitPayload: Codable {
+public struct PinwheelExitPayload: PinwheelEventPayload {
     public let error: PinwheelError?
 }

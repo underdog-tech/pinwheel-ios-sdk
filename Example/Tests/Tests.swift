@@ -162,7 +162,7 @@ class TableOfContentsSpec: QuickSpec {
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onEventName?.rawValue).to(equal("input_amount"))
-                let payload = delegate.onEventPayload as? PinwheelInputAmountPayload
+                let payload = delegate.onEventPayload as? PinwheelAmountPayload
                 expect(payload?.value).to(equal(3.14159))
                 expect(payload?.unit).to(equal("$"))
             }
@@ -173,10 +173,12 @@ class TableOfContentsSpec: QuickSpec {
                 let body: JSONDictionary = [
                     "type": "PINWHEEL_EVENT",
                     "eventName": "exit",
-                    "error": [
-                        "type": "invalidUserInput",
-                        "code": "invalidCredentials",
-                        "message": "Uh oh"
+                    "payload": [
+                        "error": [
+                            "type": "invalidUserInput",
+                            "code": "invalidCredentials",
+                            "message": "Uh oh"
+                        ]
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
@@ -246,10 +248,12 @@ class TableOfContentsSpec: QuickSpec {
                 let body: JSONDictionary = [
                     "type": "PINWHEEL_EVENT",
                     "eventName": "exit",
-                    "error": [
-                        "type": "invalidUserInput",
-                        "code": "invalidCredentials",
-                        "message": "Uh oh"
+                    "payload": [
+                        "error": [
+                            "type": "invalidUserInput",
+                            "code": "invalidCredentials",
+                            "message": "Uh oh"
+                        ]
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
