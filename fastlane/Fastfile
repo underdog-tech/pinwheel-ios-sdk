@@ -4,24 +4,34 @@ platform :ios do
 
   desc "Release a new version with a patch bump_type"
   lane :patch do
-    release("patch") # we could use __method__.to_s instead of duplicating the name
+    bump_and_release("patch") # we could use __method__.to_s instead of duplicating the name
   end
 
   desc "Release a new version with a minor bump_type"
   lane :minor do
-    release("minor")
+    bump_and_release("minor")
   end
 
   desc "Release a new version with a major bump_type"
   lane :major do
-    release("major")
+    bump_and_release("major")
   end
 
-  def release(type)
-    podspec_name = "PinwheelSDK.podspec"
-    pod_lib_lint
+  desc "Release the current version"
+  lane :release_current do
+    version = version_get_podspec(path: "PinwheelSDK.podspec")
+    release(version)
+  end
+
+  def bump_and_release(type)
     version = version_bump_podspec(path: podspec_name,
                                    bump_type: type)
+    release(version)
+  end
+
+  def release(version)
+    podspec_name = "PinwheelSDK.podspec"
+    pod_lib_lint
     git_add(path: podspec_name)
     git_commit(path: [podspec_name],
                message: "#{version} release")

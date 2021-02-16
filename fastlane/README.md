@@ -31,6 +31,11 @@ Release a new version with a minor bump_type
 fastlane ios major
 ```
 Release a new version with a major bump_type
+### ios release_current
+```
+fastlane ios release_current
+```
+Release the current version
 
 ----
 
