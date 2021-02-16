@@ -19,22 +19,24 @@ platform :ios do
 
   desc "Release the current version"
   lane :release_current do
-    version = version_get_podspec(path: "PinwheelSDK.podspec")
+    podspec_name = "PinwheelSDK.podspec"
+    pod_lib_lint
+    version = version_get_podspec(path: podspec_name)
     release(version)
   end
 
   def bump_and_release(type)
+    podspec_name = "PinwheelSDK.podspec"
+    pod_lib_lint
     version = version_bump_podspec(path: podspec_name,
                                    bump_type: type)
+    git_add(path: podspec_name)
+    git_commit(path: [podspec_name],
+              message: "#{version} release")
     release(version)
   end
 
   def release(version)
-    podspec_name = "PinwheelSDK.podspec"
-    pod_lib_lint
-    git_add(path: podspec_name)
-    git_commit(path: [podspec_name],
-               message: "#{version} release")
     add_git_tag(tag: "#{version}")
     push_to_git_remote
     pod_push
