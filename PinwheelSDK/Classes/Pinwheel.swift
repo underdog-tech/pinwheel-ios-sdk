@@ -20,6 +20,7 @@ public protocol PinwheelDelegate {
 
 // These empty implementations are to make them optional to implement
 public extension PinwheelDelegate {
+    func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {}
     func onExit(_ error: PinwheelError?) {}
     func onSuccess(_ result: PinwheelSuccessPayload) {}
     func onLogin(_ result: PinwheelLoginPayload) {}
