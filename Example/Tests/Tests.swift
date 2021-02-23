@@ -137,6 +137,7 @@ class TableOfContentsSpec: QuickSpec {
                     "eventName": "login",
                     "payload": [
                         "accountId": "314159",
+                        "platformId": "20023e4b-b505-451d-808e-12b47c46ee15"
                     ]
                 ]
                 let message = TestMessage("loginEventHandler", body: asString(jsonDictionary: body))
@@ -145,6 +146,7 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onEventName?.rawValue).to(equal("login"))
                 let payload = delegate.onEventPayload as? PinwheelLoginPayload
                 expect(payload?.accountId).to(equal("314159"))
+                expect(payload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
             }
             
             it("onEvent is called for input_amount") {
@@ -300,6 +302,7 @@ class TableOfContentsSpec: QuickSpec {
                     "eventName": "login",
                     "payload": [
                         "accountId": "314159",
+                        "platformId": "20023e4b-b505-451d-808e-12b47c46ee15"
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
@@ -307,6 +310,7 @@ class TableOfContentsSpec: QuickSpec {
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onLoginPayload?.accountId).to(equal("314159"))
+                expect(delegate.onLoginPayload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
             }
             
             it("onError is called") {
