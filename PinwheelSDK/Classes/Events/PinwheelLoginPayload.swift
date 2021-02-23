@@ -9,4 +9,5 @@ import Foundation
 
 public struct PinwheelLoginPayload: PinwheelEventPayload {
     public let accountId: String
+    public let platformId: String
 }
