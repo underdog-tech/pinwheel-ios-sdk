@@ -125,7 +125,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string:"https://cdn.getpinwheel.com/link-v3.1.0.html")
+        let myURL = URL(string:"https://cdn.getpinwheel.com/link-v2.2.0.html")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
@@ -166,7 +166,7 @@ private enum PinwheelEventHandler: String {
 }
 
 private func getScript(token: String, initializationTime: Int64) -> String {
-    var versionString = "2.1.0"
+    var versionString = "2.2.0"
     if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
         print(bundleVersion)
         versionString = bundleVersion
