@@ -179,7 +179,8 @@ class TableOfContentsSpec: QuickSpec {
                         "error": [
                             "type": "invalidUserInput",
                             "code": "invalidCredentials",
-                            "message": "Uh oh"
+                            "message": "Uh oh",
+                            "pendingRetry": true,
                         ]
                     ]
                 ]
@@ -192,6 +193,7 @@ class TableOfContentsSpec: QuickSpec {
                 expect(payload?.type).to(equal("invalidUserInput"))
                 expect(payload?.code).to(equal("invalidCredentials"))
                 expect(payload?.message).to(equal("Uh oh"))
+                expect(payload?.pendingRetry).to(beTrue())
             }
             
             it("onEvent is called for success") {
@@ -231,7 +233,8 @@ class TableOfContentsSpec: QuickSpec {
                     "payload": [
                         "type": "invalidUserInput",
                         "code": "invalidCredentials",
-                        "message": "Uh oh"
+                        "message": "Uh oh",
+                        "pendingRetry": false,
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
@@ -242,6 +245,7 @@ class TableOfContentsSpec: QuickSpec {
                 expect(payload?.type).to(equal("invalidUserInput"))
                 expect(payload?.code).to(equal("invalidCredentials"))
                 expect(payload?.message).to(equal("Uh oh"))
+                expect(payload?.pendingRetry).to(beFalse())
             }
             
             it("onExit is called") {
@@ -254,7 +258,8 @@ class TableOfContentsSpec: QuickSpec {
                         "error": [
                             "type": "invalidUserInput",
                             "code": "invalidCredentials",
-                            "message": "Uh oh"
+                            "message": "Uh oh",
+                            "pendingRetry": true,
                         ]
                     ]
                 ]
@@ -265,6 +270,7 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onExitPayload?.type).to(equal("invalidUserInput"))
                 expect(delegate.onExitPayload?.code).to(equal("invalidCredentials"))
                 expect(delegate.onExitPayload?.message).to(equal("Uh oh"))
+                expect(delegate.onExitPayload?.pendingRetry).to(beTrue())
             }
             
             it("onSuccess is called") {
@@ -322,7 +328,8 @@ class TableOfContentsSpec: QuickSpec {
                     "payload": [
                         "type": "invalidUserInput",
                         "code": "invalidCredentials",
-                        "message": "Uh oh"
+                        "message": "Uh oh",
+                        "pendingRetry": true,
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
@@ -332,6 +339,7 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onErrorPayload?.type).to(equal("invalidUserInput"))
                 expect(delegate.onErrorPayload?.code).to(equal("invalidCredentials"))
                 expect(delegate.onErrorPayload?.message).to(equal("Uh oh"))
+                expect(delegate.onErrorPayload?.pendingRetry).to(beTrue())
             }
         }
     }
