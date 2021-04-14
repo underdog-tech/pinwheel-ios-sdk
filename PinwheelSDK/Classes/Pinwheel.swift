@@ -31,6 +31,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     var webView: WKWebView!
     var delegate: PinwheelDelegate
     private var token: String
+    private let linkURL = "https://cdn.getpinwheel.com/link-v2.3.0.html"
     
     public init(token: String, delegate: PinwheelDelegate) {
         self.delegate = delegate
@@ -125,7 +126,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string:"https://cdn.getpinwheel.com/link-v2.2.0.html")
+        let myURL = URL(string: linkURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
