@@ -8,8 +8,12 @@ The Pinwheel iOS SDK's main interface is a `UIViewController` that you can integ
 
 ### Installation
 
-The Pinwheel iOS SDK is available via [CocoaPods](https://cocoapods.org/).
+The Pinwheel iOS SDK is available via [Swift Package Manager](https://swift.org/package-manager/) and [CocoaPods](https://cocoapods.org/).
 
+#### Swift Package Manager
+Add `https://github.com/underdog-tech/pinwheel-ios-sdk` as a package dependency.
+
+#### CocoaPods
 To install the SDK with CocoaPods, add `PinwheelSDK` as one of your target dependencies in your Podfile:
 
 ```ruby

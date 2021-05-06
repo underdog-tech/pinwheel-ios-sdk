@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PinwheelSDK'
-  s.version          = '2.3.0'
+  s.version          = '2.3.1'
   s.summary          = 'Pinwheel iOS SDK'
   s.swift_version    = '5.0'
 
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PinwheelSDK/Classes/**/*'
+  s.source_files = 'Sources/**/*.swift'
 end
