@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import WebKit
 
+fileprivate let linkURL = "https://cdn.getpinwheel.com/link-v2.3.0.html"
+
 public protocol PinwheelDelegate {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
     func onExit(_ error: PinwheelError?)
@@ -31,7 +33,6 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     var webView: WKWebView!
     var delegate: PinwheelDelegate
     private var token: String
-    private let linkURL = "https://cdn.getpinwheel.com/link-v2.3.0.html"
     
     public init(token: String, delegate: PinwheelDelegate) {
         self.delegate = delegate
@@ -254,7 +255,8 @@ private func getScript(token: String, initializationTime: Int64) -> String {
                     patch: \(version.count > 2 ? version[2] : "0")
                 }
             }
-          }
+          },
+          "\(linkURL)"
         );
         } catch (err) {
             console.error(err);
