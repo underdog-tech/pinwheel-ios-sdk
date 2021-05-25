@@ -29,6 +29,18 @@ public extension PinwheelDelegate {
     func onError(_ error: PinwheelError) {}
 }
 
+class PinwheelWebKitScriptMessageHandler: NSObject, WKScriptMessageHandler {
+    weak private var delegate: WKScriptMessageHandler?
+    
+    init(delegate: WKScriptMessageHandler) {
+        self.delegate = delegate
+    }
+    
+    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        self.delegate?.userContentController(userContentController, didReceive: message)
+    }
+}
+
 public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     var webView: WKWebView!
     var delegate: PinwheelDelegate
@@ -112,15 +124,18 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         webConfiguration.userContentController.addUserScript(wkScript)
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
+        
         let contentController = webView.configuration.userContentController
-        contentController.add(self, name: PinwheelEventHandler.openEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.loginEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.exitEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.successEventHandler.rawValue)
-        contentController.add(self, name: PinwheelEventHandler.errorEventHandler.rawValue)
+        let scriptHandlerDelegate = PinwheelWebKitScriptMessageHandler(delegate:self)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.openEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.exitEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.successEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.errorEventHandler.rawValue)
+        
         view = webView
     }
     
@@ -152,6 +167,21 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             return bodyData
         }
         return nil
+    }
+
+    deinit {        
+        guard let contentController = webView?.configuration.userContentController else {
+            return
+        }
+        
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.openEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.inputAmountEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.exitEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.successEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.errorEventHandler.rawValue)
     }
 }
 
