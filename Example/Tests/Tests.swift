@@ -220,8 +220,30 @@ class TableOfContentsSpec: QuickSpec {
                 let payload = delegate.onEventPayload as? PinwheelSuccessPayload
                 expect(payload?.accountId).to(equal("314159"))
                 expect(payload?.job).to(equal("direct_deposit_switch"))
-                expect(payload?.params.amount.unit).to(equal("$"))
-                expect(payload?.params.amount.value).to(equal(3.14159))
+                expect(payload?.params?.amount?.unit).to(equal("$"))
+                expect(payload?.params?.amount?.value).to(equal(3.14159))
+            }
+            
+            it("onEvent is called for success with null values") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "success",
+                    "payload": [
+                        "accountId": nil,
+                        "job": "direct_deposit_switch",
+                        "params": nil
+                    ]
+                ]
+                let bodyString = asString(jsonDictionary: body)
+                let message = TestMessage("successEventHandler", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                let payload = delegate.onEventPayload as? PinwheelSuccessPayload
+                expect(payload?.accountId).to(beNil())
+                expect(payload?.params).to(beNil())
+                expect(payload?.job).to(equal("direct_deposit_switch"))
             }
             
             it("onEvent is called for error") {
@@ -296,8 +318,8 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onSuccessPayload?.accountId).to(equal("314159"))
                 expect(delegate.onSuccessPayload?.job).to(equal("direct_deposit_switch"))
-                expect(delegate.onSuccessPayload?.params.amount.unit).to(equal("$"))
-                expect(delegate.onSuccessPayload?.params.amount.value).to(equal(3.14159))
+                expect(delegate.onSuccessPayload?.params?.amount?.unit).to(equal("$"))
+                expect(delegate.onSuccessPayload?.params?.amount?.value).to(equal(3.14159))
             }
             
             it("onLogin is called") {
