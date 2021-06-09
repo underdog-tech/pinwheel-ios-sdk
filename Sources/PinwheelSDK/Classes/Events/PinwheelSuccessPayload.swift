@@ -8,7 +8,7 @@
 import Foundation
 
 public struct PinwheelSuccessPayload: PinwheelEventPayload {
-    public let accountId: String
+    public let accountId: String?
     public let job: String
-    public let params: PinwheelParams
+    public let params: PinwheelParams?
 }

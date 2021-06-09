@@ -8,5 +8,5 @@
 import Foundation
 
 public struct PinwheelParams: Codable {
-    public let amount: PinwheelAmountPayload
+    public let amount: PinwheelAmountPayload?
 }
