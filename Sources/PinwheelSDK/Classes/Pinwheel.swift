@@ -198,7 +198,7 @@ private enum PinwheelEventHandler: String {
 }
 
 private func getScript(token: String, initializationTime: Int64) -> String {
-    var versionString = "2.3.3"
+    var versionString = "2.3.4"
     if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
         print(bundleVersion)
         versionString = bundleVersion
