@@ -73,6 +73,21 @@ Optional callback for when an error occurs.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first. Then, add your API secret to the top of the LinkToken.swift file. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app.
 
+
+## Dev Workflow Commands
+
+ ### Make Feature
+
+ The starting point for any dev work being done should be a JIRA ticket. JIRA has automation rules that will handle moving TKTs into the right status, as long as the TKT number is in the branch name.
+
+ To handle this for you, we have a `make feature` command that you'll want to use when starting development. From any branch, simply run `make feature` to get started.
+ This will ask for a few things:
+
+ 1. **JIRA Ticket Numbers**: enter the JIRA ticket number that you're working on (includes project abbreviation and number, i.e. `INT-1643`). This will ask for multiple TKT numbers, if it's just one TKT then press enter when it asks for another one.
+ 2. **Name**: A very brief name for the branch, i.e. `paycom-login`.
+
+ A new feature branch will then be created with the tkt numbers and name provided.
+
 ## Author
 
 [Pinwheel](https://getpinwheel.com)
