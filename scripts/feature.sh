@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ set -e
  printf "\nChecking out staging branch...\n"
  git checkout staging || exit "$?"
 
