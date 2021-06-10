@@ -1,9 +1,9 @@
 #!/bin/bash
  set -e
- printf "\nChecking out staging branch...\n"
- git checkout staging || exit "$?"
+ printf "\nChecking out master branch...\n"
+ git checkout master || exit "$?"
 
- printf "\nUpdating staging branch...\n"
+ printf "\nUpdating master branch...\n"
  git pull
 
  printf "\n"
