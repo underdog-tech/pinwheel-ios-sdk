@@ -4,6 +4,7 @@
  git checkout master || exit "$?"
 
  printf "\nUpdating master branch...\n"
+
  git pull
 
  printf "\n"
