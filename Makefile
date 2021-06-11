@@ -3,5 +3,5 @@
 # Create feature branch
 .PHONY: feature
 feature:
-	./scripts/git/feature.sh
+	./scripts/feature.sh
 
