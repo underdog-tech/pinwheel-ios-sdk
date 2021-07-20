@@ -129,6 +129,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         let scriptHandlerDelegate = PinwheelWebKitScriptMessageHandler(delegate:self)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.openEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
@@ -176,6 +177,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.openEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.inputAmountEventHandler.rawValue)
