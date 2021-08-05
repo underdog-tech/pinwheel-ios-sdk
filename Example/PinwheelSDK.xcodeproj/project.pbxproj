@@ -13,7 +13,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		D50E5BF826B9F43800593628 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E5BF726B9F43800593628 /* EventsTableViewController.swift */; };
+		D50E5BFA26B9F4E200593628 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E5BF926B9F4E200593628 /* EventData.swift */; };
 		D516B5FA2564C86600380041 /* LinkToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516B5F92564C86600380041 /* LinkToken.swift */; };
+		D5C130E226B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C130E126B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift */; };
 		D5F789CD25675E84003E6485 /* LinkConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */; };
 		D5F789D725677CF8003E6485 /* ConfigEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */; };
 		EE8101EE9C7BCF48E6E86FA5 /* Pods_PinwheelSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D075D5CF1B300D8A10A769A4 /* Pods_PinwheelSDK_Tests.framework */; };
@@ -26,6 +29,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
 			remoteInfo = PinwheelSDK;
+		};
+		D5C130E426B857F8009AE1F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = PinwheelSDK_Example;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,8 +54,13 @@
 		80C657E366BC88E1FFCDD0E6 /* Pods-PinwheelSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Example/Pods-PinwheelSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9C156173684C7792BCB9EDCA /* Pods-PinwheelSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Example/Pods-PinwheelSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D075D5CF1B300D8A10A769A4 /* Pods_PinwheelSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50E5BF726B9F43800593628 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		D50E5BF926B9F4E200593628 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D516B5F92564C86600380041 /* LinkToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkToken.swift; sourceTree = "<group>"; };
 		D54D75CDC75553B6EB5C9263 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D5C130DF26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinwheelSDK_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C130E126B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinwheelSDK_ExampleUITests.swift; sourceTree = "<group>"; };
+		D5C130E326B857F8009AE1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkConfigTableViewController.swift; sourceTree = "<group>"; };
 		D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEntryViewController.swift; sourceTree = "<group>"; };
 		D93D065743DAF8DDA198E9DA /* Pods_PinwheelSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +82,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8101EE9C7BCF48E6E86FA5 /* Pods_PinwheelSDK_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5C130DC26B857F8009AE1F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +121,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for PinwheelSDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				D5C130E026B857F8009AE1F9 /* PinwheelSDK_ExampleUITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				1D44B6AAC765CA639E4CDB27 /* Pods */,
 				06A728E260D5164C2EC248EF /* Frameworks */,
@@ -110,6 +133,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* PinwheelSDK_Example.app */,
 				607FACE51AFB9204008FA782 /* PinwheelSDK_Tests.xctest */,
+				D5C130DF26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,12 +142,14 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */,
 				D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */,
-				D516B5F92564C86600380041 /* LinkToken.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				D50E5BF926B9F4E200593628 /* EventData.swift */,
+				D50E5BF726B9F43800593628 /* EventsTableViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */,
+				D516B5F92564C86600380041 /* LinkToken.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for PinwheelSDK";
@@ -163,6 +189,15 @@
 				50EF72394B34AA03254760A3 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		D5C130E026B857F8009AE1F9 /* PinwheelSDK_ExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5C130E126B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift */,
+				D5C130E326B857F8009AE1F9 /* Info.plist */,
+			);
+			path = PinwheelSDK_ExampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,13 +242,31 @@
 			productReference = 607FACE51AFB9204008FA782 /* PinwheelSDK_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D5C130DE26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5C130E826B857F8009AE1F9 /* Build configuration list for PBXNativeTarget "PinwheelSDK_ExampleUITests" */;
+			buildPhases = (
+				D5C130DB26B857F8009AE1F9 /* Sources */,
+				D5C130DC26B857F8009AE1F9 /* Frameworks */,
+				D5C130DD26B857F8009AE1F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5C130E526B857F8009AE1F9 /* PBXTargetDependency */,
+			);
+			name = PinwheelSDK_ExampleUITests;
+			productName = PinwheelSDK_ExampleUITests;
+			productReference = D5C130DF26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -224,6 +277,12 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					D5C130DE26B857F8009AE1F9 = {
+						CreatedOnToolsVersion = 12.5.1;
+						DevelopmentTeam = 9382682MKT;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -243,6 +302,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* PinwheelSDK_Example */,
 				607FACE41AFB9204008FA782 /* PinwheelSDK_Tests */,
+				D5C130DE26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +319,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5C130DD26B857F8009AE1F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,7 +426,9 @@
 			files = (
 				D5F789D725677CF8003E6485 /* ConfigEntryViewController.swift in Sources */,
 				D5F789CD25675E84003E6485 /* LinkConfigTableViewController.swift in Sources */,
+				D50E5BFA26B9F4E200593628 /* EventData.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				D50E5BF826B9F43800593628 /* EventsTableViewController.swift in Sources */,
 				D516B5FA2564C86600380041 /* LinkToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +441,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5C130DB26B857F8009AE1F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5C130E226B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -379,6 +456,11 @@
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* PinwheelSDK_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+		D5C130E526B857F8009AE1F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* PinwheelSDK_Example */;
+			targetProxy = D5C130E426B857F8009AE1F9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -581,6 +663,57 @@
 			};
 			name = Release;
 		};
+		D5C130E626B857F8009AE1F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9382682MKT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PinwheelSDK_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinwheelSDK_Example;
+			};
+			name = Debug;
+		};
+		D5C130E726B857F8009AE1F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9382682MKT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PinwheelSDK_ExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-ExampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PinwheelSDK_Example;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -607,6 +740,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5C130E826B857F8009AE1F9 /* Build configuration list for PBXNativeTarget "PinwheelSDK_ExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5C130E626B857F8009AE1F9 /* Debug */,
+				D5C130E726B857F8009AE1F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
