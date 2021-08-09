@@ -33,6 +33,8 @@ class LinkConfigTableViewController: UITableViewController, UINavigationControll
     let lt = LinkToken()
     var pinwheelVC: PinwheelViewController?
     var selected:Int = 0
+    
+    private var events = Array<EventData>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +152,8 @@ extension LinkConfigTableViewController: LinkTokenDelegate {
 extension LinkConfigTableViewController: PinwheelDelegate {
     
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {
+        events.append(EventData(name: name, event: event))
+        
         switch name {
         case .open:
             print("onEvent(name: .open")
@@ -175,6 +179,11 @@ extension LinkConfigTableViewController: PinwheelDelegate {
     }
     
     func onExit(_ error: PinwheelError?) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventsTableViewController") as? EventsTableViewController {
+            
+            vc.events = events
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         print("onExit")
     }
     
