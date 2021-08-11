@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import WebKit
 
+#if DEV
+fileprivate let linkURL = "http://localhost:5000/link.local.html"
+#elseif STAGING
+fileprivate let linkURL = "https://staging.cdn.getpinwheel.com/link-v2.3.0.html"
+#else
 fileprivate let linkURL = "https://cdn.getpinwheel.com/link-v2.3.0.html"
+#endif
 
 public protocol PinwheelDelegate {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)

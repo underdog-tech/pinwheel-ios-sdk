@@ -15,5 +15,9 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
+  s.pod_target_xcconfig = {
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Staging]' => 'STAGING',
+  }
+
   s.source_files = 'Sources/**/*.swift'
 end
