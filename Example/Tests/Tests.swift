@@ -231,7 +231,7 @@ class TableOfContentsSpec: QuickSpec {
                     "type": "PINWHEEL_EVENT",
                     "eventName": "success",
                     "payload": [
-                        "accountId": nil,
+                        "accountId": "314159",
                         "job": "direct_deposit_switch",
                         "params": nil
                     ]
@@ -241,7 +241,7 @@ class TableOfContentsSpec: QuickSpec {
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 let payload = delegate.onEventPayload as? PinwheelSuccessPayload
-                expect(payload?.accountId).to(beNil())
+                expect(payload?.accountId).to(equal("314159"))
                 expect(payload?.params).to(beNil())
                 expect(payload?.job).to(equal("direct_deposit_switch"))
             }
