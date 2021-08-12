@@ -8,13 +8,22 @@
 import Foundation
 
 class LinkToken {
+    #if STAGING
     let apiSecret = ""
+    #else
+    let apiSecret = ""
+    #endif
     var delegate: LinkTokenDelegate?
     var linkToken: String?
     var isLoaded = false;
+    #if STAGING
+    let tokenURL = "https://staging.sandbox.getpinwheel.com/v1/link_tokens"
+    #else
+    let tokenURL = "https://sandbox.getpinwheel.com/v1/link_tokens"
+    #endif
     
     func fetchTokenWithAttributes(_ attributes: LinkTokenAttributes) {
-        guard let url = URL(string: "https://sandbox.getpinwheel.com/v1/link_tokens") else {
+        guard let url = URL(string: tokenURL) else {
             print("Invalid URL")
             return
         }
