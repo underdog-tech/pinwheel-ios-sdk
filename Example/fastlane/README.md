@@ -20,7 +20,12 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios tests
 ```
-Description of what the lane does
+Run iOS tests
+### ios aws_device_run_ios
+```
+fastlane ios aws_device_run_ios
+```
+Run iOS tests on AWS Device Farm
 
 ----
 

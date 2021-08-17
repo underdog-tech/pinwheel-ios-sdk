@@ -33,3 +33,4 @@ Example/Pods
 
 Example/fastlane/report.xml
 Example/fastlane/test_output
+Example/aws/
