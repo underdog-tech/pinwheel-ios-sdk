@@ -31,7 +31,7 @@ platform :ios do
   lane :aws_device_run_ios do
     ENV['AWS_PROFILE']                            = 'cli'
     ENV['AWS_REGION']                             = 'us-west-2'
-    ENV['FL_AWS_DEVICE_FARM_NETWORK_PROFILE_ARN'] = 'arn:aws:devicefarm:us-west-2::networkprofile:public10'
+    ENV['FL_AWS_DEVICE_FARM_NETWORK_PROFILE_ARN'] = ''
     #Build For Testing
     xcodebuild(
       scheme: 'PinwheelSDK_UITests',
@@ -48,7 +48,7 @@ platform :ios do
     # RUN tests on AWS Device Farm
     aws_device_farm(
       test_type: 'XCTEST_UI',
-      test_spec: 'arn:aws:devicefarm:us-west-2::upload:4f8bdf9a-7be5-11e8-adc0-fa7ae01bbebc'
+      test_spec: ''
     )
   end
 end
