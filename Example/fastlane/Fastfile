@@ -16,14 +16,39 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc "Run iOS tests"
   lane :tests do
     run_tests(
       workspace: "PinwheelSDK.xcworkspace",
       app_identifier: "org.cocoapods.demo.PinwheelSDK-Example",
-      devices: ["iPhone 11"],
+      devices: ["iPhone 12"],
       clean: true,
       reinstall_app: true,
       scheme: "PinwheelSDK_Tests")
+  end
+
+  desc "Run iOS tests on AWS Device Farm"
+  lane :aws_device_run_ios do
+    ENV['AWS_PROFILE']                            = 'cli'
+    ENV['AWS_REGION']                             = 'us-west-2'
+    ENV['FL_AWS_DEVICE_FARM_NETWORK_PROFILE_ARN'] = ''
+    #Build For Testing
+    xcodebuild(
+      scheme: 'PinwheelSDK_UITests',
+      destination: 'generic/platform=iOS',
+      configuration: 'Release',
+      derivedDataPath: 'aws',
+      xcargs: "GCC_PREPROCESSOR_DEFINITIONS='AWS_UI_TEST' ENABLE_BITCODE=NO CODE_SIGN_IDENTITY=\"Apple Development\" CODE_SIGNING_REQUIRED=NO build-for-testing"
+    )
+    # Transform .app into AWS compatible IPA
+    aws_device_farm_package(
+      derrived_data_path: "aws",
+      configuration: "Release",
+    )
+    # RUN tests on AWS Device Farm
+    aws_device_farm(
+      test_type: 'XCTEST_UI',
+      test_spec: ''
+    )
   end
 end
