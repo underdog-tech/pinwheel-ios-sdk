@@ -40,7 +40,11 @@ platform :ios do
 
   desc "Run iOS tests on AWS Device Farm"
   lane :aws_device_run_ios do
-    ENV['AWS_REGION']                             = 'us-west-2'
+    ENV['AWS_REGION'] = 'us-west-2'
+    match(
+      type: "development",
+      readonly: is_ci
+    )
     #Build For Testing
     xcodebuild(
       scheme: 'PinwheelSDK_UITests',
