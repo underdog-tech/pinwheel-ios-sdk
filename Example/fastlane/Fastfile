@@ -20,6 +20,13 @@ platform :ios do
     setup_circle_ci
   end
 
+  lane :match_adhoc do
+    match(
+      type: "development",
+      readonly: is_ci
+    )
+  end
+
   desc "Run iOS tests"
   lane :tests do
     run_tests(
