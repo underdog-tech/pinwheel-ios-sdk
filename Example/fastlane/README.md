@@ -20,10 +20,15 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios tests
 ```
-Description of what the lane does
+Run iOS tests
+### ios aws_device_run_ios
+```
+fastlane ios aws_device_run_ios
+```
+Run iOS tests on AWS Device Farm
 
 ----
 
-This README.md is auto-generated and will be re-generated every time [fastlane](https://fastlane.tools) is run.
+This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
 The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).

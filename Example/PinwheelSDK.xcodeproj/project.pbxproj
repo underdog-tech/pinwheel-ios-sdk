@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04C3D2CB42D1AC5F4546CA21 /* Pods_PinwheelSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93D065743DAF8DDA198E9DA /* Pods_PinwheelSDK_Example.framework */; };
+		160EB31C3BBCA0D3526FD74A /* Pods_PinwheelSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BEB45221FDA727BEBC78027 /* Pods_PinwheelSDK_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -16,11 +16,28 @@
 		D50E5BF826B9F43800593628 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E5BF726B9F43800593628 /* EventsTableViewController.swift */; };
 		D50E5BFA26B9F4E200593628 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E5BF926B9F4E200593628 /* EventData.swift */; };
 		D516B5FA2564C86600380041 /* LinkToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516B5F92564C86600380041 /* LinkToken.swift */; };
+		D5590C1126D025490089AAB9 /* APISecret.swift.gyb in Sources */ = {isa = PBXBuildFile; fileRef = D50DCB7E26D0192700749B5A /* APISecret.swift.gyb */; };
 		D5C130E226B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C130E126B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift */; };
 		D5F789CD25675E84003E6485 /* LinkConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */; };
 		D5F789D725677CF8003E6485 /* ConfigEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */; };
-		EE8101EE9C7BCF48E6E86FA5 /* Pods_PinwheelSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D075D5CF1B300D8A10A769A4 /* Pods_PinwheelSDK_Tests.framework */; };
+		DD7925588FD6F71DE2FF5396 /* Pods_PinwheelSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA351D7D23DAC26033CE9584 /* Pods_PinwheelSDK_Example.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		D50DCB7D26D0176900749B5A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.gyb";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE)",
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PROJECT_DIR}/../scripts/gyb\" --line-directive '' -o \"${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}\" \"${INPUT_FILE_PATH}\"\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
@@ -54,10 +71,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		80C657E366BC88E1FFCDD0E6 /* Pods-PinwheelSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Example/Pods-PinwheelSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8BEB45221FDA727BEBC78027 /* Pods_PinwheelSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C156173684C7792BCB9EDCA /* Pods-PinwheelSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Example.release.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Example/Pods-PinwheelSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A23CBAC4D37AAB7468708DEB /* Pods-PinwheelSDK_Tests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Tests.staging.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests.staging.xcconfig"; sourceTree = "<group>"; };
 		BD894A32E773ABF39F7AD793 /* Pods-PinwheelSDK_Example.staging debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Example.staging debug.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Example/Pods-PinwheelSDK_Example.staging debug.xcconfig"; sourceTree = "<group>"; };
 		D075D5CF1B300D8A10A769A4 /* Pods_PinwheelSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA351D7D23DAC26033CE9584 /* Pods_PinwheelSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D50DCB7E26D0192700749B5A /* APISecret.swift.gyb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APISecret.swift.gyb; sourceTree = "<group>"; };
 		D50E5BF726B9F43800593628 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		D50E5BF926B9F4E200593628 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D516B5F92564C86600380041 /* LinkToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkToken.swift; sourceTree = "<group>"; };
@@ -67,7 +87,6 @@
 		D5C130E326B857F8009AE1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5F789CC25675E84003E6485 /* LinkConfigTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkConfigTableViewController.swift; sourceTree = "<group>"; };
 		D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEntryViewController.swift; sourceTree = "<group>"; };
-		D93D065743DAF8DDA198E9DA /* Pods_PinwheelSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinwheelSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF191250AA270A49CEA3B6A /* Pods-PinwheelSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinwheelSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0459245F3C7850DA8DB35F2 /* PinwheelSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PinwheelSDK.podspec; path = ../PinwheelSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
@@ -77,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C3D2CB42D1AC5F4546CA21 /* Pods_PinwheelSDK_Example.framework in Frameworks */,
+				DD7925588FD6F71DE2FF5396 /* Pods_PinwheelSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8101EE9C7BCF48E6E86FA5 /* Pods_PinwheelSDK_Tests.framework in Frameworks */,
+				160EB31C3BBCA0D3526FD74A /* Pods_PinwheelSDK_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,8 +121,8 @@
 		06A728E260D5164C2EC248EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D93D065743DAF8DDA198E9DA /* Pods_PinwheelSDK_Example.framework */,
-				D075D5CF1B300D8A10A769A4 /* Pods_PinwheelSDK_Tests.framework */,
+				BA351D7D23DAC26033CE9584 /* Pods_PinwheelSDK_Example.framework */,
+				8BEB45221FDA727BEBC78027 /* Pods_PinwheelSDK_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,6 +168,7 @@
 		607FACD21AFB9204008FA782 /* Example for PinwheelSDK */ = {
 			isa = PBXGroup;
 			children = (
+				D50DCB7E26D0192700749B5A /* APISecret.swift.gyb */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				D5F789D625677CF8003E6485 /* ConfigEntryViewController.swift */,
 				D50E5BF926B9F4E200593628 /* EventData.swift */,
@@ -219,9 +239,10 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				62511DEBB74019B9B9A3D85A /* [CP] Embed Pods Frameworks */,
+				37CB8F770D4C95D767AEDA52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				D50DCB7D26D0176900749B5A /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -238,7 +259,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				374C9AB2B1F6F4679BCC9C70 /* [CP] Embed Pods Frameworks */,
+				0E16720EDD98FBFC3F2C428C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,11 +301,15 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9382682MKT;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9382682MKT;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 					D5C130DE26B857F8009AE1F9 = {
@@ -343,6 +368,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E16720EDD98FBFC3F2C428C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		21EF3E58BD830CAA75892FD8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,27 +410,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		374C9AB2B1F6F4679BCC9C70 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinwheelSDK_Tests/Pods-PinwheelSDK_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		62511DEBB74019B9B9A3D85A /* [CP] Embed Pods Frameworks */ = {
+		37CB8F770D4C95D767AEDA52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5590C1126D025490089AAB9 /* APISecret.swift.gyb in Sources */,
 				D5F789D725677CF8003E6485 /* ConfigEntryViewController.swift in Sources */,
 				D5F789CD25675E84003E6485 /* LinkConfigTableViewController.swift in Sources */,
 				D50E5BFA26B9F4E200593628 /* EventData.swift in Sources */,
@@ -541,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -591,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -604,12 +630,16 @@
 			baseConfigurationReference = 80C657E366BC88E1FFCDD0E6 /* Pods-PinwheelSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9382682MKT;
 				INFOPLIST_FILE = PinwheelSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)-staging";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.getpinwheel.PinwheelSDK-Example";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -620,12 +650,16 @@
 			baseConfigurationReference = 9C156173684C7792BCB9EDCA /* Pods-PinwheelSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9382682MKT;
 				INFOPLIST_FILE = PinwheelSDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)-staging";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.getpinwheel.PinwheelSDK-Example";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -635,6 +669,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECF191250AA270A49CEA3B6A /* Pods-PinwheelSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9382682MKT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -647,6 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinwheelSDK_Example.app/PinwheelSDK_Example";
@@ -657,6 +697,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F3BDEB86AB39B3616F27909 /* Pods-PinwheelSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9382682MKT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -665,6 +709,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinwheelSDK_Example.app/PinwheelSDK_Example";
@@ -804,17 +850,21 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9382682MKT;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PinwheelSDK_ExampleUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -831,15 +881,19 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9382682MKT;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PinwheelSDK_ExampleUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.getpinwheel.PinwheelSDK-ExampleUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PinwheelSDK_Example;

@@ -8,11 +8,6 @@
 import Foundation
 
 class LinkToken {
-    #if STAGING
-    let apiSecret = ""
-    #else
-    let apiSecret = ""
-    #endif
     var delegate: LinkTokenDelegate?
     var linkToken: String?
     var isLoaded = false;

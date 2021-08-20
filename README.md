@@ -71,7 +71,13 @@ Optional callback for when an error occurs.
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first. Then, add your API secret to the top of the LinkToken.swift file. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app.
+To run the example project, clone the repo, and run `pod install` from the Example directory first. Then, you'll need to set up an environment variable with your api secret. 
+
+1. `cp env-vars.example.sh env-vars.sh` 
+2. Add your API secret to the newly created file. 
+3. `source ./env-vars.sh`
+
+Note that setting up the API secret this way is only for demo purposes. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app (compiled or otherwise).
 
 
 ## Dev Workflow Commands
