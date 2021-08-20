@@ -8,7 +8,7 @@ jobs:
     working_directory: ~/pinwheel-ios-sdk/example
 
     macos:
-      xcode: 12.0.0 # Specify the Xcode version to use
+      xcode: 12.5.1 # Specify the Xcode version to use
 
     steps:
       - checkout:
