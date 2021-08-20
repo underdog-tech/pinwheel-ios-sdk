@@ -34,3 +34,5 @@ Example/Pods
 Example/fastlane/report.xml
 Example/fastlane/test_output
 Example/aws/
+env-vars.sh
+scripts/gyb.pyc
