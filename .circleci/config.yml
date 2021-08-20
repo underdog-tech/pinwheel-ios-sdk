@@ -16,6 +16,7 @@ jobs:
       - run: pod install # Install CocoaPods dependencies
       - run: bundle install # Install gems
       - run: bundle exec fastlane ios tests # Run tests using Fastlane
+      - run: bundle exec fastlane ios aws_device_run_ios # Run ui tests using Fastlane
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
