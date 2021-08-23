@@ -5,7 +5,7 @@ storage_mode("git")
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
 # comment out app_identifier, and username if running locally
-app_identifier("com.getpinwheel.PinwheelSDK-Example")
+app_identifier(["com.getpinwheel.PinwheelSDK-Example", "com.getpinwheel.PinwheelSDK-ExampleUITests"])
 username("robby@getpinwheel.com") # Your Apple Developer Portal username
 
 # For all available options run `fastlane match --help`

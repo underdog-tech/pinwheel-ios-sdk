@@ -16,11 +16,6 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios match_adhoc
-```
-fastlane ios match_adhoc
-```
-
 ### ios tests
 ```
 fastlane ios tests
