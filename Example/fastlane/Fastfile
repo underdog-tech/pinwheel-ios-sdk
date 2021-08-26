@@ -16,6 +16,10 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
   desc "Run iOS tests"
   lane :tests do
     run_tests(
@@ -29,9 +33,11 @@ platform :ios do
 
   desc "Run iOS tests on AWS Device Farm"
   lane :aws_device_run_ios do
-    ENV['AWS_PROFILE']                            = 'cli'
-    ENV['AWS_REGION']                             = 'us-west-2'
-    ENV['FL_AWS_DEVICE_FARM_NETWORK_PROFILE_ARN'] = ''
+    ENV['AWS_REGION'] = 'us-west-2'
+    match(
+      type: "development",
+      readonly: is_ci
+    )
     #Build For Testing
     xcodebuild(
       scheme: 'PinwheelSDK_UITests',
@@ -47,8 +53,7 @@ platform :ios do
     )
     # RUN tests on AWS Device Farm
     aws_device_farm(
-      test_type: 'XCTEST_UI',
-      test_spec: ''
+      test_type: 'XCTEST_UI'
     )
   end
 end

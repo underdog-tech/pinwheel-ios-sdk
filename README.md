@@ -79,6 +79,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 Note that setting up the API secret this way is only for demo purposes. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app (compiled or otherwise).
 
+## Tests
+
+There are unit tests, and UI tests included in the example project. The unit tests are associated with the PinwheelSDK_Tests scheme, and the UI tests are associated PinwheelSDK_UITests scheme. 
+
+To run the UI tests in AWS Device Farm, you will need to configure `env-vars.sh`, and `Example/Matchfile`.
+
 
 ## Dev Workflow Commands
 
