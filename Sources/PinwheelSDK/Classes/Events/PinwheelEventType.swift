@@ -13,6 +13,7 @@ public enum PinwheelEventType: String {
     case selectPlatform = "select_platform"
     case incorrectPlatformGiven = "incorrect_platform_given"
     case login
+    case loginAttempt = "login_attempt"
     case inputAmount = "input_amount"
     case exit
     case success

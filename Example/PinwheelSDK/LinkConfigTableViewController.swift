@@ -165,6 +165,8 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             print("onEvent(name: .incorrectPlatformGiven")
         case .login:
             print("onEvent(name: .login")
+        case .loginAttempt:
+            print("onEvent(name: .loginAttempt")
         case .inputAmount:
             print("onEvent(name: .inputAmount")
         case .exit:
@@ -197,5 +199,9 @@ extension LinkConfigTableViewController: PinwheelDelegate {
     
     func onLogin(_ result: PinwheelLoginPayload) {
         print("onLogin")
+    }
+    
+    func onLoginAttempt(_ result: PinwheelLoginAttemptPayload) {
+        print("onLoginAttempt")
     }
 }
