@@ -11,6 +11,7 @@ class PinwheelVCDelegate: PinwheelDelegate {
     public var onExitPayload: PinwheelError?
     public var onSuccessPayload: PinwheelSuccessPayload?
     public var onLoginPayload: PinwheelLoginPayload?
+    public var onLoginAttemptPayload: PinwheelLoginAttemptPayload?
     public var onErrorPayload: PinwheelError?
     
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {
@@ -28,6 +29,10 @@ class PinwheelVCDelegate: PinwheelDelegate {
     
     func onLogin(_ result: PinwheelLoginPayload) {
         onLoginPayload = result
+    }
+    
+    func onLoginAttempt(_ result: PinwheelLoginAttemptPayload) {
+        onLoginAttemptPayload = result
     }
     
     func onError(_ error: PinwheelError) {
@@ -146,6 +151,24 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onEventName?.rawValue).to(equal("login"))
                 let payload = delegate.onEventPayload as? PinwheelLoginPayload
                 expect(payload?.accountId).to(equal("314159"))
+                expect(payload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
+            }
+            
+            it("onEvent is called for login_attempt") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "login_attempt",
+                    "payload": [
+                        "platformId": "20023e4b-b505-451d-808e-12b47c46ee15"
+                    ]
+                ]
+                let message = TestMessage("loginAttemptEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("login_attempt"))
+                let payload = delegate.onEventPayload as? PinwheelLoginAttemptPayload
                 expect(payload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
             }
             
@@ -339,6 +362,23 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onLoginPayload?.accountId).to(equal("314159"))
                 expect(delegate.onLoginPayload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
+            }
+            
+            it("onLoginAttempt is called") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "login_attempt",
+                    "payload": [
+                        "platformId": "20023e4b-b505-451d-808e-12b47c46ee15"
+                    ]
+                ]
+                let bodyString = asString(jsonDictionary: body)
+                let message = TestMessage("loginAttemptEventHandler", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onLoginAttemptPayload?.platformId).to(equal("20023e4b-b505-451d-808e-12b47c46ee15"))
             }
             
             it("onError is called") {
