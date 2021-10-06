@@ -17,6 +17,7 @@ public protocol PinwheelDelegate {
     func onExit(_ error: PinwheelError?)
     func onSuccess(_ result: PinwheelSuccessPayload)
     func onLogin(_ result: PinwheelLoginPayload)
+    func onLoginAttempt(_ result: PinwheelLoginAttemptPayload)
     func onError(_ error: PinwheelError)
 }
 
@@ -26,6 +27,7 @@ public extension PinwheelDelegate {
     func onExit(_ error: PinwheelError?) {}
     func onSuccess(_ result: PinwheelSuccessPayload) {}
     func onLogin(_ result: PinwheelLoginPayload) {}
+    func onLoginAttempt(_ result: PinwheelLoginAttemptPayload) {}
     func onError(_ error: PinwheelError) {}
 }
 
@@ -83,6 +85,13 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 self.delegate.onEvent(name: .login, event: event.payload)
                 self.delegate.onLogin(event.payload)
             }
+        case PinwheelEventHandler.loginAttemptEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelLoginAttemptEvent.self, from: bodyData) {
+                
+                self.delegate.onEvent(name: .loginAttempt, event: event.payload)
+                self.delegate.onLoginAttempt(event.payload)
+            }
         case PinwheelEventHandler.inputAmountEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelInputAmountEvent.self, from: bodyData) {
@@ -132,6 +141,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.exitEventHandler.rawValue)
         contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.successEventHandler.rawValue)
@@ -180,6 +190,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.inputAmountEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.exitEventHandler.rawValue)
         contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.successEventHandler.rawValue)
@@ -193,6 +204,7 @@ private enum PinwheelEventHandler: String {
     case selectPlatformEventHandler
     case incorrectPlatformGivenHandler
     case loginEventHandler
+    case loginAttemptEventHandler
     case inputAmountEventHandler
     case exitEventHandler
     case successEventHandler
@@ -246,6 +258,11 @@ private func getScript(token: String, initializationTime: Int64) -> String {
                         case "\(PinwheelEventType.login.rawValue)":
                             if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue)) {
                                 window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                            }
+                            break;
+                        case "\(PinwheelEventType.loginAttempt.rawValue)":
+                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue)) {
+                                window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                             }
                             break;
                         case "\(PinwheelEventType.inputAmount.rawValue)":
