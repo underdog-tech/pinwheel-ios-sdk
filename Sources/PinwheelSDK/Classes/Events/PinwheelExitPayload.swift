@@ -8,5 +8,9 @@
 import Foundation
 
 public struct PinwheelExitPayload: PinwheelEventPayload {
+    public init(error: PinwheelError?) {
+        self.error = error
+    }
+    
     public let error: PinwheelError?
 }
