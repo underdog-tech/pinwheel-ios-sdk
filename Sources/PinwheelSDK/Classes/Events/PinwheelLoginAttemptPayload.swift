@@ -8,5 +8,9 @@
 import Foundation
 
 public struct PinwheelLoginAttemptPayload: PinwheelEventPayload {
+    public init(platformId: String) {
+        self.platformId = platformId
+    }
+    
     public let platformId: String
 }

@@ -8,6 +8,11 @@
 import Foundation
 
 public struct PinwheelSelectedPlatformPayload: PinwheelEventPayload {
+    public init(selectedPlatformId: String, selectedPlatformName: String) {
+        self.selectedPlatformId = selectedPlatformId
+        self.selectedPlatformName = selectedPlatformName
+    }
+    
     public let selectedPlatformId: String
     public let selectedPlatformName: String
 }

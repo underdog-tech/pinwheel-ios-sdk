@@ -8,5 +8,9 @@
 import Foundation
 
 public struct PinwheelParams: Codable {
+    public init(amount: PinwheelAmountPayload?) {
+        self.amount = amount
+    }
+    
     public let amount: PinwheelAmountPayload?
 }
