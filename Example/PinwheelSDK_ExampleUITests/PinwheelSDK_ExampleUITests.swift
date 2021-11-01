@@ -39,5 +39,6 @@ class PinwheelSDK_ExampleUITests: XCTestCase {
         
         let myTable = app.tables["eventsTableView"]
         XCTAssertEqual(myTable.cells["open_0"].staticTexts["open"].label, "open")
+        XCTAssertEqual(myTable.cells["exit_1"].staticTexts["exit"].label, "exit")
     }
 }
