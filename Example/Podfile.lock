@@ -1,6 +1,6 @@
 PODS:
   - Nimble (9.0.1)
-  - PinwheelSDK (2.3.7)
+  - PinwheelSDK (2.3.8)
   - Quick (1.2.0)
 
 DEPENDENCIES:
@@ -19,7 +19,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Nimble: 7bed62ffabd6dbfe05f5925cbc43722533248990
-  PinwheelSDK: e6c74c14580f062920f17c0dd1c21075f61982a9
+  PinwheelSDK: 1d618ce784ca8ae274e2ecfdb16fdd0d8d4f0b66
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
 PODFILE CHECKSUM: 2398613c0d77eaf628905b1b0cc4543ffbee0f79

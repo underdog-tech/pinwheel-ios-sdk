@@ -228,6 +228,7 @@ class TableOfContentsSpec: QuickSpec {
                     "payload": [
                         "accountId": "314159",
                         "job": "direct_deposit_switch",
+                        "platformId": "abcd-1234",
                         "params": [
                             "amount": [
                                 "unit": "$",
@@ -242,6 +243,7 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 let payload = delegate.onEventPayload as? PinwheelSuccessPayload
                 expect(payload?.accountId).to(equal("314159"))
+                expect(payload?.platformId).to(equal("abcd-1234"))
                 expect(payload?.job).to(equal("direct_deposit_switch"))
                 expect(payload?.params?.amount?.unit).to(equal("$"))
                 expect(payload?.params?.amount?.value).to(equal(3.14159))
@@ -255,6 +257,7 @@ class TableOfContentsSpec: QuickSpec {
                     "eventName": "success",
                     "payload": [
                         "accountId": "314159",
+                        "platformId": "abcd-1234",
                         "job": "direct_deposit_switch",
                         "params": nil
                     ]
@@ -265,6 +268,7 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 let payload = delegate.onEventPayload as? PinwheelSuccessPayload
                 expect(payload?.accountId).to(equal("314159"))
+                expect(payload?.platformId).to(equal("abcd-1234"))
                 expect(payload?.params).to(beNil())
                 expect(payload?.job).to(equal("direct_deposit_switch"))
             }
@@ -326,13 +330,15 @@ class TableOfContentsSpec: QuickSpec {
                     "eventName": "success",
                     "payload": [
                         "accountId": "314159",
+                        "platformId": "abcd-1234",
                         "job": "direct_deposit_switch",
                         "params": [
                             "amount": [
                                 "unit": "$",
                                 "value": 3.14159
                             ]
-                        ]
+                        ],
+                        
                     ]
                 ]
                 let bodyString = asString(jsonDictionary: body)
@@ -340,6 +346,7 @@ class TableOfContentsSpec: QuickSpec {
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onSuccessPayload?.accountId).to(equal("314159"))
+                expect(delegate.onSuccessPayload?.platformId).to(equal("abcd-1234"))
                 expect(delegate.onSuccessPayload?.job).to(equal("direct_deposit_switch"))
                 expect(delegate.onSuccessPayload?.params?.amount?.unit).to(equal("$"))
                 expect(delegate.onSuccessPayload?.params?.amount?.value).to(equal(3.14159))
