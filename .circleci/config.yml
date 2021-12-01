@@ -5,7 +5,7 @@ version: 2.1
 
 jobs:
   build:
-    working_directory: ~/pinwheel-ios-sdk/example
+    working_directory: ~/pinwheel-ios-sdk/Example
 
     macos:
       xcode: 12.5.1 # Specify the Xcode version to use

@@ -53,6 +53,36 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         self.token = token
         super.init(nibName: nil, bundle: nil)
         
+        let now = Int64(Date().timeIntervalSince1970 * 1000)
+        let script = getScript(token: self.token, initializationTime: now)
+        let wkScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.userContentController.addUserScript(wkScript)
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        
+        let contentController = webView.configuration.userContentController
+        let scriptHandlerDelegate = PinwheelWebKitScriptMessageHandler(delegate:self)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.openEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.exitEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.successEventHandler.rawValue)
+        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.errorEventHandler.rawValue)
+        
+        view = webView
+        
+        guard let url = URL(string: linkURL) else {
+            print("Error constructing link URL")
+            return
+        }
+        let linkRequest = URLRequest(url: url)
+        webView.load(linkRequest)
     }
     
     public required init?(coder: NSCoder) {
@@ -125,37 +155,11 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
     
     public override func loadView() {
-        let now = Int64(Date().timeIntervalSince1970 * 1000)
-        let script = getScript(token: self.token, initializationTime: now)
-        let wkScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
         
-        let webConfiguration = WKWebViewConfiguration()
-        webConfiguration.userContentController.addUserScript(wkScript)
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        
-        let contentController = webView.configuration.userContentController
-        let scriptHandlerDelegate = PinwheelWebKitScriptMessageHandler(delegate:self)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.openEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.exitEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.successEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.errorEventHandler.rawValue)
-        
-        view = webView
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let myURL = URL(string: linkURL)
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
     }
     
     public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
