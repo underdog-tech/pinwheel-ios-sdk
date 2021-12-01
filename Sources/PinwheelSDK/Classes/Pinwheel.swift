@@ -128,6 +128,8 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 
                 self.delegate.onEvent(name: .inputAmount, event: event.payload)
             }
+        case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
+            self.delegate.onEvent(name: .inputRequired, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
@@ -210,6 +212,7 @@ private enum PinwheelEventHandler: String {
     case loginEventHandler
     case loginAttemptEventHandler
     case inputAmountEventHandler
+    case inputRequiredEventHandler
     case exitEventHandler
     case successEventHandler
     case errorEventHandler
@@ -274,7 +277,11 @@ private func getScript(token: String, initializationTime: Int64) -> String {
                                 window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                             }
                             break;
-
+                        case "\(PinwheelEventType.inputRequired.rawValue)":
+                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue)) {
+                                window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                            }
+                            break;
                         case "\(PinwheelEventType.exit.rawValue)":
                             if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                 window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
