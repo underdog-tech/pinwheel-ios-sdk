@@ -192,6 +192,19 @@ class TableOfContentsSpec: QuickSpec {
                 expect(payload?.unit).to(equal("$"))
             }
             
+            it("onEvent is called for input_required") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "input_required"
+                ]
+                let message = TestMessage("inputRequiredEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("input_required"))
+            }
+            
             it("onEvent is called for exit") {
                 let delegate = PinwheelVCDelegate()
                 let userContentController = WKUserContentController()

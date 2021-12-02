@@ -169,6 +169,8 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             print("onEvent(name: .loginAttempt")
         case .inputAmount:
             print("onEvent(name: .inputAmount")
+        case .inputRequired:
+            print("onEvent(name: .inputRequired")
         case .exit:
             print("onEvent(name: .exit")
             self.dismiss(animated: true)

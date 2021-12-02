@@ -15,6 +15,7 @@ public enum PinwheelEventType: String {
     case login
     case loginAttempt = "login_attempt"
     case inputAmount = "input_amount"
+    case inputRequired = "input_required"
     case exit
     case success
     case error
