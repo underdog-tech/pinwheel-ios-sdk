@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## 2.3.x Releases
 
-- `2.3.x` Releases - [2.3.10](#2310)
+- `2.3.x` Releases - [2.3.10](#2310) | [2.3.11](#2311)
 
 ---
 
-### 2.3.10
+### 2.3.11
 
 #### Fixed
 
