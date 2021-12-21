@@ -8,14 +8,14 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-### 2.3.11
+### [2.3.11](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.3.11)
 
 #### Fixed
 
 - Fixed bug where PinwheelEventType.inputRequired was not being sent.
   - Added by [Robby Abaya](https://github.com/rawbee) in Pull Request [#54](https://github.com/underdog-tech/pinwheel-ios-sdk/pull/54).
 
-### 2.3.10
+### [2.3.10](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.3.10)
 
 #### Added
 
