@@ -16,6 +16,8 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "PinwheelSDK_Tests",
-            dependencies: ["PinwheelSDK"]),
+            dependencies: ["PinwheelSDK"],
+            path: "Example/Tests"
+        ),
     ]
 )
