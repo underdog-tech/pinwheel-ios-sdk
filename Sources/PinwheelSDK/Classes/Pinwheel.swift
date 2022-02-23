@@ -41,13 +41,13 @@ class PinwheelWebKitScriptMessageHandler: NSObject, WKScriptMessageHandler {
     }
 }
 
-public enum PinwheelMode {
+public enum PinwheelMode: String, CaseIterable {
     case development
     case sandbox
     case production
 }
 
-public enum PinwheelEnvironment {
+public enum PinwheelEnvironment: String, CaseIterable {
     case staging
     case production
 }
