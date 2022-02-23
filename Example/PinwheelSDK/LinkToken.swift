@@ -70,6 +70,7 @@ struct LinkTokenAttributes: Codable {
     var routing_number: String?
     var skip_exit_survey: Bool?
     var skip_intro_screen: Bool?
+    var employer_id: String?
 }
 
 protocol LinkTokenDelegate {

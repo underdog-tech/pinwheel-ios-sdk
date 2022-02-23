@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import WebKit
 
-fileprivate let linkURL = "https://cdn.getpinwheel.com/link-v2.3.0.html"
-
 public protocol PinwheelDelegate {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
     func onExit(_ error: PinwheelError?)
@@ -43,18 +41,53 @@ class PinwheelWebKitScriptMessageHandler: NSObject, WKScriptMessageHandler {
     }
 }
 
+public enum PinwheelMode {
+    case development
+    case sandbox
+    case production
+}
+
+public enum PinwheelEnvironment {
+    case staging
+    case production
+}
+
+public struct PinwheelConfig {
+    let mode: PinwheelMode
+    let environment: PinwheelEnvironment
+    var linkURL: String {
+        get {
+            switch environment {
+            case .staging:
+                return "https://staging.cdn.getpinwheel.com/link-v2.3.0.html"
+            case .production:
+                return "https://cdn.getpinwheel.com/link-v2.3.0.html"
+            }
+        }
+    }
+}
+
 public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     var webView: WKWebView!
     var delegate: PinwheelDelegate
     private var token: String
+    private var config: PinwheelConfig?
+    private var linkURL: String {
+        get {
+            if let config = self.config {
+                return config.linkURL
+            } else {
+                return "https://cdn.getpinwheel.com/link-v2.3.0.html"
+            }
+        }
+    }
     
-    public init(token: String, delegate: PinwheelDelegate) {
+    public init(token: String, delegate: PinwheelDelegate, config: PinwheelConfig) {
         self.delegate = delegate
         self.token = token
         super.init(nibName: nil, bundle: nil)
         
-        let now = Int64(Date().timeIntervalSince1970 * 1000)
-        let script = getScript(token: self.token, initializationTime: now)
+        let script = getScript(token: self.token)
         let wkScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
         
         let webConfiguration = WKWebViewConfiguration()
@@ -64,17 +97,9 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         
         let contentController = webView.configuration.userContentController
         let scriptHandlerDelegate = PinwheelWebKitScriptMessageHandler(delegate:self)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.openEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputAmountEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.inputRequiredEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.exitEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.successEventHandler.rawValue)
-        contentController.add(scriptHandlerDelegate, name: PinwheelEventHandler.errorEventHandler.rawValue)
+        for handler in PinwheelEventHandler.allCases {
+            contentController.add(scriptHandlerDelegate, name: handler.rawValue)
+        }
         
         view = webView
         
@@ -84,6 +109,11 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         }
         let linkRequest = URLRequest(url: url)
         webView.load(linkRequest)
+    }
+    
+    public convenience init(token: String, delegate: PinwheelDelegate) {
+        let config = PinwheelConfig(mode: .sandbox, environment: .production)
+        self.init(token: token, delegate: delegate, config: config)
     }
     
     public required init?(coder: NSCoder) {
@@ -186,27 +216,135 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         }
         return nil
     }
+    
+    private func getScript(token: String) -> String {
+        var versionString = "2.3.10"
+        if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
+            print(bundleVersion)
+            versionString = bundleVersion
+        }
+        let version = versionString.split(separator: ".")
+        
+        return """
+            const uuidKey = 'pinwheel-uuid';
+            const localStorage = window.localStorage;
+            let uuid = localStorage.getItem(uuidKey);
+            if(!uuid) {
+                uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+              return v.toString(16);
+            });
+            localStorage.setItem(uuidKey, uuid);
+            }
+            try {
+            window.addEventListener('message', event => {
+                if (window.webkit && window.webkit.messageHandlers) {
+                    if (event.data.type === "PINWHEEL_EVENT") {
+                        switch (event.data.eventName) {
+                            case "\(PinwheelEventType.open.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.selectEmployer.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.selectPlatform.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.incorrectPlatformGiven.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.login.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.loginAttempt.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.inputAmount.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.inputRequired.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.exit.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.success.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.error.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                        }
+                    }
+                }
+            });
+            window.postMessage(
+              {
+                type: 'PINWHEEL_INIT',
+                payload: {
+                    sdk: "ios",
+                    linkToken: "\(token)",
+                    uniqueUserId: uuid,
+                    initializationTimestamp: Date.now(),
+                    version: {
+                        major: \(version[0]),
+                        minor: \(version.count > 1 ? version[1] : "0"),
+                        patch: \(version.count > 2 ? version[2] : "0")
+                    },
+                    deviceMetadata: {
+                        os: "\(UIDevice.current.systemVersion)",
+                        manufacturer: "apple",
+                        model: "\(utsname())",
+                        product: "\(UIDevice.current.userInterfaceIdiom)",
+                        device: "\(UIDevice.current.model)",
+                        hardware: "",
+                        platform: "ios"
+                    },
+                }
+              },
+              "\(self.linkURL)"
+            );
+            } catch (err) {
+                console.error(err);
+            }
+            true;
+            """
+    }
 
     deinit {        
         guard let contentController = webView?.configuration.userContentController else {
             return
         }
         
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.openEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectEmployerEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.selectPlatformEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.loginAttemptEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.inputAmountEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.inputRequiredEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.exitEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.successEventHandler.rawValue)
-        contentController.removeScriptMessageHandler(forName: PinwheelEventHandler.errorEventHandler.rawValue)
+        for handler in PinwheelEventHandler.allCases {
+            contentController.removeScriptMessageHandler(forName: handler.rawValue)
+        }
     }
 }
 
-private enum PinwheelEventHandler: String {
+private enum PinwheelEventHandler: String, CaseIterable {
     case openEventHandler
     case selectEmployerEventHandler
     case selectPlatformEventHandler
@@ -218,111 +356,4 @@ private enum PinwheelEventHandler: String {
     case exitEventHandler
     case successEventHandler
     case errorEventHandler
-}
-
-private func getScript(token: String, initializationTime: Int64) -> String {
-    var versionString = "2.3.10"
-    if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
-        print(bundleVersion)
-        versionString = bundleVersion
-    }
-    let version = versionString.split(separator: ".")
-    
-    return """
-        const uuidKey = 'pinwheel-uuid';
-        const localStorage = window.localStorage;
-        let uuid = localStorage.getItem(uuidKey);
-        if(!uuid) {
-            uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
-        localStorage.setItem(uuidKey, uuid);
-        }
-        try {
-        window.addEventListener('message', event => {
-            if (window.webkit && window.webkit.messageHandlers) {
-                if (event.data.type === "PINWHEEL_EVENT") {
-                    switch (event.data.eventName) {
-                        case "\(PinwheelEventType.open.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.selectEmployer.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.selectPlatform.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.incorrectPlatformGiven.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.login.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.loginAttempt.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.inputAmount.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.inputRequired.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.exit.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.success.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                        case "\(PinwheelEventType.error.rawValue)":
-                            if (window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue)) {
-                                window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue).postMessage(JSON.stringify(event.data));
-                            }
-                            break;
-                    }
-                }
-            }
-        });
-        window.postMessage(
-          {
-            type: 'PINWHEEL_INIT',
-            payload: {
-                sdk: "ios",
-                linkToken: "\(token)",
-                uniqueUserId: uuid,
-                initializationTimestamp: \(initializationTime),
-                version: {
-                    major: \(version[0]),
-                    minor: \(version.count > 1 ? version[1] : "0"),
-                    patch: \(version.count > 2 ? version[2] : "0")
-                }
-            }
-          },
-          "\(linkURL)"
-        );
-        } catch (err) {
-            console.error(err);
-        }
-        true;
-        """
 }
