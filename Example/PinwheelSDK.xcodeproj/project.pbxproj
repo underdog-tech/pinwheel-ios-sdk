@@ -76,6 +76,7 @@
 		D50E5BF726B9F43800593628 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		D50E5BF926B9F4E200593628 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D516B5F92564C86600380041 /* LinkToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkToken.swift; sourceTree = "<group>"; };
+		D5287FB6276950CA00D21CB4 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		D54D75CDC75553B6EB5C9263 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D5C130DF26B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinwheelSDK_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C130E126B857F8009AE1F9 /* PinwheelSDK_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinwheelSDK_ExampleUITests.swift; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 				F0459245F3C7850DA8DB35F2 /* PinwheelSDK.podspec */,
 				D54D75CDC75553B6EB5C9263 /* README.md */,
 				50EF72394B34AA03254760A3 /* LICENSE */,
+				D5287FB6276950CA00D21CB4 /* CHANGELOG.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
