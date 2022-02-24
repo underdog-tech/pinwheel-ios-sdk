@@ -89,6 +89,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     public init(token: String, delegate: PinwheelDelegate, config: PinwheelConfig) {
         self.delegate = delegate
         self.token = token
+        self.config = config
         super.init(nibName: nil, bundle: nil)
         
         let script = getScript(token: self.token)
