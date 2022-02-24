@@ -53,9 +53,9 @@ public enum PinwheelEnvironment: String, CaseIterable {
 }
 
 public struct PinwheelConfig {
-    let mode: PinwheelMode
-    let environment: PinwheelEnvironment
-    var linkURL: String {
+    public let mode: PinwheelMode
+    public let environment: PinwheelEnvironment
+    public var linkURL: String {
         get {
             switch environment {
             case .staging:
@@ -64,6 +64,10 @@ public struct PinwheelConfig {
                 return "https://cdn.getpinwheel.com/link-v2.3.0.html"
             }
         }
+    }
+    public init(mode: PinwheelMode, environment: PinwheelEnvironment) {
+        self.mode = mode
+        self.environment = environment
     }
 }
 
