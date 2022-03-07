@@ -47,9 +47,25 @@ public enum PinwheelMode: String, CaseIterable {
     case production
 }
 
-public enum PinwheelEnvironment: String, CaseIterable {
+public enum PinwheelEnvironment: CaseIterable {
+    public static var allCases: [PinwheelEnvironment] {
+        return [.local(linkURL: "http://localhost:5000/link.local.html"), .staging, .production]
+    }
+    
+    case local(linkURL: String)
     case staging
     case production
+    
+    var value: String {
+        switch self {
+        case .local(let url):
+            return url
+        case .staging:
+            return "staging"
+        case .production:
+            return "production"
+        }
+    }
 }
 
 public struct PinwheelConfig {
@@ -58,6 +74,8 @@ public struct PinwheelConfig {
     public var linkURL: String {
         get {
             switch environment {
+            case .local(let _linkURL):
+                return _linkURL
             case .staging:
                 return "https://staging.cdn.getpinwheel.com/link-v2.3.0.html"
             case .production:
