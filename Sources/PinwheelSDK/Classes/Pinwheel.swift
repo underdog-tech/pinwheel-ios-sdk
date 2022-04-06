@@ -53,6 +53,31 @@ public enum PinwheelEnvironment {
     case production
 }
 
+extension PinwheelEnvironment {
+    public init?(value: String) {
+        if value == "local" {
+            self = .local(linkURL: "")
+        } else if value == "staging" {
+            self = .staging
+        } else if value == "production" {
+            self = .production
+        } else {
+            return nil
+        }
+    }
+    
+    public var rawValue: String {
+        switch self {
+        case .local(_):
+            return "local"
+        case .staging:
+            return "staging"
+        case .production:
+            return "production"
+        }
+    }
+}
+
 public struct PinwheelConfig {
     public let mode: PinwheelMode
     public let environment: PinwheelEnvironment
