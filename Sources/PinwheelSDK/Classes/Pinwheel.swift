@@ -54,7 +54,7 @@ public enum PinwheelEnvironment {
 }
 
 extension PinwheelEnvironment {
-    public init?(value: String) {
+    public init(value: String) {
         if value == "local" {
             self = .local(linkURL: "")
         } else if value == "staging" {
@@ -62,14 +62,26 @@ extension PinwheelEnvironment {
         } else if value == "production" {
             self = .production
         } else {
-            return nil
+            self = .staging
+        }
+    }
+    
+    public init(value: String, linkURL: String?) {
+        if value == "local" {
+            self = .local(linkURL: linkURL ?? "")
+        } else if value == "staging" {
+            self = .staging
+        } else if value == "production" {
+            self = .production
+        } else {
+            self = .staging
         }
     }
     
     public var rawValue: String {
         switch self {
-        case .local(_):
-            return "local"
+        case .local(let linkURL):
+            return "local@\(linkURL)"
         case .staging:
             return "staging"
         case .production:
