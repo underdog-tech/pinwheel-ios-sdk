@@ -25,7 +25,7 @@ class LinkConfigTableViewController: UITableViewController, UINavigationControll
         ConfigField(label:"account_type", value:"checking"),
         ConfigField(label:"job", value:"direct_deposit_switch"),
         ConfigField(label:"mode", value:"sandbox"),
-        ConfigField(label:"org_name", value:"Iron Bank of Braavos"),
+        ConfigField(label:"org_name", value:"Underdog Savings and Loan"),
         ConfigField(label:"routing_number", value:"091302966"),
         ConfigField(label:"skip_exit_survey", value:"false"),
         ConfigField(label:"skip_intro_screen", value:"false")
@@ -128,6 +128,8 @@ class LinkConfigTableViewController: UITableViewController, UINavigationControll
                 linkTokenAttributes.skip_exit_survey = cf.value.lowercased() == "true"
             case "skip_intro_screen":
                 linkTokenAttributes.skip_intro_screen = cf.value.lowercased() == "true"
+            case "employer_id":
+                linkTokenAttributes.employer_id = cf.value
             default:
                 print("Missing case for label: \(cf.label), value: \(cf.value)")
             }
@@ -145,7 +147,6 @@ class LinkConfigTableViewController: UITableViewController, UINavigationControll
 extension LinkConfigTableViewController: LinkTokenDelegate {
     func onComplete(linkToken: String) {
         pinwheelVC = PinwheelViewController(token: linkToken, delegate: self)
-        self.present(pinwheelVC!, animated: true)
     }
 }
 
@@ -156,6 +157,7 @@ extension LinkConfigTableViewController: PinwheelDelegate {
         
         switch name {
         case .open:
+            self.present(pinwheelVC!, animated: true)
             print("onEvent(name: .open")
         case .selectEmployer:
             print("onEvent(name: .selectEmployer")
