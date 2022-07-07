@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import WebKit
 
-public protocol PinwheelDelegate {
+public protocol PinwheelDelegate: AnyObject {
     func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
     func onExit(_ error: PinwheelError?)
     func onSuccess(_ result: PinwheelSuccessPayload)
@@ -113,7 +113,7 @@ public struct PinwheelConfig {
 
 public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     var webView: WKWebView!
-    var delegate: PinwheelDelegate
+    weak var delegate: PinwheelDelegate?
     private var token: String
     private var config: PinwheelConfig?
     private var linkURL: String {
@@ -169,63 +169,63 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         
         switch message.name {
         case PinwheelEventHandler.openEventHandler.rawValue:
-            self.delegate.onEvent(name: .open, event: nil)
+            self.delegate?.onEvent(name: .open, event: nil)
         case PinwheelEventHandler.selectEmployerEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelSelectedEmployerEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .selectEmployer, event: event.payload)
+                self.delegate?.onEvent(name: .selectEmployer, event: event.payload)
             }
         case PinwheelEventHandler.selectPlatformEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelSelectedPlatformEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .selectPlatform, event: event.payload)
+                self.delegate?.onEvent(name: .selectPlatform, event: event.payload)
             }
         case PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue:
-            self.delegate.onEvent(name: .incorrectPlatformGiven, event: nil)
+            self.delegate?.onEvent(name: .incorrectPlatformGiven, event: nil)
         case PinwheelEventHandler.loginEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelLoginEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .login, event: event.payload)
-                self.delegate.onLogin(event.payload)
+                self.delegate?.onEvent(name: .login, event: event.payload)
+                self.delegate?.onLogin(event.payload)
             }
         case PinwheelEventHandler.loginAttemptEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelLoginAttemptEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .loginAttempt, event: event.payload)
-                self.delegate.onLoginAttempt(event.payload)
+                self.delegate?.onEvent(name: .loginAttempt, event: event.payload)
+                self.delegate?.onLoginAttempt(event.payload)
             }
         case PinwheelEventHandler.inputAmountEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelInputAmountEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .inputAmount, event: event.payload)
+                self.delegate?.onEvent(name: .inputAmount, event: event.payload)
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
-            self.delegate.onEvent(name: .inputRequired, event: nil)
+            self.delegate?.onEvent(name: .inputRequired, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .exit, event: event.payload?.error)
-                self.delegate.onExit(event.payload?.error)
+                self.delegate?.onEvent(name: .exit, event: event.payload?.error)
+                self.delegate?.onExit(event.payload?.error)
             }
         case PinwheelEventHandler.successEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelSuccessEvent.self, from: bodyData) {
 
-                self.delegate.onEvent(name: .success, event: event.payload)
-                self.delegate.onSuccess(event.payload)
+                self.delegate?.onEvent(name: .success, event: event.payload)
+                self.delegate?.onSuccess(event.payload)
             }
         case PinwheelEventHandler.errorEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelErrorEvent.self, from: bodyData) {
                 
-                self.delegate.onEvent(name: .error, event: event.payload)
-                self.delegate.onError(event.payload)
+                self.delegate?.onEvent(name: .error, event: event.payload)
+                self.delegate?.onError(event.payload)
             }
         default:
             print("Unhandled message: \(message.name)")
