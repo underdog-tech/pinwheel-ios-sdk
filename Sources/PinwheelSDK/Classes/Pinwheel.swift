@@ -271,16 +271,42 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
         let version = versionString.split(separator: ".")
         
         return """
-            const uuidKey = 'pinwheel-uuid';
-            const localStorage = window.localStorage;
-            let uuid = localStorage.getItem(uuidKey);
-            if(!uuid) {
-                uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-              var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-              return v.toString(16);
-            });
-            localStorage.setItem(uuidKey, uuid);
+            function storageAvailable(type) {
+              try {
+                const storage = window[type];
+                const x = '__storage_test__';
+                storage.setItem(x, x);
+                storage.removeItem(x);
+                return true;
+              } catch (e) {
+                return false;
+              }
             }
+            
+            function generateUUID() {
+              let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+              });
+              return uuid;
+            }
+            
+            function getUniqueUserId() {
+                const uuidKey = 'pinwheel-uuid';
+                if (!storageAvailable('localStorage')) {
+                  return generateUUID();
+                }
+
+                let uniqueUserId = localStorage.getItem(uuidKey);
+                if (!uniqueUserId) {
+                  uniqueUserId = generateUUID();
+                  localStorage.setItem(uuidKey, uniqueUserId);
+                }
+                return uniqueUserId;
+            };
+            
+            
+            const uuid = getUniqueUserId();
             try {
             window.addEventListener('message', event => {
                 if (window.webkit && window.webkit.messageHandlers) {
