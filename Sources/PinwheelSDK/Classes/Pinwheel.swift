@@ -204,6 +204,12 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 
                 self.delegate?.onEvent(name: .inputAmount, event: event.payload)
             }
+        case PinwheelEventHandler.inputAllocationEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelInputAllocationEvent.self, from: bodyData) {
+                
+                self.delegate?.onEvent(name: .inputAllocation, event: event.payload)
+            }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
@@ -347,6 +353,11 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
+                            case "\(PinwheelEventType.inputAllocation.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputAllocationEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.inputAllocationEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
                             case "\(PinwheelEventType.inputRequired.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
@@ -423,6 +434,7 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case loginEventHandler
     case loginAttemptEventHandler
     case inputAmountEventHandler
+    case inputAllocationEventHandler
     case inputRequiredEventHandler
     case exitEventHandler
     case successEventHandler
