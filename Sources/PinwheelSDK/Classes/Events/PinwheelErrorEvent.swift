@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PinwheelErrorEvent: Codable {
+public struct PinwheelErrorEvent: Decodable {
     public init(type: String, eventName: String, payload: PinwheelError) {
         self.type = type
         self.eventName = eventName

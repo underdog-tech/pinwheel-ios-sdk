@@ -11,7 +11,7 @@ import UIKit
 import WebKit
 
 public protocol PinwheelDelegate: AnyObject {
-    func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?)
+    func onEvent(eventType: PinwheelEventType)
     func onExit(_ error: PinwheelError?)
     func onSuccess(_ result: PinwheelSuccessPayload)
     func onLogin(_ result: PinwheelLoginPayload)
@@ -21,7 +21,7 @@ public protocol PinwheelDelegate: AnyObject {
 
 // These empty implementations are to make them optional to implement
 public extension PinwheelDelegate {
-    func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {}
+    func onEvent(eventType: PinwheelEventType) {}
     func onExit(_ error: PinwheelError?) {}
     func onSuccess(_ result: PinwheelSuccessPayload) {}
     func onLogin(_ result: PinwheelLoginPayload) {}
@@ -125,6 +125,8 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         }
     }
+
+    private let jsonDecoder = JSONDecoder()
     
     public init(token: String, delegate: PinwheelDelegate, config: PinwheelConfig) {
         self.delegate = delegate
@@ -166,84 +168,42 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        
-        switch message.name {
-        case PinwheelEventHandler.openEventHandler.rawValue:
-            self.delegate?.onEvent(name: .open, event: nil)
-        case PinwheelEventHandler.selectEmployerEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelSelectedEmployerEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .selectEmployer, event: event.payload)
-            }
-        case PinwheelEventHandler.selectPlatformEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelSelectedPlatformEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .selectPlatform, event: event.payload)
-            }
-        case PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue:
-            self.delegate?.onEvent(name: .incorrectPlatformGiven, event: nil)
-        case PinwheelEventHandler.loginEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelLoginEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .login, event: event.payload)
-                self.delegate?.onLogin(event.payload)
-            }
-        case PinwheelEventHandler.loginAttemptEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelLoginAttemptEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .loginAttempt, event: event.payload)
-                self.delegate?.onLoginAttempt(event.payload)
-            }
-        case PinwheelEventHandler.inputAmountEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelInputAmountEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .inputAmount, event: event.payload)
-            }
-        case PinwheelEventHandler.inputAllocationEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelInputAllocationEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .inputAllocation, event: event.payload)
-            }
-        case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
-            self.delegate?.onEvent(name: .inputRequired, event: nil)
-        case PinwheelEventHandler.exitEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .exit, event: event.payload?.error)
-                self.delegate?.onExit(event.payload?.error)
-            }
-        case PinwheelEventHandler.successEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelSuccessEvent.self, from: bodyData) {
-
-                self.delegate?.onEvent(name: .success, event: event.payload)
-                self.delegate?.onSuccess(event.payload)
-            }
-        case PinwheelEventHandler.errorEventHandler.rawValue:
-            if let bodyData = bodyDataFromMessage(message),
-               let event = try? JSONDecoder().decode(PinwheelErrorEvent.self, from: bodyData) {
-                
-                self.delegate?.onEvent(name: .error, event: event.payload)
-                self.delegate?.onError(event.payload)
-            }
-        default:
+        guard let eventHandler = PinwheelEventHandler(rawValue: message.name),
+              let event = PinwheelEventType(eventHandler: eventHandler,
+                                            data: bodyDataFromMessage(message),
+                                            jsonDecoder: jsonDecoder)
+        else {
             print("Unhandled message: \(message.name)")
+            return
         }
-    }
-    
-    public override func loadView() {
-        
-    }
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+
+        delegate?.onEvent(eventType: event)
+
+        switch event {
+        case .open,
+             .selectEmployer,
+             .selectPlatform,
+             .incorrectPlatformGiven,
+             .inputAmount,
+             .inputAllocation,
+             .inputRequired:
+            break
+
+        case let .login(payload):
+            delegate?.onLogin(payload)
+
+        case let .loginAttempt(payload):
+            delegate?.onLoginAttempt(payload)
+
+        case let .exit(payload):
+            delegate?.onExit(payload?.error)
+
+        case let .success(payload):
+            delegate?.onSuccess(payload)
+
+        case let .error(payload):
+            delegate?.onError(payload)
+        }
     }
     
     public func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
@@ -262,7 +222,6 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     private func bodyDataFromMessage(_ message: WKScriptMessage) -> Data? {
         if let bodyString = message.body as? String,
            let bodyData = bodyString.data(using: .utf8) {
-
             return bodyData
         }
         return nil
@@ -318,62 +277,62 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 if (window.webkit && window.webkit.messageHandlers) {
                     if (event.data.type === "PINWHEEL_EVENT") {
                         switch (event.data.eventName) {
-                            case "\(PinwheelEventType.open.rawValue)":
+                            case "\(PinwheelEventName.open)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.openEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.selectEmployer.rawValue)":
+                            case "\(PinwheelEventName.selectEmployer)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.selectEmployerEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.selectPlatform.rawValue)":
+                            case "\(PinwheelEventName.selectPlatform)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.selectPlatformEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.incorrectPlatformGiven.rawValue)":
+                            case "\(PinwheelEventName.incorrectPlatformGiven)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.incorrectPlatformGivenHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.login.rawValue)":
+                            case "\(PinwheelEventName.login)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.loginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.loginAttempt.rawValue)":
+                            case "\(PinwheelEventName.loginAttempt)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.loginAttemptEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.inputAmount.rawValue)":
+                            case "\(PinwheelEventName.inputAmount)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputAmountEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.inputAllocation.rawValue)":
+                            case "\(PinwheelEventName.inputAllocation)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputAllocationEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputAllocationEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.inputRequired.rawValue)":
+                            case "\(PinwheelEventName.inputRequired)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.exit.rawValue)":
+                            case "\(PinwheelEventName.exit)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.success.rawValue)":
+                            case "\(PinwheelEventName.success)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.successEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-                            case "\(PinwheelEventType.error.rawValue)":
+                            case "\(PinwheelEventName.error)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
@@ -415,7 +374,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             """
     }
 
-    deinit {        
+    deinit {
         guard let contentController = webView?.configuration.userContentController else {
             return
         }
@@ -439,4 +398,91 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case exitEventHandler
     case successEventHandler
     case errorEventHandler
+}
+
+private extension PinwheelEventType {
+
+    init?(eventHandler: PinwheelEventHandler,
+          data: Data?,
+          jsonDecoder: JSONDecoder) {
+        switch eventHandler {
+        case .openEventHandler:
+            self = .open
+            return
+
+        case .selectEmployerEventHandler:
+            if let eventModel: PinwheelSelectedEmployerEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .selectEmployer(eventModel.payload)
+                return
+            }
+
+        case .selectPlatformEventHandler:
+            if let eventModel: PinwheelSelectedPlatformEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .selectPlatform(eventModel.payload)
+                return
+            }
+
+        case .incorrectPlatformGivenHandler:
+            self = .incorrectPlatformGiven
+            return
+
+        case .loginEventHandler:
+            if let eventModel: PinwheelLoginEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .login(eventModel.payload)
+                return
+            }
+
+        case .loginAttemptEventHandler:
+            if let eventModel: PinwheelLoginAttemptEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .loginAttempt(eventModel.payload)
+                return
+            }
+
+        case .inputAmountEventHandler:
+            if let eventModel: PinwheelInputAmountEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .inputAmount(eventModel.payload)
+                return
+            }
+
+        case .inputAllocationEventHandler:
+            if let eventModel: PinwheelInputAllocationEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .inputAllocation(eventModel.payload)
+                return
+            }
+
+        case .inputRequiredEventHandler:
+            self = .inputRequired
+            return
+
+        case .exitEventHandler:
+            if let eventModel: PinwheelExitEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .exit(eventModel.payload)
+                return
+            }
+
+        case .successEventHandler:
+            if let eventModel: PinwheelSuccessEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .success(eventModel.payload)
+                return
+            }
+
+        case .errorEventHandler:
+            if let eventModel: PinwheelErrorEvent = PinwheelEventType.decode(data: data, jsonDecoder: jsonDecoder) {
+                self = .error(eventModel.payload)
+                return
+            }
+        }
+
+        return nil
+    }
+
+    static func decode<TResult: Decodable>(data: Data?,
+                                           jsonDecoder: JSONDecoder) -> TResult? {
+        guard let data = data else {
+            return nil
+        }
+        
+        return try? jsonDecoder.decode(TResult.self, from: data)
+    }
+
 }

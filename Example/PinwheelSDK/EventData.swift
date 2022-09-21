@@ -10,6 +10,6 @@ import Foundation
 import PinwheelSDK
 
 struct EventData {
-    let name: PinwheelEventType
-    let event: PinwheelEventPayload?
+    let eventType: PinwheelEventType
+    let eventPayload: PinwheelEventPayload?
 }

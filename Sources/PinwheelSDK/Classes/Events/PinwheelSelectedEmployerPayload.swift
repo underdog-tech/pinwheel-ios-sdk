@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PinwheelSelectedEmployerPayload: PinwheelEventPayload {
+public struct PinwheelSelectedEmployerPayload: Decodable {
     public init(selectedEmployerId: String, selectedEmployerName: String) {
         self.selectedEmployerId = selectedEmployerId
         self.selectedEmployerName = selectedEmployerName

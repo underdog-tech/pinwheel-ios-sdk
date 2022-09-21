@@ -7,10 +7,9 @@
 
 import Foundation
 
-public struct PinwheelExitPayload: PinwheelEventPayload {
+public struct PinwheelExitPayload: Decodable {
     public init(error: PinwheelError?) {
         self.error = error
     }
-    
     public let error: PinwheelError?
 }

@@ -34,7 +34,7 @@ class LinkConfigTableViewController: UITableViewController, UINavigationControll
     var pinwheelVC: PinwheelViewController?
     var selected:Int = 0
     
-    private var events = Array<EventData>()
+    private var events = Array<PinwheelEventType>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,37 +152,37 @@ extension LinkConfigTableViewController: LinkTokenDelegate {
 
 extension LinkConfigTableViewController: PinwheelDelegate {
     
-    func onEvent(name: PinwheelEventType, event: PinwheelEventPayload?) {
-        events.append(EventData(name: name, event: event))
+    func onEvent(eventType: PinwheelEventType) {
+        events.append(eventType)
         
-        switch name {
+        switch eventType {
         case .open:
             self.present(pinwheelVC!, animated: true)
             print("onEvent(name: .open")
-        case .selectEmployer:
-            print("onEvent(name: .selectEmployer")
-        case .selectPlatform:
-            print("onEvent(name: .selectPlatform")
+        case .selectEmployer(let payload):
+            print("onEvent(name: .selectEmployer, \(payload.selectedEmployerId), \(payload.selectedEmployerName)")
+        case .selectPlatform(let payload):
+            print("onEvent(name: .selectPlatform, \(payload.selectedPlatformId)")
         case .incorrectPlatformGiven:
             print("onEvent(name: .incorrectPlatformGiven")
-        case .login:
-            print("onEvent(name: .login")
-        case .loginAttempt:
-            print("onEvent(name: .loginAttempt")
-        case .inputAmount:
-            print("onEvent(name: .inputAmount")
-        case .inputAllocation:
-            print("onEvent(name: .inputAllocation")
+        case .login(let payload):
+            print("onEvent(name: .login, \(payload.accountId)")
+        case .loginAttempt(let payload):
+            print("onEvent(name: .loginAttempt, \(payload.platformId)")
+        case .inputAmount(let payload):
+            print("onEvent(name: .inputAmount, \(payload.value)")
+        case .inputAllocation(let payload):
+            print("onEvent(name: .inputAllocation, \(String(describing: payload.allocation?.value))")
         case .inputRequired:
             print("onEvent(name: .inputRequired")
-        case .exit:
-            print("onEvent(name: .exit")
+        case .exit(let payload):
+            print("onEvent(name: .exit, \(String(describing: payload?.error?.message))")
             self.dismiss(animated: true)
-        case .success:
-            print("onEvent(name: .success")
+        case .success(let payload):
+            print("onEvent(name: .success, \(payload.platformId)")
             self.dismiss(animated: true)
-        case .error:
-            print("onEvent(name: .error")
+        case .error(let payload):
+            print("onEvent(name: .error, \(payload.message)")
         }
     }
     

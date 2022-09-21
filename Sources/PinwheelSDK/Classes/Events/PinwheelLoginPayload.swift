@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PinwheelLoginPayload: PinwheelEventPayload {
+public struct PinwheelLoginPayload: Decodable {
     public init(accountId: String, platformId: String) {
         self.accountId = accountId
         self.platformId = platformId

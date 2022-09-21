@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PinwheelError: PinwheelEventPayload {
+public struct PinwheelError: Decodable {
     public init(type: String, code: String, message: String, pendingRetry: Bool) {
         self.type = type
         self.code = code

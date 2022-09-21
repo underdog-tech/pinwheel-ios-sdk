@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PinwheelParams: Codable {
+public struct PinwheelParams: Decodable {
     public init(amount: PinwheelAmountPayload?) {
         self.amount = amount
     }

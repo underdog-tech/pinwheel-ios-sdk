@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct PinwheelAmountPayload: PinwheelEventPayload {
+public struct PinwheelAmountPayload: Decodable {
     public init(unit: String, value: Float) {
         self.unit = unit
         self.value = value
     }
     
-    public var unit: String
-    public var value: Float
+    public let unit: String
+    public let value: Float
 }

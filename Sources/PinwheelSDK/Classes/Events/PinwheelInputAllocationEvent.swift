@@ -7,14 +7,14 @@
 
 import Foundation
 
-public struct PinwheelInputAllocationEvent: Codable {
+public struct PinwheelInputAllocationEvent: Decodable {
     public init(type: String, eventName: String, payload: PinwheelInputAllocationPayload) {
         self.type = type
         self.eventName = eventName
         self.payload = payload
     }
     
-    public var type: String
-    public var eventName: String
-    public var payload: PinwheelInputAllocationPayload
+    public let type: String
+    public let eventName: String
+    public let payload: PinwheelInputAllocationPayload
 }

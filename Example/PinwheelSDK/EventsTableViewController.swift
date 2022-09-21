@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import PinwheelSDK
 
 class EventsTableViewController: UITableViewController {
-    public var events: [EventData] = []
+    public var events: [PinwheelEventType] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,10 @@ class EventsTableViewController: UITableViewController {
         let ed = events[indexPath.row]
 
         if let textLabel = cell.textLabel {
-            textLabel.text = ed.name.rawValue
+            textLabel.text = ed.name
         }
         
-        cell.accessibilityLabel = "\(ed.name.rawValue)_\(indexPath.row)"
+        cell.accessibilityLabel = "\(ed.name)_\(indexPath.row)"
         
         return cell
     }
