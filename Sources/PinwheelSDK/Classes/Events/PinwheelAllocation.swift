@@ -10,4 +10,5 @@ import Foundation
 public struct PinwheelAllocation: Codable {
     public let type: String
     public let value: Float?
+    public let target: PinwheelTarget?
 }
