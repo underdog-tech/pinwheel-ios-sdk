@@ -38,3 +38,6 @@ env-vars.sh
 scripts/gyb.pyc
 
 Example/PinwheelSDK-Example.app.dSYM.zip
+
+# Phylum Integration
+.phylum_project
