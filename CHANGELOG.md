@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file.
 - `2.3.x` Releases - [2.3.10](#2310) | [2.3.11](#2311)
 
 ---
+### [2.3.14](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.3.14)
+
+#### Added
+
+- Add target field to input_allocation event.
+  - Added by [Lynsey Liu](https://github.com/lynsey-pinwheel) in Pull Request [#67](https://github.com/underdog-tech/pinwheel-ios-sdk/pull/67).
+
 ### [2.3.13](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.3.13)
 
 #### Added
