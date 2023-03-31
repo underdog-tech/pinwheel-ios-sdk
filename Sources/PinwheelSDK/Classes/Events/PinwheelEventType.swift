@@ -17,6 +17,7 @@ public enum PinwheelEventType: String {
     case inputAmount = "input_amount"
     case inputAllocation = "input_allocation"
     case inputRequired = "input_required"
+    case cardSwitchBegin = "card_switch_begin"
     case exit
     case success
     case error
