@@ -233,6 +233,16 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 self.delegate?.onEvent(name: .error, event: event.payload)
                 self.delegate?.onError(event.payload)
             }
+        case PinwheelEventHandler.ddFormBeginEventHandler.rawValue:
+            self.delegate?.onEvent(name: .ddFormBegin, event: nil)
+        case PinwheelEventHandler.ddFormCreateEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelDDFormCreateEvent.self, from: bodyData) {
+
+                self.delegate?.onEvent(name: .ddFormCreate, event: event.payload)
+            }
+        case PinwheelEventHandler.ddFormDownloadEventHandler.rawValue:
+            self.delegate?.onEvent(name: .ddFormDownload, event: nil)
         default:
             print("Unhandled message: \(message.name)")
         }
@@ -376,6 +386,21 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                             case "\(PinwheelEventType.error.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormBegin.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormBeginEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormCreate.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormCreateEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormCreateEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormDownload.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormDownloadEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormDownloadEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
                         }
