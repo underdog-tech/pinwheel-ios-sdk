@@ -11,7 +11,7 @@ class LinkToken {
     var delegate: LinkTokenDelegate?
     var linkToken: String?
     var isLoaded = false;
-    var apiSecret = ""
+    var apiSecret = "d8636eb00f7cc817fb418fc6bda477bb1add2bafbd665b518832f7426f385370"
     
     func fetchTokenWithAttributes(_ attributes: LinkTokenAttributes) {
         guard let url = URL(string: "https://sandbox.getpinwheel.com/v1/link_tokens") else {

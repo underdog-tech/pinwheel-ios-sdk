@@ -212,6 +212,13 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
+
+        case PinwheelEventHandler.screenTransitionEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelScreenTransitionEvent.self, from: bodyData) {
+                self.delegate?.onEvent(name: .screenTransition, event: event.payload)
+            }
+
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
@@ -363,6 +370,13 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
+
+                            case "\(PinwheelEventType.screenTransition.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+
                             case "\(PinwheelEventType.exit.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
@@ -436,6 +450,7 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case inputAmountEventHandler
     case inputAllocationEventHandler
     case inputRequiredEventHandler
+    case screenTransitionEventHandler
     case exitEventHandler
     case successEventHandler
     case errorEventHandler

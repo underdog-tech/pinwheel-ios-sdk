@@ -175,6 +175,8 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             print("onEvent(name: .inputAllocation")
         case .inputRequired:
             print("onEvent(name: .inputRequired")
+        case .screenTransition:
+            print("onEvent(name: .screenTransition")
         case .exit:
             print("onEvent(name: .exit")
             self.dismiss(animated: true)
