@@ -8,7 +8,7 @@
 import Foundation
 
 public struct PinwheelScreenTransitionPayload: PinwheelEventPayload {
-    public init(selectedPlatformId: String, selectedPlatformName: String) {
+    public init(screenName: String, selectedEmployerId: String?, selectedEmployerName: String?, selectedPlatformId: String?, selectedPlatformName: String?) {
         self.screenName = screenName
         self.selectedEmployerId = selectedEmployerId
         self.selectedEmployerName = selectedEmployerName
