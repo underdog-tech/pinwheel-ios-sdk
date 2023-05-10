@@ -425,7 +425,7 @@ class TableOfContentsSpec: QuickSpec {
             }
 
             it("onEvent is called for screen_transition") {
-                let delegate = PinwheelDelegate()
+                let delegate = PinwheelVCDelegate()
                 let userContentController = WKUserContentController()
                 let body: JSONDictionary = [
                     "type": "PINWHEEL_EVENT",
@@ -441,7 +441,7 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 let payload = delegate.onEventPayload as? PinwheelScreenTransitionPayload
                 expect(payload?.screenName).to(equal("SEARCH_DEFAULT"))
-                expect(payload?.selectedPlatformId).to(equal(nil))
+                expect(payload?.selectedPlatformId).to(beNil())
             }
         }
     }
