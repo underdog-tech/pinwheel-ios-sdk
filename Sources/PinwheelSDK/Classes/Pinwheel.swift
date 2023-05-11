@@ -464,4 +464,7 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case exitEventHandler
     case successEventHandler
     case errorEventHandler
+    case ddFormBeginEventHandler
+    case ddFormCreateEventHandler
+    case ddFormDownloadEventHandler
 }

@@ -337,7 +337,7 @@ class TableOfContentsSpec: QuickSpec {
                 let message = TestMessage("ddFormCreateEventHandler", body: bodyString)
                 let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
                 pinwheelVC.userContentController(userContentController, didReceive: message)
-                let payload = delegate.onEventPayload as? PinwheelDDFormCreate
+                let payload = delegate.onEventPayload as? PinwheelDDFormCreatePayload
                 expect(payload?.url).to(equal("https://www.example.com"))
             }
 

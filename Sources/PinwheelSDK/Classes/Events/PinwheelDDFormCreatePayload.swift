@@ -1,6 +1,6 @@
 import Foundation
 
-public struct PinwheelDDFormCreate: PinwheelEventPayload {
+public struct PinwheelDDFormCreatePayload: PinwheelEventPayload {
     public init(url: String) {
         self.url = url
     }

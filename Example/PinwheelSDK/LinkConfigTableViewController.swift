@@ -183,13 +183,10 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             self.dismiss(animated: true)
         case .error:
             print("onEvent(name: .error")
-        }
         case .ddFormBegin:
             print("onEvent(name: .ddFormBegin")
-        }
         case .ddFormCreate:
             print("onEvent(name: .ddFormCreate")
-        }
         case .ddFormDownload:
             print("onEvent(name: .ddFormDownload")
         }
