@@ -21,4 +21,7 @@ public enum PinwheelEventType: String {
     case exit
     case success
     case error
+    case ddFormBegin = "dd_form_begin"
+    case ddFormCreate = "dd_form_create"
+    case ddFormDownload = "dd_form_download"
 }

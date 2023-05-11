@@ -322,6 +322,50 @@ class TableOfContentsSpec: QuickSpec {
                 expect(payload?.message).to(equal("Uh oh"))
                 expect(payload?.pendingRetry).to(beFalse())
             }
+
+            it("onEvent is called for ddFormBegin") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_begin",
+                ]
+                let message = TestMessage("ddFormBeginEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("dd_form_begin"))
+            }
+
+            it("onEvent is called for ddFormCreate") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_create",
+                    "payload": [
+                        "url": "https://www.example.com",
+                    ]
+                ]
+                let bodyString = asString(jsonDictionary: body)
+                let message = TestMessage("ddFormCreateEventHandler", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                let payload = delegate.onEventPayload as? PinwheelDDFormCreatePayload
+                expect(payload?.url).to(equal("https://www.example.com"))
+            }
+
+            it("onEvent is called for ddFormDownload") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_download",
+                ]
+                let message = TestMessage("ddFormDownloadEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("dd_form_download"))
+            }
             
             it("onExit is called") {
                 let delegate = PinwheelVCDelegate()
