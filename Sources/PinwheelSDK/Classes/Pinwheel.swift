@@ -212,7 +212,6 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
-<<<<<<< HEAD
 
         case PinwheelEventHandler.screenTransitionEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
@@ -220,10 +219,8 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 self.delegate?.onEvent(name: .screenTransition, event: event.payload)
             }
 
-=======
         case PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue:
             self.delegate?.onEvent(name: .cardSwitchBegin, event: nil)
->>>>>>> origin/master
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
@@ -385,7 +382,6 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
-<<<<<<< HEAD
 
                             case "\(PinwheelEventType.screenTransition.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue)) {
@@ -393,13 +389,11 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                 }
                                 break;
 
-=======
                             case "\(PinwheelEventType.cardSwitchBegin.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
->>>>>>> origin/master
                             case "\(PinwheelEventType.exit.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
