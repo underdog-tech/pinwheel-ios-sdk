@@ -212,6 +212,8 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
+        case PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue:
+            self.delegate?.onEvent(name: .cardSwitchBegin, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
@@ -363,6 +365,11 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
+                            case "\(PinwheelEventType.cardSwitchBegin.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
                             case "\(PinwheelEventType.exit.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
@@ -436,6 +443,7 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case inputAmountEventHandler
     case inputAllocationEventHandler
     case inputRequiredEventHandler
+    case cardSwitchBeginEventHandler
     case exitEventHandler
     case successEventHandler
     case errorEventHandler

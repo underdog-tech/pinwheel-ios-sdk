@@ -204,6 +204,19 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onEventName?.rawValue).to(equal("input_required"))
             }
+
+            it("onEvent is called for card_switch_begin") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "card_switch_begin"
+                ]
+                let message = TestMessage("cardSwitchBeginEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("card_switch_begin"))
+            }
             
             it("onEvent is called for exit") {
                 let delegate = PinwheelVCDelegate()
