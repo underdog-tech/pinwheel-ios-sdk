@@ -212,6 +212,13 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
+
+        case PinwheelEventHandler.screenTransitionEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelScreenTransitionEvent.self, from: bodyData) {
+                self.delegate?.onEvent(name: .screenTransition, event: event.payload)
+            }
+
         case PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue:
             self.delegate?.onEvent(name: .cardSwitchBegin, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
@@ -375,6 +382,13 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
+
+                            case "\(PinwheelEventType.screenTransition.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+
                             case "\(PinwheelEventType.cardSwitchBegin.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
@@ -468,11 +482,12 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case inputAmountEventHandler
     case inputAllocationEventHandler
     case inputRequiredEventHandler
+    case screenTransitionEventHandler
     case cardSwitchBeginEventHandler
-    case exitEventHandler
-    case successEventHandler
-    case errorEventHandler
     case ddFormBeginEventHandler
     case ddFormCreateEventHandler
     case ddFormDownloadEventHandler
+    case exitEventHandler
+    case successEventHandler
+    case errorEventHandler
 }

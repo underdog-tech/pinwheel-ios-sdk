@@ -17,11 +17,12 @@ public enum PinwheelEventType: String {
     case inputAmount = "input_amount"
     case inputAllocation = "input_allocation"
     case inputRequired = "input_required"
+    case screenTransition = "screen_transition"
     case cardSwitchBegin = "card_switch_begin"
-    case exit
-    case success
-    case error
     case ddFormBegin = "dd_form_begin"
     case ddFormCreate = "dd_form_create"
     case ddFormDownload = "dd_form_download"
+    case exit
+    case success
+    case error
 }

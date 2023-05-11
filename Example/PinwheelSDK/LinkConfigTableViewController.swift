@@ -175,8 +175,16 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             print("onEvent(name: .inputAllocation")
         case .inputRequired:
             print("onEvent(name: .inputRequired")
+        case .screenTransition:
+            print("onEvent(name: .screenTransition")
         case .cardSwitchBegin:
             print("onEvent(name: .cardSwitchBegin")
+        case .ddFormBegin:
+            print("onEvent(name: .ddFormBegin")
+        case .ddFormCreate:
+            print("onEvent(name: .ddFormCreate")
+        case .ddFormDownload:
+            print("onEvent(name: .ddFormDownload")
         case .exit:
             print("onEvent(name: .exit")
             self.dismiss(animated: true)
@@ -185,12 +193,7 @@ extension LinkConfigTableViewController: PinwheelDelegate {
             self.dismiss(animated: true)
         case .error:
             print("onEvent(name: .error")
-        case .ddFormBegin:
-            print("onEvent(name: .ddFormBegin")
-        case .ddFormCreate:
-            print("onEvent(name: .ddFormCreate")
-        case .ddFormDownload:
-            print("onEvent(name: .ddFormDownload")
+        
         }
     }
     

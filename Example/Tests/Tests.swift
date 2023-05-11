@@ -480,6 +480,26 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onErrorPayload?.message).to(equal("Uh oh"))
                 expect(delegate.onErrorPayload?.pendingRetry).to(beTrue())
             }
+
+            it("onEvent is called for screen_transition") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "screen_transition",
+                    "payload": [
+                        "screenName" : "SEARCH_DEFAULT",
+                        "selectedPlatformId": nil,
+                        "selectedPlatformName": nil
+                    ]
+                ]
+                let message = TestMessage("screenTransitionEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                let payload = delegate.onEventPayload as? PinwheelScreenTransitionPayload
+                expect(payload?.screenName).to(equal("SEARCH_DEFAULT"))
+                expect(payload?.selectedPlatformId).to(beNil())
+            }
         }
     }
 }
