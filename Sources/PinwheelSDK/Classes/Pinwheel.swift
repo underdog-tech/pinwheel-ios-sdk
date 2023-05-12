@@ -288,7 +288,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
     
     private func getScript(token: String) -> String {
-        var versionString = "2.3.14"
+        var versionString = "2.3.15"
         if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
             print(bundleVersion)
             versionString = bundleVersion
