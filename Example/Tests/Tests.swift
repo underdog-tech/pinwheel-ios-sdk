@@ -204,6 +204,19 @@ class TableOfContentsSpec: QuickSpec {
                 pinwheelVC.userContentController(userContentController, didReceive: message)
                 expect(delegate.onEventName?.rawValue).to(equal("input_required"))
             }
+
+            it("onEvent is called for card_switch_begin") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "card_switch_begin"
+                ]
+                let message = TestMessage("cardSwitchBeginEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("card_switch_begin"))
+            }
             
             it("onEvent is called for exit") {
                 let delegate = PinwheelVCDelegate()
@@ -308,6 +321,50 @@ class TableOfContentsSpec: QuickSpec {
                 expect(payload?.code).to(equal("invalidCredentials"))
                 expect(payload?.message).to(equal("Uh oh"))
                 expect(payload?.pendingRetry).to(beFalse())
+            }
+
+            it("onEvent is called for ddFormBegin") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_begin",
+                ]
+                let message = TestMessage("ddFormBeginEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("dd_form_begin"))
+            }
+
+            it("onEvent is called for ddFormCreate") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_create",
+                    "payload": [
+                        "url": "https://www.example.com",
+                    ]
+                ]
+                let bodyString = asString(jsonDictionary: body)
+                let message = TestMessage("ddFormCreateEventHandler", body: bodyString)
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                let payload = delegate.onEventPayload as? PinwheelDDFormCreatePayload
+                expect(payload?.url).to(equal("https://www.example.com"))
+            }
+
+            it("onEvent is called for ddFormDownload") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "dd_form_download",
+                ]
+                let message = TestMessage("ddFormDownloadEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                expect(delegate.onEventName?.rawValue).to(equal("dd_form_download"))
             }
             
             it("onExit is called") {
@@ -422,6 +479,26 @@ class TableOfContentsSpec: QuickSpec {
                 expect(delegate.onErrorPayload?.code).to(equal("invalidCredentials"))
                 expect(delegate.onErrorPayload?.message).to(equal("Uh oh"))
                 expect(delegate.onErrorPayload?.pendingRetry).to(beTrue())
+            }
+
+            it("onEvent is called for screen_transition") {
+                let delegate = PinwheelVCDelegate()
+                let userContentController = WKUserContentController()
+                let body: JSONDictionary = [
+                    "type": "PINWHEEL_EVENT",
+                    "eventName": "screen_transition",
+                    "payload": [
+                        "screenName" : "SEARCH_DEFAULT",
+                        "selectedPlatformId": nil,
+                        "selectedPlatformName": nil
+                    ]
+                ]
+                let message = TestMessage("screenTransitionEventHandler", body: asString(jsonDictionary: body))
+                let pinwheelVC = PinwheelViewController(token: linkToken, delegate: delegate)
+                pinwheelVC.userContentController(userContentController, didReceive: message)
+                let payload = delegate.onEventPayload as? PinwheelScreenTransitionPayload
+                expect(payload?.screenName).to(equal("SEARCH_DEFAULT"))
+                expect(payload?.selectedPlatformId).to(beNil())
             }
         }
     }

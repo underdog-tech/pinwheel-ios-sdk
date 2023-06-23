@@ -212,6 +212,15 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
             }
         case PinwheelEventHandler.inputRequiredEventHandler.rawValue:
             self.delegate?.onEvent(name: .inputRequired, event: nil)
+
+        case PinwheelEventHandler.screenTransitionEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelScreenTransitionEvent.self, from: bodyData) {
+                self.delegate?.onEvent(name: .screenTransition, event: event.payload)
+            }
+
+        case PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue:
+            self.delegate?.onEvent(name: .cardSwitchBegin, event: nil)
         case PinwheelEventHandler.exitEventHandler.rawValue:
             if let bodyData = bodyDataFromMessage(message),
                let event = try? JSONDecoder().decode(PinwheelExitEvent.self, from: bodyData) {
@@ -233,6 +242,16 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                 self.delegate?.onEvent(name: .error, event: event.payload)
                 self.delegate?.onError(event.payload)
             }
+        case PinwheelEventHandler.ddFormBeginEventHandler.rawValue:
+            self.delegate?.onEvent(name: .ddFormBegin, event: nil)
+        case PinwheelEventHandler.ddFormCreateEventHandler.rawValue:
+            if let bodyData = bodyDataFromMessage(message),
+               let event = try? JSONDecoder().decode(PinwheelDDFormCreateEvent.self, from: bodyData) {
+
+                self.delegate?.onEvent(name: .ddFormCreate, event: event.payload)
+            }
+        case PinwheelEventHandler.ddFormDownloadEventHandler.rawValue:
+            self.delegate?.onEvent(name: .ddFormDownload, event: nil)
         default:
             print("Unhandled message: \(message.name)")
         }
@@ -269,7 +288,7 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
     }
     
     private func getScript(token: String) -> String {
-        var versionString = "2.3.14"
+        var versionString = "2.3.15"
         if let bundleVersion = Bundle(identifier: "org.cocoapods.PinwheelSDK")?.infoDictionary?["CFBundleShortVersionString"] as? String {
             print(bundleVersion)
             versionString = bundleVersion
@@ -363,6 +382,18 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.inputRequiredEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
+
+                            case "\(PinwheelEventType.screenTransition.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.screenTransitionEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+
+                            case "\(PinwheelEventType.cardSwitchBegin.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.cardSwitchBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
                             case "\(PinwheelEventType.exit.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.exitEventHandler.rawValue).postMessage(JSON.stringify(event.data));
@@ -376,6 +407,21 @@ public class PinwheelViewController: UIViewController, WKUIDelegate, WKScriptMes
                             case "\(PinwheelEventType.error.rawValue)":
                                 if (window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue)) {
                                     window.webkit.messageHandlers.\(PinwheelEventHandler.errorEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormBegin.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormBeginEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormBeginEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormCreate.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormCreateEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormCreateEventHandler.rawValue).postMessage(JSON.stringify(event.data));
+                                }
+                                break;
+                            case "\(PinwheelEventType.ddFormDownload.rawValue)":
+                                if (window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormDownloadEventHandler.rawValue)) {
+                                    window.webkit.messageHandlers.\(PinwheelEventHandler.ddFormDownloadEventHandler.rawValue).postMessage(JSON.stringify(event.data));
                                 }
                                 break;
                         }
@@ -436,6 +482,11 @@ private enum PinwheelEventHandler: String, CaseIterable {
     case inputAmountEventHandler
     case inputAllocationEventHandler
     case inputRequiredEventHandler
+    case screenTransitionEventHandler
+    case cardSwitchBeginEventHandler
+    case ddFormBeginEventHandler
+    case ddFormCreateEventHandler
+    case ddFormDownloadEventHandler
     case exitEventHandler
     case successEventHandler
     case errorEventHandler
