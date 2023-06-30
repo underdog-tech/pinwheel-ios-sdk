@@ -1,0 +1,21 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.swift]
+max_line_length = 100
+curly_bracket_next_line = false
+indent_brace_style = K&R
+
+[*.md]
+trim_trailing_whitespace = false
+indent_size = 2
