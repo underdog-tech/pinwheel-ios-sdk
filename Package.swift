@@ -14,6 +14,11 @@ let package = Package(
         .binaryTarget(
           name: "PinwheelSDK",
           path: "PinwheelSDK.xcframework"
-        ),
+        )
+        .testTarget(
+            name: "PinwheelSDK_Tests",
+            dependencies: ["PinwheelSDK"],
+            path: "Example/Tests"
+        )
     ]
 )
