@@ -20,6 +20,11 @@ jobs:
           name: Update Internal SDK and tag with Alpha
           command: ./scripts/update-sdk.sh --latest --alpha
       - run:
+          name: Configure git
+          command: |
+            git config user.email "pinwheel-it@pinwheelapi.com"
+            git config user.name "pinwheel-it-svc"
+      - run:
           name: 'Git tag version'
           command: ./scripts/git-tag.sh
 
@@ -27,7 +32,7 @@ workflows:
   branch-workflow:
     jobs:
       - test_build:
-          context: 'frontend-production'
+          context: 'production'
           filters:
             branches:
               ignore: master
