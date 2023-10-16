@@ -14,10 +14,12 @@ jobs:
       - checkout
       - run: pod install # Install CocoaPods dependencies
       - run: bundle install # Install gems
-      - run: |
-        ./scripts/update-sdk.sh --latest --alpha
-      - run: |
-        ./scripts/git-tag.sh
+      - run:
+          name: Update Internal SDK and tag with Alpha
+          command: ./scripts/update-sdk.sh --latest --alpha
+      - run:
+          name: 'Git tag version'
+          command: ./scripts/git-tag.sh
 
 workflows:
   branch-workflow:
