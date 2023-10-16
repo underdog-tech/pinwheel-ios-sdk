@@ -4,7 +4,7 @@
 version: 2.1
 
 jobs:
-  build:
+  test_build:
     # working_directory: ~/pinwheel-ios-sdk/Example
 
     macos:
@@ -12,17 +12,24 @@ jobs:
 
     steps:
       - checkout
-      # - checkout:
-      #     path: ~/pinwheel-ios-sdk
-      # - run: pod install # Install CocoaPods dependencies
-      # - run: bundle install # Install gems
-      # - run: bundle exec fastlane ios tests # Run tests using Fastlane
-      # - run: bundle exec fastlane ios aws_device_run_ios # Run ui tests using Fastlane
+      - run: pod install # Install CocoaPods dependencies
+      - run: bundle install # Install gems
+      - run: |
+        ./scripts/update-sdk.sh --latest --alpha
+      - run: |
+        ./scripts/git-tag.sh
 
-      # # Collect XML test results data to show in the UI, and save the same XML
-      # # files under test-results folder in the Artifacts tab
-      # - store_test_results:
-      #     path: test_output
-      # - store_artifacts:
-      #     path: test_output
-      #     destination: test-output
+workflows:
+  branch-workflow:
+    jobs:
+      - test_build:
+          filters:
+            branches:
+              ignore: master
+  #master-workflow:
+    #jobs:
+      #- build_and_publish:
+          #context: 'frontend-production'
+          #filters:
+            #branches:
+              #only: master

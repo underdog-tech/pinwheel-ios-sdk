@@ -20,6 +20,7 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         --help) HELP=true;;
         --latest) LATEST=true;;
+        --alpha) ALPHA=true;;
         --limit) LIMIT="$2"; shift;;
         --version) VERSION_FILTER="$2"; shift;;
         *) echo "Unknown parameter passed: $1"; exit 1;;
@@ -94,6 +95,18 @@ unzip temp.zip
 rm temp_versions.json
 rm temp.zip
 
-echo \>\> Updating version in podspec to $VERSION
-sed -i '' -E "s/[0-9]+\.[0-9]+\.[0-9]+/$VERSION/" PinwheelSDK.podspec
+echo ">> Updating version in podspec to $VERSION"
+
+if [ "$ALPHA" = "true" ]; then
+    # Create the alpha tag
+    ALPHA_TAG=".alpha-$HASH" # Here, I'm taking the first 7 characters of the HASH, modify as needed
+    NEW_VERSION="$VERSION$ALPHA_TAG"
+else
+    NEW_VERSION="$VERSION"
+fi
+
+# Replace the version in the podspec
+echo \>\> Updating version in podspec to $NEW_VERSION
+sed -i '' -E "s/[0-9]+\.[0-9]+\.[0-9]+/$NEW_VERSION/" PinwheelSDK.podspec
+
 echo \>\> Done
