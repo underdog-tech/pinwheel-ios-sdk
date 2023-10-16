@@ -1,24 +1,16 @@
 #!/bin/bash
 
 # Define the location of the versions.json in S3
-#S3_PATH="s3://pinwheel-cdn/ios/versions.json"
+S3_PATH="s3://ios-sdk-internal-builds/versions.json"
 
 # Ensure AWS CLI is installed and configured with appropriate permissions
 # TODO
 
 # Fetch the JSON content from S3
-#aws s3 cp "$S3_PATH" - | jq . > temp_versions.json
-#JSON_CONTENT=$(cat temp_versions.json)
-
-# TODO: THIS SHOULD BE REMOVED IF WE USE S3
-JSON_URL="https://cdn.getpinwheel.com/ios/versions.json"
+aws s3 cp "$S3_PATH" - | jq . > temp_versions.json
+JSON_CONTENT=$(cat temp_versions.json)
 
 XCFRAMEWORK_DIRNAME="PinwheelSDK.xcframework"
-
-# Fetch the JSON content
-# JSON_CONTENT=$(wget -qO- "$JSON_URL")
-JSON_CONTENT=$(curl -s "$JSON_URL")
-
 
 # Default limit for the number of entries displayed
 LIMIT=10
@@ -85,11 +77,10 @@ VERSION=$(echo $ENTRY | cut -d' ' -f1)
 HASH=$(echo $ENTRY | cut -d' ' -f3)
 
 # Extract binaryURL for the selected version and hash
-URL=$(echo "$JSON_CONTENT" | jq -r --arg v "$VERSION" --arg h "$HASH" '.versions[] | select(.version==$v and .hash==$h) | .binaryURL')
+BINARY_S3_URL=$(echo "$JSON_CONTENT" | jq -r --arg v "$VERSION" --arg h "$HASH" '.versions[] | select(.version==$v and .hash==$h) | .binaryURL')
 
 # Download
-# wget "$URL" -O temp.zip
-curl -o temp.zip "$URL"
+aws s3 cp "$BINARY_S3_URL" temp.zip
 
 # Check if the directory exists, and if so, remove it
 if [ -d "$XCFRAMEWORK_DIRNAME" ]; then
@@ -98,7 +89,7 @@ fi
 
 # Unpack
 unzip temp.zip
-rm temp.zip
 
-# Clean up the temporary versions file
-# rm temp_versions.json
+# Clean up
+rm temp_versions.json
+rm temp.zip
