@@ -93,3 +93,7 @@ unzip temp.zip
 # Clean up
 rm temp_versions.json
 rm temp.zip
+
+echo \>\> Updating version in podspec to $VERSION
+sed -i '' -E "s/[0-9]+\.[0-9]+\.[0-9]+/$VERSION/" PinwheelSDK.podspec
+echo \>\> Done
