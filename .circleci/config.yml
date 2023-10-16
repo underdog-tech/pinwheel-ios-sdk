@@ -32,7 +32,7 @@ workflows:
   branch-workflow:
     jobs:
       - test_build:
-          context: 'production'
+          context: 'frontend-production'
           filters:
             branches:
               ignore: master
