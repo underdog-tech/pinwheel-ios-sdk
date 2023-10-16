@@ -1,0 +1,340 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PinwheelSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+public protocol BrowserJobViewControllerDelegate : AnyObject {
+  func sendMessage(_ message: [Swift.String : Any], isTerminal: Swift.Bool)
+}
+@objc public class PinwheelScriptMessageHandler : ObjectiveC.NSObject, WebKit.WKScriptMessageHandler {
+  public init(delegate: WebKit.WKScriptMessageHandler)
+  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) public class BrowserJobViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) public init(event: PinwheelSDK.PinwheelEdgeRequestEvent, delegate: PinwheelSDK.BrowserJobViewControllerDelegate)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+extension PinwheelSDK.BrowserJobViewController : WebKit.WKUIDelegate {
+}
+extension PinwheelSDK.BrowserJobViewController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+extension PinwheelSDK.BrowserJobViewController : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+public struct PinwheelAllocation : Swift.Codable {
+  public let type: Swift.String
+  public let value: Swift.Float?
+  public let target: PinwheelSDK.PinwheelTarget?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelAmountPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(unit: Swift.String, value: Swift.Float)
+  public var unit: Swift.String
+  public var value: Swift.Float
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelDDFormCreateEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelDDFormCreatePayload)
+  public let type: Swift.String
+  public let eventName: Swift.String
+  public let payload: PinwheelSDK.PinwheelDDFormCreatePayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelDDFormCreatePayload : PinwheelSDK.PinwheelEventPayload {
+  public init(url: Swift.String)
+  public let url: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelEdgeRequestEvent : PinwheelSDK.PinwheelEventPayload {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelEdgeRequestPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelEdgeRequestPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelEdgeRequestPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(webviewUrl: Swift.String, successCriteria: PinwheelSDK.PinwheelEdgeRequestSuccessCriteria)
+  public var webviewUrl: Swift.String
+  public var successCriteria: PinwheelSDK.PinwheelEdgeRequestSuccessCriteria
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelEdgeRequestSuccessCriteria : PinwheelSDK.PinwheelEventPayload {
+  public init(type: Swift.String, value: Swift.String)
+  public var type: Swift.String
+  public var value: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelError : PinwheelSDK.PinwheelEventPayload {
+  public init(type: Swift.String, code: Swift.String, message: Swift.String, pendingRetry: Swift.Bool)
+  public let type: Swift.String
+  public let code: Swift.String
+  public let message: Swift.String
+  public let pendingRetry: Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelErrorEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelError)
+  public let type: Swift.String
+  public let eventName: Swift.String
+  public let payload: PinwheelSDK.PinwheelError
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol PinwheelEventPayload : Swift.Decodable, Swift.Encodable {
+  func jsonString() throws -> Swift.String
+}
+extension PinwheelSDK.PinwheelEventPayload {
+  public func jsonString() throws -> Swift.String
+}
+public enum PinwheelEventType : Swift.String {
+  case edgeRequest
+  case open
+  case selectEmployer
+  case selectPlatform
+  case incorrectPlatformGiven
+  case login
+  case loginAttempt
+  case inputAmount
+  case inputAllocation
+  case inputRequired
+  case screenTransition
+  case cardSwitchBegin
+  case ddFormBegin
+  case ddFormCreate
+  case ddFormDownload
+  case exit
+  case success
+  case error
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PinwheelExitEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelExitPayload?)
+  public let type: Swift.String
+  public let eventName: Swift.String
+  public let payload: PinwheelSDK.PinwheelExitPayload?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelExitPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(error: PinwheelSDK.PinwheelError?)
+  public let error: PinwheelSDK.PinwheelError?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelInputAllocationEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelInputAllocationPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelInputAllocationPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelInputAllocationPayload : PinwheelSDK.PinwheelEventPayload {
+  public let action: Swift.String
+  public let allocation: PinwheelSDK.PinwheelAllocation?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelInputAmountEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelAmountPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelAmountPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelLoginAttemptEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelLoginAttemptPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelLoginAttemptPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelLoginAttemptPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(platformId: Swift.String)
+  public let platformId: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelLoginEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelLoginPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelLoginPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelLoginPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(accountId: Swift.String, platformId: Swift.String)
+  public let accountId: Swift.String
+  public let platformId: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelParams : Swift.Codable {
+  public init(amount: PinwheelSDK.PinwheelAmountPayload?)
+  public let amount: PinwheelSDK.PinwheelAmountPayload?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelScreenTransitionEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelScreenTransitionPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelScreenTransitionPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelScreenTransitionPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(screenName: Swift.String, selectedEmployerId: Swift.String?, selectedEmployerName: Swift.String?, selectedPlatformId: Swift.String?, selectedPlatformName: Swift.String?)
+  public let screenName: Swift.String
+  public let selectedEmployerId: Swift.String?
+  public let selectedEmployerName: Swift.String?
+  public let selectedPlatformId: Swift.String?
+  public let selectedPlatformName: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSelectedEmployerEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelSelectedEmployerPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelSelectedEmployerPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSelectedEmployerPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(selectedEmployerId: Swift.String, selectedEmployerName: Swift.String)
+  public let selectedEmployerId: Swift.String
+  public let selectedEmployerName: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSelectedPlatformEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelSelectedPlatformPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelSelectedPlatformPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSelectedPlatformPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(selectedPlatformId: Swift.String, selectedPlatformName: Swift.String)
+  public let selectedPlatformId: Swift.String
+  public let selectedPlatformName: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSuccessEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelSuccessPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelSuccessPayload
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelSuccessPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(accountId: Swift.String, job: Swift.String, params: PinwheelSDK.PinwheelParams?, platformId: Swift.String)
+  public let accountId: Swift.String
+  public let job: Swift.String
+  public let params: PinwheelSDK.PinwheelParams?
+  public let platformId: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelTarget : Swift.Codable {
+  public let accountType: Swift.String
+  public let accountName: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol PinwheelDelegate : AnyObject {
+  func onEvent(name: PinwheelSDK.PinwheelEventType, event: PinwheelSDK.PinwheelEventPayload?)
+  func onExit(_ error: PinwheelSDK.PinwheelError?)
+  func onSuccess(_ result: PinwheelSDK.PinwheelSuccessPayload)
+  func onLogin(_ result: PinwheelSDK.PinwheelLoginPayload)
+  func onLoginAttempt(_ result: PinwheelSDK.PinwheelLoginAttemptPayload)
+  func onError(_ error: PinwheelSDK.PinwheelError)
+}
+extension PinwheelSDK.PinwheelDelegate {
+  public func onEvent(name: PinwheelSDK.PinwheelEventType, event: PinwheelSDK.PinwheelEventPayload?)
+  public func onExit(_ error: PinwheelSDK.PinwheelError?)
+  public func onSuccess(_ result: PinwheelSDK.PinwheelSuccessPayload)
+  public func onLogin(_ result: PinwheelSDK.PinwheelLoginPayload)
+  public func onLoginAttempt(_ result: PinwheelSDK.PinwheelLoginAttemptPayload)
+  public func onError(_ error: PinwheelSDK.PinwheelError)
+}
+public enum PinwheelMode : Swift.String, Swift.CaseIterable {
+  case development
+  case sandbox
+  case production
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [PinwheelSDK.PinwheelMode]
+  public typealias RawValue = Swift.String
+  public static var allCases: [PinwheelSDK.PinwheelMode] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PinwheelEnvironment {
+  case local(linkURL: Swift.String)
+  case staging
+  case production
+}
+extension PinwheelSDK.PinwheelEnvironment {
+  public init(value: Swift.String)
+  public init(value: Swift.String, linkURL: Swift.String?)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct PinwheelConfig {
+  public let mode: PinwheelSDK.PinwheelMode
+  public let environment: PinwheelSDK.PinwheelEnvironment
+  public var linkURL: Swift.String {
+    get
+  }
+  public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment)
+}
+@objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler, PinwheelSDK.BrowserJobViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig)
+  @_Concurrency.MainActor(unsafe) convenience public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @_Concurrency.MainActor(unsafe) public func sendMessage(_ message: [Swift.String : Any], isTerminal: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func finishBrowserJob(withClose: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+  @objc deinit
+}
+extension PinwheelSDK.PinwheelEventType : Swift.Equatable {}
+extension PinwheelSDK.PinwheelEventType : Swift.Hashable {}
+extension PinwheelSDK.PinwheelEventType : Swift.RawRepresentable {}
+extension PinwheelSDK.PinwheelMode : Swift.Equatable {}
+extension PinwheelSDK.PinwheelMode : Swift.Hashable {}
+extension PinwheelSDK.PinwheelMode : Swift.RawRepresentable {}
