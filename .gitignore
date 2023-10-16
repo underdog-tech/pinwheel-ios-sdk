@@ -42,3 +42,5 @@ Example/PinwheelSDK-Example.app.dSYM.zip
 
 # Phylum Integration
 .phylum_project
+
+.build
