@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: 'Install aws-cli'
+          command: ./scripts/install-aws-mac.sh
       - run: bundle install # Install gems
       - run:
           name: Update Internal SDK and tag with Alpha
