@@ -12,7 +12,6 @@ jobs:
 
     steps:
       - checkout
-      - run: pod install # Install CocoaPods dependencies
       - run: bundle install # Install gems
       - run:
           name: Update Internal SDK and tag with Alpha
