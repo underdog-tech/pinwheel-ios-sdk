@@ -12,7 +12,7 @@ echo \>\> ruby version: $(ruby -v)
 
 echo \>\> Installing ruby gems
 # rm Gemfile.lock
-# bundle install
+bundle install
 echo \>\> Successfully installed gems with bundle install
 
 # echo \>\> Updating cocoapods
