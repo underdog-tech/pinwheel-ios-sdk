@@ -17,5 +17,8 @@ git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@gith
 
 
 # Add new tag
-  git tag "$VERSION"
-  git push authenticated --tags || echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publish. && circleci-agent step halt
+git tag "$VERSION"
+
+git push authenticated --tags || \
+  (echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publish. \
+  && circleci-agent step halt)
