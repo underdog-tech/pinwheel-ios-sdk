@@ -31,6 +31,7 @@ else
   CHANGELOG_DIFF=$(git diff CHANGELOG.md | grep '^+[^+]' | sed 's/^[ \t+-]*//')
 
   git add .
+
   git commit -m "Release $VERSION"
 
   # Push the new branch to GitHub
