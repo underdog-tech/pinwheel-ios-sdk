@@ -18,7 +18,7 @@ git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@gith
 
 TAG_EXISTS=$(git tag -l "$VERSION")
 
-if [ TAG_EXISTS ]; then
+if [ -n "$TAG_EXISTS" ]; then
   echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publishes.
   exit 1
 else
