@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
 gem "cocoapods"
-gem "fastlane"
+gem 'activesupport', '~> 7.0.8'

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PinwheelSDK'
-  s.version          = '2.3.15'
+  s.version          = '2.4.0'
   s.summary          = 'Pinwheel iOS SDK'
   s.swift_version    = '5.0'
 
@@ -15,5 +15,9 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'Sources/**/*.swift'
+  s.default_subspec  = 'PinwheelLinkSDK'
+  s.subspec 'PinwheelLinkSDK' do |ss|
+    ss.vendored_frameworks = "PinwheelSDK.xcframework"
+    ss.ios.deployment_target  = '12.0'
+  end
 end

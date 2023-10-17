@@ -1,28 +1,26 @@
-# For a detailed guide to building and testing on iOS, read the docs:
-# https://circleci.com/docs/2.0/testing-ios/
-
 version: 2.1
 
 jobs:
-  build:
-    working_directory: ~/pinwheel-ios-sdk/Example
-
+  build_and_tag:
     macos:
-      xcode: 12.5.1 # Specify the Xcode version to use
-    resource_class: large
-
+      xcode: 15.0.0
     steps:
-      - checkout:
-          path: ~/pinwheel-ios-sdk
-      - run: pod install # Install CocoaPods dependencies
-      - run: bundle install # Install gems
-      - run: bundle exec fastlane ios tests # Run tests using Fastlane
-      - run: bundle exec fastlane ios aws_device_run_ios # Run ui tests using Fastlane
+      - checkout
+      - run:
+          name: Install AWS CLI
+          command: ./scripts/install-aws-mac.sh
+      - run:
+          name: Update SDK
+          command: ./scripts/update-sdk.sh --latest
+      - run:
+          name: 'Git tag version'
+          command: ./scripts/git-tag.sh
+      - run:
+          name: Cocoapods upload
+          command: ./scripts/cocoapods-upload.sh
 
-      # Collect XML test results data to show in the UI, and save the same XML
-      # files under test-results folder in the Artifacts tab
-      - store_test_results:
-          path: test_output
-      - store_artifacts:
-          path: test_output
-          destination: test-output
+workflows:
+  branch-workflow:
+    jobs:
+      - build_and_tag:
+          context: 'frontend-production'

@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -11,13 +11,9 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        .target(
-            name: "PinwheelSDK",
-            dependencies: []),
-        .testTarget(
-            name: "PinwheelSDK_Tests",
-            dependencies: ["PinwheelSDK"],
-            path: "Example/Tests"
+        .binaryTarget(
+          name: "PinwheelSDK",
+          path: "PinwheelSDK.xcframework"
         ),
     ]
 )

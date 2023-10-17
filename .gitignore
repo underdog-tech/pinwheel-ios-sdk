@@ -1,6 +1,8 @@
 # OS X
 .DS_Store
 
+temp_versions.json
+
 # Xcode
 build/
 *.pbxuser
@@ -42,3 +44,5 @@ Example/PinwheelSDK-Example.app.dSYM.zip
 
 # Phylum Integration
 .phylum_project
+
+.build
