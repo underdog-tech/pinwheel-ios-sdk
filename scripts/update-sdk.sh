@@ -4,7 +4,8 @@
 set -e
 
 # Define the location of the versions.json in S3
-S3_PATH="s3://ios-sdk-internal-builds/versions.json"
+S3_PATH="s3://ios-sdk-internal-builds/ios/versions.json"
+CHANGELOG_S3_PATH="s3://ios-sdk-internal-builds/ios/CHANGELOG.md"
 
 # Fetch the JSON content from S3
 aws s3 cp "$S3_PATH" - | jq . > temp_versions.json
@@ -98,6 +99,9 @@ unzip temp.zip
 # Clean up
 rm temp_versions.json
 rm temp.zip
+
+# Download Changelog
+aws s3 cp "$CHANGELOG_S3_PATH" CHANGELOG.md
 
 echo ">> Updating version in podspec from $VERSION"
 
