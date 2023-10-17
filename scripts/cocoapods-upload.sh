@@ -24,10 +24,12 @@ echo "login $COCOAPODS_TRUNK_EMAIL" >> ~/.netrc
 echo "password $COCOAPODS_TRUNK_TOKEN" >> ~/.netrc
 chmod 0600 /Users/distiller/.netrc
 
-echo \>\> Pod register
+# echo \>\> Pod register
 CURRENT_GIT_TAG=$(git describe --tags --abbrev=0)
 DESCRIPTION="Pushing pinwheel-ios-sdk version $CURRENT_GIT_TAG to Cocoapods"
-pod trunk register $COCOAPODS_TRUNK_EMAIL Octavio --description=$CURRENT_GIT_TAG
+# pod trunk register $COCOAPODS_TRUNK_EMAIL Octavio --description=$CURRENT_GIT_TAG
+
+echo \>\> $DESCRIPTION
 
 echo \>\> Pod me
 pod trunk me
