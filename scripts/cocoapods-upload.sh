@@ -26,6 +26,7 @@ echo "password $COCOAPODS_TRUNK_TOKEN" >> ~/.netrc
 
 # Push the pod to CocoaPods
 echo \>\>  Pushing cocoapods
+pod update
 pod trunk push PinwheelSDK.podspec
 
 echo ">> Done"
