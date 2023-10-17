@@ -2,6 +2,11 @@
 
 # This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
 set -e
+source ./scripts/helpers.sh
+
+# Get latest tags
+set_up_github_user
+git pull authenticated master
 
 echo \>\> ruby version: $(ruby -v)
 rbenv global 3.2.2
