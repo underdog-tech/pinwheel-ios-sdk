@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
+set -e
+
 # Define the location of the versions.json in S3
 S3_PATH="s3://ios-sdk-internal-builds/versions.json"
 
