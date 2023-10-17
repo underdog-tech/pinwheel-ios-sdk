@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build_and_tag:
     macos:
-      xcode: 14.2.0
+      xcode: 15.0.0
 
     steps:
       - checkout
