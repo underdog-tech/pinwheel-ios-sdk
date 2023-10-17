@@ -44,7 +44,7 @@ else
     https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls \
     -d '{
       "title": "Release '$VERSION'",
-      "head": "'"$VERSION"'",
+      "head": "'"$BRANCH_NAME"'",
       "base": "'"$TARGET_BRANCH"'",
       "body": "'"$CHANGELOG_DIFF"'"
     }'
