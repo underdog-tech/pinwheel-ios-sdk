@@ -7,11 +7,14 @@ VERSION=$(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\
 
 echo $VERSION
 
-# Tag the commit
-git tag -d "$VERSION"
-
 # Add the remote with the access token
 git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
+
+# Delete the old tag
+git tag -d "$VERSION"
+
+# Add new tag
+git tag "$VERSION"
 
 # Push the tag
 git push authenticated --tags
