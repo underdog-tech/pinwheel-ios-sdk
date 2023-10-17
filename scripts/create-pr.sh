@@ -20,6 +20,10 @@ if [ -z "$(git status --porcelain)" ]; then
     circleci-agent step halt
 else
   BRANCH_NAME="release-$VERSION"
+
+  # Delete branch if exists
+  git branch | grep $BRANCH_NAME && git branch -D $BRANCH_NAME
+
   # Check out a new branch named after the version
   git checkout -b $BRANCH_NAME
 
@@ -39,8 +43,8 @@ else
     https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls \
     -d '{
       "title": "Release '$VERSION'",
-      "head": "$BRANCH_NAME",
-      "base": "$TARGET_BRANCH",
-      "body": "$CHANGELOG_DIFF"
+      "head": "'"$VERSION"'",
+      "base": "'"$TARGET_BRANCH"'",
+      "body": "'"$CHANGELOG_DIFF"'"
     }'
 fi
