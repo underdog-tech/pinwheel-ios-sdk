@@ -11,7 +11,8 @@ echo $VERSION
 git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
 
 # Delete the old tag
-git tag -d "$VERSION"
+git pull --tags
+# git tag -d "$VERSION"
 
 # Add new tag
 git tag "$VERSION"
