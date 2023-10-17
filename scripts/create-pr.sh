@@ -50,7 +50,7 @@ else
     }')
 
     # Use jq to extract the "url" field and store it in a variable
-    url=$(echo "$response" | jq -r '.url')
+    url=$(echo "$response" | jq -r '.html_url')
 
     # Print the extracted URL
     echo \>\> Success! \(But this pipeline will fail\)

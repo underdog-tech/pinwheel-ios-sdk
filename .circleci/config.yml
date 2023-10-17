@@ -69,5 +69,5 @@ workflows:
           context: 'frontend-production'
       - release_cocoapods:
           requires:
-            - hold_for_approval
+            - release_github
           context: 'frontend-production'
