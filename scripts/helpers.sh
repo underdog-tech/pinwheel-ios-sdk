@@ -27,5 +27,5 @@ function get_version () {
 function set_up_github_user () {
   git config user.email "pinwheel-it@pinwheelapi.com"
   git config user.name "pinwheel-it-svc"
-  git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
+  git remote | grep "authenticated" || git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
 }
