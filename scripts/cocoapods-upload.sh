@@ -6,17 +6,10 @@ set -e
 echo \>\> ruby version: $(ruby -v)
 rbenv global 3.2.2
 echo \>\> ruby version: $(ruby -v)
-# echo \>\> which ruby: $(which ruby)
-# brew install ruby
-# echo \>\> which ruby: $(which ruby)
 
 echo \>\> Installing ruby gems
 bundle install
 echo \>\> Successfully installed gems with bundle install
-
-# echo \>\> Updating cocoapods
-# bundle update
-# echo \>\> Updated cocoapods
 
 echo \>\> Setting up cocoapods auth
 echo "machine trunk.cocoapods.org" >> ~/.netrc

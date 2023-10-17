@@ -6,9 +6,6 @@ set -e
 # Define the location of the versions.json in S3
 S3_PATH="s3://ios-sdk-internal-builds/versions.json"
 
-# Ensure AWS CLI is installed and configured with appropriate permissions
-# TODO
-
 # Fetch the JSON content from S3
 aws s3 cp "$S3_PATH" - | jq . > temp_versions.json
 JSON_CONTENT=$(cat temp_versions.json)
