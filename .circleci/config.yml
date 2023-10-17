@@ -16,9 +16,9 @@ jobs:
       - run:
           name: 'Git tag version'
           command: ./scripts/git-tag.sh
-      - run:
-          name: Cocoapods upload
-          command: ./scripts/cocoapods-upload.sh
+      # - run:
+      #     name: Cocoapods upload
+      #     command: ./scripts/cocoapods-upload.sh
 
 workflows:
   branch-workflow:

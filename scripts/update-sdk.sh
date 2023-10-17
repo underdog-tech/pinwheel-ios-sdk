@@ -23,7 +23,7 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         --help) HELP=true;;
         --latest) LATEST=true;;
-        --alpha) ALPHA=true;;
+        --alpha) IS_ALPHA=true;;
         --limit) LIMIT="$2"; shift;;
         --version) VERSION_FILTER="$2"; shift;;
         *) echo "Unknown parameter passed: $1"; exit 1;;
@@ -32,15 +32,8 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # The following logic allows us to run the same job in circle regardless of branch
-# If ALPHA is not already set...
-if [ -z "$ALPHA" ]; then
-  # If current branch is master...
-  current_branch=$(git rev-parse --abbrev-ref HEAD)
-  if [ "$current_branch" != "master" ]; then
-    # Set alpha to true. This is relevant for setting alpha by default on non-master branches in our CI.
-    ALPHA=true
-  fi
-fi
+source ./scripts/helpers.sh
+IS_ALPHA=$(get_alpha_val)
 
 if [ "$HELP" == "true" ]; then
     echo "Usage: ./update-sdk.sh [OPTIONS]"
@@ -111,7 +104,7 @@ rm temp.zip
 
 echo ">> Updating version in podspec from $VERSION"
 
-if [ "$ALPHA" = "true" ]; then
+if [ "$IS_ALPHA" = "true" ]; then
     # Create the alpha tag
     ALPHA_TAG=".alpha-$HASH" # Here, I'm taking the first 7 characters of the HASH, modify as needed
     NEW_VERSION="$VERSION$ALPHA_TAG"
