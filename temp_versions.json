@@ -1,0 +1,15 @@
+{
+  "packageName": "PinwheelSDK",
+  "latestVersion": {
+    "version": "2.4.0",
+    "hash": "4733e0c"
+  },
+  "versions": [
+    {
+      "version": "2.4.0",
+      "hash": "4733e0c",
+      "binaryURL": "s3://ios-sdk-internal-builds/PinwheelSDK.xcframework-2.4.0-4733e0c.zip",
+      "publishedAt": "2023-10-16T19:02:21Z"
+    }
+  ]
+}
