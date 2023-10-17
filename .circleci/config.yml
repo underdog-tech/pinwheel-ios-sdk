@@ -7,15 +7,15 @@ jobs:
 
     steps:
       - checkout
-      # - run:
-      #     name: Install AWS CLI
-      #     command: ./scripts/install-aws-mac.sh
-      # - run:
-      #     name: Update SDK
-      #     command: ./scripts/update-sdk.sh --latest
-      # - run:
-      #     name: 'Git tag version'
-      #     command: ./scripts/git-tag.sh
+      - run:
+          name: Install AWS CLI
+          command: ./scripts/install-aws-mac.sh
+      - run:
+          name: Update SDK
+          command: ./scripts/update-sdk.sh --latest
+      - run:
+          name: 'Git tag version'
+          command: ./scripts/git-tag.sh
       - run:
           name: Cocoapods upload
           command: ./scripts/cocoapods-upload.sh
