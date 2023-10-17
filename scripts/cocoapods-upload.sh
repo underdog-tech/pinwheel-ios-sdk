@@ -4,9 +4,6 @@
 set -e
 
 echo \>\> ruby version: $(ruby -v)
-rbenv install --list
-
-rbenv install 3.2.2
 rbenv global 3.2.2
 echo \>\> ruby version: $(ruby -v)
 # echo \>\> which ruby: $(which ruby)
