@@ -8,7 +8,7 @@ source ./scripts/helpers.sh
 # Configuration
 REPO_OWNER="underdog-tech"
 REPO_NAME="pinwheel-ios-sdk"
-GITHUB_TOKEN=$GITHUB_TOKEN_CTX
+GITHUB_TOKEN=$GITHUB_PR_ACCESS_TOKEN
 VERSION=$(get_version)
 TARGET_BRANCH="master"
 
