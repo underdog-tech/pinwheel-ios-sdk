@@ -15,6 +15,9 @@ echo \>\> Installing ruby gems
 bundle install
 echo \>\> Successfully installed gems with bundle install
 
+gem uninstall activesupport
+gem install activesupport -v 7.0.8
+
 # echo \>\> Updating cocoapods
 # bundle update
 # echo \>\> Updated cocoapods
@@ -25,8 +28,8 @@ echo "login $COCOAPODS_TRUNK_EMAIL" >> ~/.netrc
 echo "password $COCOAPODS_TRUNK_TOKEN" >> ~/.netrc
 
 # Push the pod to CocoaPods
-echo \>\>  Pod update
-pod update
+# echo \>\>  Pod update
+# pod update
 echo \>\>  Pushing cocoapods
 pod trunk push PinwheelSDK.podspec
 
