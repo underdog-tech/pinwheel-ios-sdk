@@ -14,10 +14,10 @@ echo $VERSION
 git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
 
 # Delete old tag (otherwise new tagging will fail)
-git tag -d "$VERSION"
+git tag -d "$VERSION" || echo Ignore error, no previous tag named \"$VERSION\" to delete
 
 # Add new tag
 git tag "$VERSION"
 
-# Push the tag
+# Push the tag (need force so old tag is overwritten)
 git push -f authenticated --tags
