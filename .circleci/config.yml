@@ -12,12 +12,11 @@ jobs:
 
     steps:
       - checkout
+      - run: echo $IS_ALPHA_VERSION
+      - run: ./scripts/install-aws-mac.sh
+      - run: bundle install
       - run:
-          name: 'Install aws-cli'
-          command: ./scripts/install-aws-mac.sh
-      - run: bundle install # Install gems
-      - run:
-          name: Update Internal SDK and tag with Alpha
+          name: Update Internal SDK
           command: ./scripts/update-sdk.sh --latest --alpha
       - run:
           name: 'Git tag version'
@@ -31,6 +30,8 @@ workflows:
     jobs:
       - test_build:
           context: 'frontend-production'
+          environment:
+            IS_ALPHA_VERSION: true
           filters:
             branches:
               ignore: master
