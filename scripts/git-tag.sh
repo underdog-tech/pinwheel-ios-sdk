@@ -16,21 +16,6 @@ echo \>\> Version: $VERSION
 git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
 
 
-if [ "$(get_alpha_val)" == "true" ]; then
-  echo \>\> IS_ALPHA is true, we are not on master branch
-
-  # Delete old tag (otherwise new tagging will fail)
-  git tag -d "$VERSION" || echo Ignore error, no previous tag named \"$VERSION\" to delete
-
-  # Add new tag
+# Add new tag
   git tag "$VERSION"
-
-  # Push the tag (need force so old tag is overwritten)
-  git push -f authenticated --tags
-else
-  echo \>\> IS_ALPHA is false, we are on master branch
-
-  # Add new tag
-  git tag "$VERSION"
-  git push authenticated --tags
-fi
+  git push authenticated --tags || echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publish. && circleci-agent step halt
