@@ -1,23 +1,17 @@
-# For a detailed guide to building and testing on iOS, read the docs:
-# https://circleci.com/docs/2.0/testing-ios/
-
 version: 2.1
 
 jobs:
-  test_build:
-    # working_directory: ~/pinwheel-ios-sdk/Example
-
+  build_and_tag:
     macos:
       xcode: 14.2.0
 
     steps:
       - checkout
-      - run: echo $IS_ALPHA_VERSION
       - run: ./scripts/install-aws-mac.sh
       - run: bundle install
       - run:
           name: Update Internal SDK
-          command: ./scripts/update-sdk.sh --latest --alpha
+          command: ./scripts/update-sdk.sh --latest
       - run:
           name: 'Git tag version'
           command: ./scripts/git-tag.sh
@@ -28,17 +22,5 @@ jobs:
 workflows:
   branch-workflow:
     jobs:
-      - test_build:
+      - build_and_tag:
           context: 'frontend-production'
-          environment:
-            IS_ALPHA_VERSION: true
-          filters:
-            branches:
-              ignore: master
-  #master-workflow:
-    #jobs:
-      #- build_and_publish:
-          #context: 'frontend-production'
-          #filters:
-            #branches:
-              #only: master

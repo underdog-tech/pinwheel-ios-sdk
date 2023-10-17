@@ -31,6 +31,17 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
+# The following logic allows us to run the same job in circle regardless of branch
+# If ALPHA is not already set...
+if [ -z "$ALPHA" ]; then
+  # If current branch is master...
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  if [ "$current_branch" == "master" ]; then
+    # Set alpha to true. This is relevant for setting alpha by default on non-master branches in our CI.
+    ALPHA=true
+  fi
+fi
+
 if [ "$HELP" == "true" ]; then
     echo "Usage: ./update-sdk.sh [OPTIONS]"
     echo "Updates the Internal Pinwheel SDK"
