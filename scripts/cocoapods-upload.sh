@@ -3,17 +3,18 @@
 # This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
 set -e
 
-echo \>\> which ruby: $(which ruby)
-brew install ruby
-echo \>\> which ruby: $(which ruby)
+# echo \>\> which ruby: $(which ruby)
+# brew install ruby
+# echo \>\> which ruby: $(which ruby)
 
 echo \>\> Installing ruby gems
+rm Gemfile.lock
 bundle install
 echo \>\> Successfully installed gems with bundle install
 
-echo \>\> Updating cocoapods
-bundle update
-echo \>\> Updated cocoapods
+# echo \>\> Updating cocoapods
+# bundle update
+# echo \>\> Updated cocoapods
 
 echo \>\> Setting up cocoapods auth
 echo "machine trunk.cocoapods.org" >> ~/.netrc
