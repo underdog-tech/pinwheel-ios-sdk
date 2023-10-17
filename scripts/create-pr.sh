@@ -14,19 +14,10 @@ GITHUB_TOKEN=$GITHUB_PR_ACCESS_TOKEN
 VERSION=$(get_version)
 TARGET_BRANCH="master"
 
-# Get the current branch name
-CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-# Exit if not on the 'master' branch
-if [ "$CURRENT_BRANCH" != "master" ]; then
-    echo "You are not on the 'master' branch. Exiting..."
-    exit 0
-fi
-
 # Check if there are changes
 if [ -z "$(git status --porcelain)" ]; then
     echo "No changes detected. PR not required..."
-    exit 0
+    circleci-agent step halt
 else
   BRANCH_NAME="release-$VERSION"
   # Check out a new branch named after the version
@@ -48,8 +39,8 @@ else
     https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls \
     -d '{
       "title": "Release '$VERSION'",
-      "head": "'"$VERSION"'",
-      "base": "'"$TARGET_BRANCH"'",
-      "body": "'"$CHANGELOG_DIFF"'"
+      "head": "$BRANCH_NAME",
+      "base": "$TARGET_BRANCH",
+      "body": "$CHANGELOG_DIFF"
     }'
 fi
