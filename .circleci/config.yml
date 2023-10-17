@@ -12,12 +12,17 @@ jobs:
       - run:
           name: Update SDK
           command: ./scripts/update-sdk.sh --latest
+      - save_cache:
+          key: project-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - .
 
   create_github_pr:
     macos:
       xcode: 15.0.0
     steps:
-      - checkout
+      - restore_cache:
+          key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Create PR (master only)
           command: ./scripts/create-pr.sh
@@ -26,7 +31,8 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
-      - checkout
+      - restore_cache:
+          key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Swift PM Release (git tag + release)
           command: ./scripts/release-github.sh
@@ -35,7 +41,8 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
-      - checkout
+      - restore_cache:
+          key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Cocoapods upload
           command: ./scripts/release-cocoapods.sh
