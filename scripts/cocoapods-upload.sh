@@ -7,6 +7,10 @@ echo \>\> Installing ruby gems
 bundle install
 echo \>\> Successfully installed gems with bundle install
 
+echo \>\> Updating cocoapods
+gem update cocoapods
+echo \>\> Updated cocoapods
+
 echo \>\> Setting up cocoapods auth
 echo "machine trunk.cocoapods.org" >> ~/.netrc
 echo "login $COCOAPODS_TRUNK_EMAIL" >> ~/.netrc
