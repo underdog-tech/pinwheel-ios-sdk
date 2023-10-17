@@ -17,7 +17,7 @@ TARGET_BRANCH="master"
 # Check if there are changes
 if [ -z "$(git status --porcelain)" ]; then
     echo "No changes detected. PR not required..."
-    circleci-agent step halt
+    exit 0
 else
   BRANCH_NAME="release-$VERSION"
 
@@ -38,14 +38,24 @@ else
   git push -f authenticated $BRANCH_NAME
 
   # Use the GitHub API to create the PR
-  curl -X POST \
+  response=$(curl -X POST \
     -H "Authorization: token $GITHUB_TOKEN" \
     -H "Accept: application/vnd.github.v3+json" \
     https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls \
     -d '{
       "title": "Release '$VERSION'",
-      "head": "'"$VERSION"'",
+      "head": "'"$BRANCH_NAME"'",
       "base": "'"$TARGET_BRANCH"'",
       "body": "'"$CHANGELOG_DIFF"'"
-    }'
+    }')
+
+    # Use jq to extract the "url" field and store it in a variable
+    url=$(echo "$response" | jq -r '.url')
+
+    # Print the extracted URL
+    echo \>\> Success! (But this pipeline will fail)
+    echo \>\> NEXT STEPS: You have uncommited changes opened now in a new PR.
+    echo \>\> Please visit $url and review.
+
+    exit 1
 fi
