@@ -20,7 +20,7 @@ TAG_EXISTS=$(git tag -l "$VERSION")
 
 if [ -n "$TAG_EXISTS" ]; then
   echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publishes.
-  exit 1
+  circleci-agent step halt
 else
   # Add new tag
   git tag "$VERSION"
