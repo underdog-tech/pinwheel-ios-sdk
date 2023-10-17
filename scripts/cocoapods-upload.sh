@@ -11,7 +11,7 @@ echo \>\> ruby version: $(ruby -v)
 # echo \>\> which ruby: $(which ruby)
 
 echo \>\> Installing ruby gems
-# rm Gemfile.lock
+rm Gemfile.lock
 gem install activesupport -v 7.0.8
 bundle install
 echo \>\> Successfully installed gems with bundle install
