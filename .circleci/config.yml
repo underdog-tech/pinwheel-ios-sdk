@@ -18,6 +18,9 @@ jobs:
       - run:
           name: Cocoapods upload
           command: ./scripts/cocoapods-upload.sh
+      - run:
+          name: Create PR (master only)
+          command: ./scripts/create-pr.sh
 
 workflows:
   branch-workflow:
