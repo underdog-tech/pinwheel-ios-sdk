@@ -3,6 +3,10 @@
 # This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
 set -e
 
+echo \>\> which ruby: $(which ruby)
+brew install ruby
+echo \>\> which ruby: $(which ruby)
+
 echo \>\> Installing ruby gems
 bundle install
 echo \>\> Successfully installed gems with bundle install
