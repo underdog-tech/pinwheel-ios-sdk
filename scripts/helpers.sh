@@ -19,3 +19,7 @@ function get_alpha_val () {
 
   echo $IS_ALPHA
 }
+
+function get_version () {
+  echo $(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")	
+}
