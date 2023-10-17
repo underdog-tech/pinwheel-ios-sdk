@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build_and_tag:
+  build_and_prepare:
     macos:
       xcode: 15.0.0
     steps:
@@ -12,18 +12,55 @@ jobs:
       - run:
           name: Update SDK
           command: ./scripts/update-sdk.sh --latest
-      - run:
-          name: 'Git tag version'
-          command: ./scripts/git-tag.sh
-      - run:
-          name: Cocoapods upload
-          command: ./scripts/cocoapods-upload.sh
+
+  create_github_pr:
+    macos:
+      xcode: 15.0.0
+    steps:
+      - checkout
       - run:
           name: Create PR (master only)
           command: ./scripts/create-pr.sh
 
+  release_github:
+    macos:
+      xcode: 15.0.0
+    steps:
+      - checkout
+      - run:
+          name: Swift PM Release (git tag + release)
+          command: ./scripts/release-github.sh
+
+  release_cocoapods:
+    macos:
+      xcode: 15.0.0
+    steps:
+      - checkout
+      - run:
+          name: Cocoapods upload
+          command: ./scripts/release-cocoapods.sh
+
 workflows:
   branch-workflow:
     jobs:
-      - build_and_tag:
+      - build_and_prepare:
+          context: 'frontend-production'
+      - create_github_pr:
+          requires:
+            - build_and_prepare
+          context: 'frontend-production'
+          filters:
+            branches:
+              only: master
+      - hold_for_approval:
+          type: approval
+          requires:
+            - build_and_prepare
+      - release_github:
+          requires:
+            - hold_for_approval
+          context: 'frontend-production'
+      - release_cocoapods:
+          requires:
+            - hold_for_approval
           context: 'frontend-production'
