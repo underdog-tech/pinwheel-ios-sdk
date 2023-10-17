@@ -53,7 +53,7 @@ else
     url=$(echo "$response" | jq -r '.url')
 
     # Print the extracted URL
-    echo \>\> Success! (But this pipeline will fail)
+    echo \>\> Success! \(But this pipeline will fail\)
     echo \>\> NEXT STEPS: You have uncommited changes opened now in a new PR.
     echo \>\> Please visit $url and review.
 
