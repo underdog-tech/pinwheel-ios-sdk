@@ -5,6 +5,11 @@ set -e
 
 source ./scripts/helpers.sh
 
+#!/bin/bash
+
+# This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
+set -e
+
 # Configuration
 REPO_OWNER="underdog-tech"
 REPO_NAME="pinwheel-ios-sdk"
