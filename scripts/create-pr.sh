@@ -31,14 +31,18 @@ if [ -z "$(git status --porcelain)" ]; then
     echo "No changes detected. PR not required..."
     exit 0
 else
+  BRANCH_NAME="release-$VERSION"
   # Check out a new branch named after the version
-  git checkout -b $VERSION
+  git checkout -b $BRANCH_NAME
+
+  # Get the added lines to the change log and make them the PR description
+  CHANGELOG_DIFF=$(git diff CHANGELOG.md | grep '^+[^+]' | sed 's/^[ \t+-]*//')
+
+  git add .
+  git commit -m "Release $VERSION"
 
   # Push the new branch to GitHub
-  git push origin $VERSION
-
-  # Get the diff for the CHANGELOG.md from the last commit
-  CHANGELOG_DIFF=$(git show HEAD:CHANGELOG.md)
+  git push origin $BRANCH_NAME
 
   # Use the GitHub API to create the PR
   curl -X POST \
