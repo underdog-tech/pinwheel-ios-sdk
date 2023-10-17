@@ -95,7 +95,7 @@ unzip temp.zip
 rm temp_versions.json
 rm temp.zip
 
-echo ">> Updating version in podspec to $VERSION"
+echo ">> Updating version in podspec from $VERSION"
 
 if [ "$ALPHA" = "true" ]; then
     # Create the alpha tag
