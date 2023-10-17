@@ -16,9 +16,13 @@ echo \>\> Version: $VERSION
 git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
 
 
-# Add new tag
-git tag "$VERSION"
+TAG_EXISTS=$(git tag -l "$VERSION")
 
-git push authenticated --tags || \
-  (echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publish. \
-  && circleci-agent step halt)
+if [ TAG_EXISTS ]; then
+  echo Version tag \"$VERSION\" already exists in Github. Exiting before Cocoapod publishes.
+  circleci-agent step halt
+else
+  # Add new tag
+  git tag "$VERSION"
+  git push authenticated --tags
+fi
