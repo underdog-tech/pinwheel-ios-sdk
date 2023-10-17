@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
+set -e
+
 VERSION=$(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")
 
 echo $VERSION
