@@ -3,6 +3,9 @@
 # This will cause the shell to exit immediately if a simple command exits with a nonzero exit value.
 set -e
 
+git config user.email "pinwheel-it@pinwheelapi.com"
+git config user.name "pinwheel-it-svc"
+
 VERSION=$(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")
 
 echo $VERSION
