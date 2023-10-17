@@ -5,8 +5,7 @@ set -e
 
 source ./scripts/helpers.sh
 
-git config user.email "pinwheel-it@pinwheelapi.com"
-git config user.name "pinwheel-it-svc"
+set_up_github_user
 
 VERSION=$(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")
 

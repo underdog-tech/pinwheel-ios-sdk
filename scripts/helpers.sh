@@ -23,3 +23,8 @@ function get_alpha_val () {
 function get_version () {
   echo $(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")	
 }
+
+function set_up_github_user () {
+  git config user.email "pinwheel-it@pinwheelapi.com"
+  git config user.name "pinwheel-it-svc"
+}

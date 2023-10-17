@@ -5,6 +5,8 @@ set -e
 
 source ./scripts/helpers.sh
 
+set_up_github_user
+
 # Configuration
 REPO_OWNER="underdog-tech"
 REPO_NAME="pinwheel-ios-sdk"
