@@ -30,7 +30,7 @@ else
   git commit -m "Release $VERSION"
 
   # Push the new branch to GitHub
-  git push authenticated $BRANCH_NAME
+  git push -f authenticated $BRANCH_NAME
 
   # Use the GitHub API to create the PR
   curl -X POST \
