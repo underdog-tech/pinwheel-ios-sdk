@@ -8,7 +8,7 @@ bundle install
 echo \>\> Successfully installed gems with bundle install
 
 echo \>\> Updating cocoapods
-bundle update cocoapods
+bundle update
 echo \>\> Updated cocoapods
 
 echo \>\> Setting up cocoapods auth
