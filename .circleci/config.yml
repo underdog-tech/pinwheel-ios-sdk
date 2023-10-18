@@ -48,7 +48,7 @@ jobs:
           command: ./scripts/release-cocoapods.sh
 
 workflows:
-  branch-workflow:
+  master-workflow:
     jobs:
       - build_and_prepare:
           context: 'frontend-production'
@@ -69,4 +69,8 @@ workflows:
       - release_cocoapods:
           requires:
             - release_github
+          context: 'frontend-production'
+  branch-workflow:
+    jobs:
+      - release_cocoapods:
           context: 'frontend-production'
