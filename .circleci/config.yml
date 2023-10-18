@@ -64,6 +64,9 @@ workflows:
               only: master
       - hold_for_approval:
           type: approval
+          filters:
+            branches:
+              only: master
       - release_github:
           requires:
             - hold_for_approval
