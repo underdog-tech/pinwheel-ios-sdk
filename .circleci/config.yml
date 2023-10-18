@@ -21,6 +21,7 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
+      - checkout
       - restore_cache:
           key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
@@ -31,6 +32,7 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
+      - checkout
       - restore_cache:
           key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
