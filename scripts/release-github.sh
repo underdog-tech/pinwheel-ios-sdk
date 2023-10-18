@@ -25,6 +25,13 @@ else
 
   # Create release for tag
   echo \>\> Creating release for tag $VERSION
+
+  echo \>\> Calculating description based on changelog changes
+  HASH=$(git log --pretty=format:"%H" -- CHANGELOG.md | head -n 1)
+  # Get raw diff of changelog, remove "+" from each line, skip the first line (which is just "++ CHANGELOG.md")
+  DESCRIPTION=$(git diff $HASH^..$HASH -- CHANGELOG.md | grep '^+' | sed 's/^+//' | tail -n +2)
+  echo \>\> $DESCRIPTION
+
   curl -X POST -H "Authorization: token $(get_github_write_token)" \
      -H "Accept: application/vnd.github.v3+json" \
      "https://api.github.com/repos/$(get_repo_owner)/$(get_repo_name)/releases" \
@@ -32,7 +39,7 @@ else
          "tag_name": "'"${VERSION}"'",
          "target_commitish": "master",
          "name": "'"${VERSION}"' Release",
-         "body": "Release pinwheel-ios-sdk '"${VERSION}"'",
+         "body": "'"${DESCRIPTION}"'",
          "draft": false,
          "prerelease": false
      }'
