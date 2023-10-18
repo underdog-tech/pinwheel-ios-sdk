@@ -21,6 +21,7 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
+      - checkout
       - restore_cache:
           key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
@@ -31,6 +32,7 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
+      - checkout
       - restore_cache:
           key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
@@ -41,6 +43,7 @@ jobs:
     macos:
       xcode: 15.0.0
     steps:
+      - checkout
       - restore_cache:
           key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
@@ -48,7 +51,7 @@ jobs:
           command: ./scripts/release-cocoapods.sh
 
 workflows:
-  branch-workflow:
+  master-workflow:
     jobs:
       - build_and_prepare:
           context: 'frontend-production'
@@ -61,11 +64,13 @@ workflows:
               only: master
       - hold_for_approval:
           type: approval
-          requires:
-            - create_github_pr
+          filters:
+            branches:
+              only: master
       - release_github:
           requires:
             - hold_for_approval
+            - create_github_pr
           context: 'frontend-production'
       - release_cocoapods:
           requires:
