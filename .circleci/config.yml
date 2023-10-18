@@ -73,7 +73,3 @@ workflows:
           requires:
             - release_github
           context: 'frontend-production'
-  branch-workflow:
-    jobs:
-      - release_cocoapods:
-          context: 'frontend-production'
