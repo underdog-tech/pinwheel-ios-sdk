@@ -27,13 +27,14 @@ else
   echo \>\> Creating release for tag $VERSION
   curl -X POST -H "Authorization: token $(get_github_write_token)" \
      -H "Accept: application/vnd.github.v3+json" \
-     https://api.github.com/repos/$(get_repo_owner)/$(get_repo_name)/releases \
+     "https://api.github.com/repos/$(get_repo_owner)/$(get_repo_name)/releases" \
      -d '{
-         "tag_name": "'"$VERSION"'",
+         "tag_name": "'"${VERSION}"'",
          "target_commitish": "master",
-         "name": "'"$VERSION"' Release",
-         "body": "Release pinwheel-ios-sdk '"$VERSION"'",
+         "name": "'"${VERSION}"' Release",
+         "body": "Release pinwheel-ios-sdk '"${VERSION}"'",
          "draft": false,
          "prerelease": false
-        }'
+     }'
+
 fi
