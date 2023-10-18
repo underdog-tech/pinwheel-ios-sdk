@@ -33,11 +33,15 @@ function get_version () {
 }
 
 function get_github_write_token () {
-  echo $GITHUB_TOKEN_CTX
+  echo "$GITHUB_TOKEN_CTX"
 }
 
 function set_up_github_user () {
   git config user.email "pinwheel-it@pinwheelapi.com"
   git config user.name "pinwheel-it-svc"
-  git remote | grep "authenticated" || git remote add authenticated https://pinwheel-it-svc:${get_github_write_token}@github.com/underdog-tech/pinwheel-ios-sdk.git
+
+  if ! git remote | grep -q "authenticated"; then
+    git remote add authenticated https://pinwheel-it-svc:$(get_github_write_token)@github.com/underdog-tech/pinwheel-ios-sdk.git
+  fi
 }
+
