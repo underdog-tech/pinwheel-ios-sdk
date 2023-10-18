@@ -42,8 +42,8 @@ jobs:
       xcode: 15.0.0
     steps:
       - checkout
-      # - restore_cache:
-      #     key: project-v1-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          key: project-v1-{{ .Branch }}-{{ .Revision }}
       - run:
           name: Cocoapods upload
           command: ./scripts/release-cocoapods.sh
