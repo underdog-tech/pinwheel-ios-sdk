@@ -61,11 +61,10 @@ workflows:
               only: master
       - hold_for_approval:
           type: approval
-          requires:
-            - create_github_pr
       - release_github:
           requires:
             - hold_for_approval
+            - create_github_pr
           context: 'frontend-production'
       - release_cocoapods:
           requires:

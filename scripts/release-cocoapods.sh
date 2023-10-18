@@ -25,8 +25,6 @@ chmod 0600 /Users/distiller/.netrc
 echo \>\> Pod me
 pod trunk me
 
-CURRENT_GIT_TAG=$(git describe --tags --abbrev=0)
-DESCRIPTION="Pushing pinwheel-ios-sdk version $CURRENT_GIT_TAG to Cocoapods"
 echo \>\> $DESCRIPTION
 pod trunk push PinwheelSDK.podspec
 
