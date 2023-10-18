@@ -8,9 +8,6 @@ source ./scripts/helpers.sh
 set_up_github_user
 
 # Configuration
-REPO_OWNER="underdog-tech"
-REPO_NAME="pinwheel-ios-sdk"
-GITHUB_TOKEN=$GITHUB_PR_ACCESS_TOKEN
 VERSION=$(get_version)
 TARGET_BRANCH="master"
 
@@ -39,9 +36,9 @@ else
 
   # Use the GitHub API to create the PR
   response=$(curl -X POST \
-    -H "Authorization: token $GITHUB_TOKEN" \
+    -H "Authorization: token $(get_github_write_token)" \
     -H "Accept: application/vnd.github.v3+json" \
-    https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls \
+    https://api.github.com/repos/$(get_repo_owner)/$(get_repo_name)/pulls \
     -d '{
       "title": "Release '$VERSION'",
       "head": "'"$BRANCH_NAME"'",

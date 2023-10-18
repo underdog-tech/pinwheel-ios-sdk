@@ -20,12 +20,28 @@ function get_alpha_val () {
   echo $IS_ALPHA
 }
 
+function get_repo_owner () {
+  echo "underdog-tech"
+}
+
+function get_repo_name () {
+  echo "pinwheel-ios-sdk"
+}
+
 function get_version () {
   echo $(grep -E 's.version[[:space:]]*=' PinwheelSDK.podspec | sed -E "s/.*['\"]([^'\"]+)['\"].*/\1/")	
+}
+
+function get_github_write_token () {
+  echo "$GITHUB_TOKEN_CTX"
 }
 
 function set_up_github_user () {
   git config user.email "pinwheel-it@pinwheelapi.com"
   git config user.name "pinwheel-it-svc"
-  git remote | grep "authenticated" || git remote add authenticated https://pinwheel-it-svc:${GITHUB_ACCESS_TOKEN}@github.com/underdog-tech/pinwheel-ios-sdk.git
+
+  if ! git remote | grep -q "authenticated"; then
+    git remote add authenticated https://pinwheel-it-svc:$(get_github_write_token)@github.com/underdog-tech/pinwheel-ios-sdk.git
+  fi
 }
+
