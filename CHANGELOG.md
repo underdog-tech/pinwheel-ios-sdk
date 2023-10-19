@@ -2,19 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2.4.x Releases
-
-- `2.4.x` Releases - [2.4.0](#240)
-
----
-### [2.4.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.0)
-
-#### Notes
-
-- No changes were made to the API contract.
-- Improved SDK performance.
-- Binary is now published instead of source code.
-
 ## 2.3.x Releases
 
 - `2.3.x` Releases - [2.3.10](#2310) | [2.3.11](#2311) | [2.3.12](#2312) | [2.3.13](#2313) | [2.3.14](#2314) | [2.3.15](#2315)
