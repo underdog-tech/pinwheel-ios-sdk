@@ -230,7 +230,6 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import ObjectiveC;
 @import UIKit;
 @import WebKit;
 #endif
@@ -254,45 +253,14 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 @class NSCoder;
-@class NSString;
-@class NSBundle;
-
-SWIFT_CLASS("_TtC11PinwheelSDK24BrowserJobViewController")
-@interface BrowserJobViewController : UIViewController
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
-@end
-
-
-@interface BrowserJobViewController (SWIFT_EXTENSION(PinwheelSDK)) <WKUIDelegate>
-@end
-
 @class WKUserContentController;
 @class WKScriptMessage;
-
-@interface BrowserJobViewController (SWIFT_EXTENSION(PinwheelSDK)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 @class WKWebView;
-@class WKNavigation;
-
-@interface BrowserJobViewController (SWIFT_EXTENSION(PinwheelSDK)) <WKNavigationDelegate>
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
-@end
-
-
-SWIFT_CLASS("_TtC11PinwheelSDK28PinwheelScriptMessageHandler")
-@interface PinwheelScriptMessageHandler : NSObject <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class WKWebViewConfiguration;
 @class WKNavigationAction;
 @class WKWindowFeatures;
+@class NSString;
+@class NSBundle;
 
 SWIFT_CLASS("_TtC11PinwheelSDK22PinwheelViewController")
 @interface PinwheelViewController : UIViewController <WKScriptMessageHandler, WKUIDelegate>
@@ -303,6 +271,7 @@ SWIFT_CLASS("_TtC11PinwheelSDK22PinwheelViewController")
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
 
 #endif
 #if defined(__cplusplus)

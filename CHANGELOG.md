@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.4.x Releases
+
+- `2.4.x` Releases - [2.4.0](#240)
+
+---
+### [2.4.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.0)
+
+#### Notes
+
+We're thrilled to announce the latest version of our SDK! While you'll find that our familiar API contract remains unchanged, there's a host of improvements that make this upgrade indispensable:
+
+- **Enhanced Redundancy**: 🛡️ We've fortified our systems, ensuring smoother recovery from integration failures for <u>~30%</u> of our traffic.
+- **Superior Uptime**: 🦾 Reliability is a top priority. This upgrade brings even more robust uptime for DDS integrations.
+- **Increased Conversion**: ↗️ We are leveraging system level features to increase conversion.
+- **Easy Upgrade**: 🥧 No changes were made to the API contract. Easy as pie.
+
+*Note*: Binary is now published instead of source code.
+
+
 ## 2.3.x Releases
 
 - `2.3.x` Releases - [2.3.10](#2310) | [2.3.11](#2311) | [2.3.12](#2312) | [2.3.13](#2313) | [2.3.14](#2314) | [2.3.15](#2315)

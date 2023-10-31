@@ -8,28 +8,6 @@ import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
-public protocol BrowserJobViewControllerDelegate : AnyObject {
-  func sendMessage(_ message: [Swift.String : Any], isTerminal: Swift.Bool)
-}
-@objc public class PinwheelScriptMessageHandler : ObjectiveC.NSObject, WebKit.WKScriptMessageHandler {
-  public init(delegate: WebKit.WKScriptMessageHandler)
-  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-  @objc deinit
-}
-@objc @_Concurrency.MainActor(unsafe) public class BrowserJobViewController : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) public init(event: PinwheelSDK.PinwheelEdgeRequestEvent, delegate: PinwheelSDK.BrowserJobViewControllerDelegate)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @objc deinit
-}
-extension PinwheelSDK.BrowserJobViewController : WebKit.WKUIDelegate {
-}
-extension PinwheelSDK.BrowserJobViewController : WebKit.WKNavigationDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-}
-extension PinwheelSDK.BrowserJobViewController : WebKit.WKScriptMessageHandler {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-}
 public struct PinwheelAllocation : Swift.Codable {
   public let type: Swift.String
   public let value: Swift.Float?
@@ -58,28 +36,6 @@ public struct PinwheelDDFormCreatePayload : PinwheelSDK.PinwheelEventPayload {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public struct PinwheelEdgeRequestEvent : PinwheelSDK.PinwheelEventPayload {
-  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelEdgeRequestPayload)
-  public var type: Swift.String
-  public var eventName: Swift.String
-  public var payload: PinwheelSDK.PinwheelEdgeRequestPayload
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct PinwheelEdgeRequestPayload : PinwheelSDK.PinwheelEventPayload {
-  public init(webviewUrl: Swift.String, successCriteria: PinwheelSDK.PinwheelEdgeRequestSuccessCriteria)
-  public var webviewUrl: Swift.String
-  public var successCriteria: PinwheelSDK.PinwheelEdgeRequestSuccessCriteria
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct PinwheelEdgeRequestSuccessCriteria : PinwheelSDK.PinwheelEventPayload {
-  public init(type: Swift.String, value: Swift.String)
-  public var type: Swift.String
-  public var value: Swift.String
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
 public struct PinwheelError : PinwheelSDK.PinwheelEventPayload {
   public init(type: Swift.String, code: Swift.String, message: Swift.String, pendingRetry: Swift.Bool)
   public let type: Swift.String
@@ -104,7 +60,6 @@ extension PinwheelSDK.PinwheelEventPayload {
   public func jsonString() throws -> Swift.String
 }
 public enum PinwheelEventType : Swift.String {
-  case edgeRequest
   case open
   case selectEmployer
   case selectPlatform
@@ -320,13 +275,11 @@ public struct PinwheelConfig {
   }
   public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment)
 }
-@objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler, PinwheelSDK.BrowserJobViewControllerDelegate {
+@objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig)
   @_Concurrency.MainActor(unsafe) convenience public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-  @_Concurrency.MainActor(unsafe) public func sendMessage(_ message: [Swift.String : Any], isTerminal: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) public func finishBrowserJob(withClose: Swift.Bool = false)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
