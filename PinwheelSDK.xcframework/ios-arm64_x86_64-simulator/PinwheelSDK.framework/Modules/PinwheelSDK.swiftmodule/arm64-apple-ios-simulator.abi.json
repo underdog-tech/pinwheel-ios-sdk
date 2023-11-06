@@ -29,7 +29,7 @@
           {
             "kind": "Function",
             "name": "sendMessage",
-            "printedName": "sendMessage(_:isTerminal:)",
+            "printedName": "sendMessage(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -54,17 +54,11 @@
                   }
                 ],
                 "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11PinwheelSDK32BrowserJobViewControllerDelegateP11sendMessage_10isTerminalySDySSypG_SbtF",
-            "mangledName": "$s11PinwheelSDK32BrowserJobViewControllerDelegateP11sendMessage_10isTerminalySDySSypG_SbtF",
+            "usr": "s:11PinwheelSDK32BrowserJobViewControllerDelegateP11sendMessageyySDySSypGF",
+            "mangledName": "$s11PinwheelSDK32BrowserJobViewControllerDelegateP11sendMessageyySDySSypGF",
             "moduleName": "PinwheelSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : PinwheelSDK.BrowserJobViewControllerDelegate>",
             "sugared_genericSig": "<Self where Self : PinwheelSDK.BrowserJobViewControllerDelegate>",
@@ -478,6 +472,51 @@
           },
           {
             "kind": "Function",
+            "name": "webView",
+            "printedName": "webView(_:didStartProvisionalNavigation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKWebView",
+                "printedName": "WebKit.WKWebView",
+                "usr": "c:objc(cs)WKWebView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "WebKit.WKNavigation?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WKNavigation",
+                    "printedName": "WebKit.WKNavigation",
+                    "usr": "c:objc(cs)WKNavigation"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PinwheelSDK@objc(cs)BrowserJobViewController(im)webView:didStartProvisionalNavigation:",
+            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC03webE0_29didStartProvisionalNavigationySo05WKWebE0C_So12WKNavigationCSgtF",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "objc_name": "webView:didStartProvisionalNavigation:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "ixm",
             "printedName": "ixm(xm:id:)",
             "children": [
@@ -681,317 +720,6 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PrxTv",
-        "printedName": "PrxTv",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(k:v:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "PrxTv",
-                "printedName": "PinwheelSDK.PrxTv",
-                "usr": "s:11PinwheelSDK5PrxTvV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK5PrxTvV1k1vACSS_SStcfc",
-            "mangledName": "$s11PinwheelSDK5PrxTvV1k1vACSS_SStcfc",
-            "moduleName": "PinwheelSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "k",
-            "printedName": "k",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11PinwheelSDK5PrxTvV1kSSvp",
-            "mangledName": "$s11PinwheelSDK5PrxTvV1kSSvp",
-            "moduleName": "PinwheelSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "fixedbinaryorder": 0,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1kSSvg",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1kSSvg",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1kSSvs",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1kSSvs",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1kSSvM",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1kSSvM",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "v",
-            "printedName": "v",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11PinwheelSDK5PrxTvV1vSSvp",
-            "mangledName": "$s11PinwheelSDK5PrxTvV1vSSvp",
-            "moduleName": "PinwheelSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "fixedbinaryorder": 1,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1vSSvg",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1vSSvg",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1vSSvs",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1vSSvs",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK5PrxTvV1vSSvM",
-                "mangledName": "$s11PinwheelSDK5PrxTvV1vSSvM",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(from:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "PrxTv",
-                "printedName": "PinwheelSDK.PrxTv",
-                "usr": "s:11PinwheelSDK5PrxTvV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Decoder",
-                "printedName": "Swift.Decoder",
-                "usr": "s:s7DecoderP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK5PrxTvV4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s11PinwheelSDK5PrxTvV4fromACs7Decoder_p_tKcfc",
-            "moduleName": "PinwheelSDK",
-            "implicit": true,
-            "throwing": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:11PinwheelSDK5PrxTvV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s11PinwheelSDK5PrxTvV6encode2toys7Encoder_p_tKF",
-            "moduleName": "PinwheelSDK",
-            "implicit": true,
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Struct",
-        "usr": "s:11PinwheelSDK5PrxTvV",
-        "mangledName": "$s11PinwheelSDK5PrxTvV",
-        "moduleName": "PinwheelSDK",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Decodable",
-            "printedName": "Decodable",
-            "usr": "s:Se",
-            "mangledName": "$sSe"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Encodable",
-            "printedName": "Encodable",
-            "usr": "s:SE",
-            "mangledName": "$sSE"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -9495,6 +9223,44 @@
             "fixedbinaryorder": 2
           },
           {
+            "kind": "Var",
+            "name": "browserClose",
+            "printedName": "browserClose",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PinwheelSDK.UnderdogEventType.Type) -> PinwheelSDK.UnderdogEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnderdogEventType",
+                    "printedName": "PinwheelSDK.UnderdogEventType",
+                    "usr": "s:11PinwheelSDK17UnderdogEventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PinwheelSDK.UnderdogEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UnderdogEventType",
+                        "printedName": "PinwheelSDK.UnderdogEventType",
+                        "usr": "s:11PinwheelSDK17UnderdogEventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11PinwheelSDK17UnderdogEventTypeO12browserCloseyA2CmF",
+            "mangledName": "$s11PinwheelSDK17UnderdogEventTypeO12browserCloseyA2CmF",
+            "moduleName": "PinwheelSDK",
+            "fixedbinaryorder": 3
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -9741,6 +9507,44 @@
             "mangledName": "$s11PinwheelSDK20UnderdogEventHandlerO011edgeRequestdE0yA2CmF",
             "moduleName": "PinwheelSDK",
             "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "browserCloseEventHandler",
+            "printedName": "browserCloseEventHandler",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(PinwheelSDK.UnderdogEventHandler.Type) -> PinwheelSDK.UnderdogEventHandler",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnderdogEventHandler",
+                    "printedName": "PinwheelSDK.UnderdogEventHandler",
+                    "usr": "s:11PinwheelSDK20UnderdogEventHandlerO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "PinwheelSDK.UnderdogEventHandler.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UnderdogEventHandler",
+                        "printedName": "PinwheelSDK.UnderdogEventHandler",
+                        "usr": "s:11PinwheelSDK20UnderdogEventHandlerO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11PinwheelSDK20UnderdogEventHandlerO012browserClosedE0yA2CmF",
+            "mangledName": "$s11PinwheelSDK20UnderdogEventHandlerO012browserClosedE0yA2CmF",
+            "moduleName": "PinwheelSDK",
+            "fixedbinaryorder": 3
           },
           {
             "kind": "Constructor",
@@ -14295,7 +14099,7 @@
           {
             "kind": "Function",
             "name": "sendMessage",
-            "printedName": "sendMessage(_:isTerminal:)",
+            "printedName": "sendMessage(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -14320,17 +14124,11 @@
                   }
                 ],
                 "usr": "s:SD"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11PinwheelSDK0A14ViewControllerC11sendMessage_10isTerminalySDySSypG_SbtF",
-            "mangledName": "$s11PinwheelSDK0A14ViewControllerC11sendMessage_10isTerminalySDySSypG_SbtF",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC11sendMessageyySDySSypGF",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC11sendMessageyySDySSypGF",
             "moduleName": "PinwheelSDK",
             "isOpen": true,
             "declAttributes": [
@@ -14342,25 +14140,18 @@
           },
           {
             "kind": "Function",
-            "name": "finishBrowserJob",
-            "printedName": "finishBrowserJob(withClose:)",
+            "name": "closeBrowser",
+            "printedName": "closeBrowser()",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "hasDefaultArg": true,
-                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:11PinwheelSDK0A14ViewControllerC16finishBrowserJob9withCloseySb_tF",
-            "mangledName": "$s11PinwheelSDK0A14ViewControllerC16finishBrowserJob9withCloseySb_tF",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC12closeBrowseryyF",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC12closeBrowseryyF",
             "moduleName": "PinwheelSDK",
             "isOpen": true,
             "declAttributes": [
@@ -14546,14 +14337,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 280,
+      "offset": 262,
       "length": 28,
       "value": "\"PinwheelSDK.PinwheelScriptMessageHandler\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 741,
+      "offset": 723,
       "length": 24,
       "value": "\"PinwheelSDK.BrowserJobViewController\""
     },
@@ -14562,7 +14353,7 @@
       "kind": "StringLiteral",
       "offset": 115,
       "length": 7,
-      "value": "\"2.4.0\""
+      "value": "\"2.4.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -14756,6 +14547,13 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
+      "offset": 339,
+      "length": 15,
+      "value": "\"browser_close\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "StringLiteral",
       "offset": 216,
       "length": 14,
       "value": "\"edge_request\""
@@ -14777,23 +14575,23 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 3668,
+      "offset": 339,
+      "length": 15,
+      "value": "\"browser_close\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "StringLiteral",
+      "offset": 3742,
       "length": 34,
       "value": "\"PinwheelSDK.PinwheelWebKitScriptMessageHandler\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 5904,
+      "offset": 5978,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
-      "kind": "BooleanLiteral",
-      "offset": 29202,
-      "length": 5,
-      "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
