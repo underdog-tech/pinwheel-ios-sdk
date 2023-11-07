@@ -271,6 +271,66 @@
             "hasStorage": true
           },
           {
+            "kind": "Var",
+            "name": "headerURLView",
+            "printedName": "headerURLView",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "PinwheelSDK.HeaderURLView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HeaderURLView",
+                    "printedName": "PinwheelSDK.HeaderURLView",
+                    "usr": "s:11PinwheelSDK13HeaderURLView33_56EE881EC58210565BFBC90A7798C91ELLC"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK24BrowserJobViewControllerC13headerURLView33_56EE881EC58210565BFBC90A7798C91ELLAA06HeaderH0AELLCSgvp",
+            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC13headerURLView33_56EE881EC58210565BFBC90A7798C91ELLAA06HeaderH0AELLCSgvp",
+            "moduleName": "PinwheelSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 6,
+            "hasStorage": true
+          },
+          {
+            "kind": "Var",
+            "name": "backButtonWidth",
+            "printedName": "backButtonWidth",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK24BrowserJobViewControllerC15backButtonWidth33_56EE881EC58210565BFBC90A7798C91ELLSdvp",
+            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC15backButtonWidth33_56EE881EC58210565BFBC90A7798C91ELLSdvp",
+            "moduleName": "PinwheelSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 7,
+            "hasStorage": true
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(event:delegate:)",
@@ -14343,17 +14403,31 @@
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 1104,
+      "length": 4,
+      "value": "44.0"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
       "offset": 723,
       "length": 24,
       "value": "\"PinwheelSDK.BrowserJobViewController\""
     },
     {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 12314,
+      "length": 13,
+      "value": "\"PinwheelSDK.HeaderURLView\""
+    },
+    {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 115,
       "length": 7,
-      "value": "\"2.4.1\""
+      "value": "\"2.4.2\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",

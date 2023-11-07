@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## 2.4.x Releases
 
-- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241)
+- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242)
+
+---
+### [2.4.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.2)
+
+#### Notes
+
+- Display context to user when showing external website.
 
 ---
 ### [2.4.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.1)
