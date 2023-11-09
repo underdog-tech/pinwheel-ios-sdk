@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 We're thrilled to announce the latest version of our SDK! While you'll find that our familiar API contract remains unchanged, there's a host of improvements that make this upgrade indispensable:
 
-- **Enhanced Redundancy**: 🛡️ We've fortified our systems, ensuring smoother recovery from integration failures for <u>~30%</u> of our traffic.
+- **Enhanced Redundancy**: 🛡️ We've fortified our systems, ensuring smoother recovery from integration failures for a significant percentage our traffic.
 - **Superior Uptime**: 🦾 Reliability is a top priority. This upgrade brings even more robust uptime for DDS integrations.
 - **Increased Conversion**: ↗️ We are leveraging system level features to increase conversion.
 - **Easy Upgrade**: 🥧 No changes were made to the API contract. Easy as pie.
