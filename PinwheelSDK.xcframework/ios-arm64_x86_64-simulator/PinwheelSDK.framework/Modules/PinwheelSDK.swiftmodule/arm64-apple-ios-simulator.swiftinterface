@@ -268,12 +268,14 @@ extension PinwheelSDK.PinwheelEnvironment {
   }
 }
 public struct PinwheelConfig {
+  public var sdk: Swift.String
   public let mode: PinwheelSDK.PinwheelMode
   public let environment: PinwheelSDK.PinwheelEnvironment
   public var linkURL: Swift.String {
     get
   }
   public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment)
+  public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment, sdk: Swift.String)
 }
 @objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig)
@@ -284,6 +286,19 @@ public struct PinwheelConfig {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
   @objc deinit
+}
+@objc public protocol PinwheelWrapperDelegate {
+  @objc func onEvent(name: Swift.String, event: [Swift.String : Swift.AnyObject])
+}
+@objc @objcMembers @_Concurrency.MainActor(unsafe) public class PinwheelWrapperVC : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate)
+  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, sdk: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+extension PinwheelSDK.PinwheelWrapperVC : PinwheelSDK.PinwheelDelegate {
+  @_Concurrency.MainActor(unsafe) public func onEvent(name: PinwheelSDK.PinwheelEventType, event: (PinwheelSDK.PinwheelEventPayload)?)
 }
 extension PinwheelSDK.PinwheelEventType : Swift.Equatable {}
 extension PinwheelSDK.PinwheelEventType : Swift.Hashable {}

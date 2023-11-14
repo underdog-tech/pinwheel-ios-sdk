@@ -230,6 +230,7 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
 @import UIKit;
 @import WebKit;
 #endif
@@ -269,6 +270,23 @@ SWIFT_CLASS("_TtC11PinwheelSDK22PinwheelViewController")
 - (void)loadView;
 - (void)viewDidLoad;
 - (WKWebView * _Nullable)webView:(WKWebView * _Nonnull)webView createWebViewWithConfiguration:(WKWebViewConfiguration * _Nonnull)configuration forNavigationAction:(WKNavigationAction * _Nonnull)navigationAction windowFeatures:(WKWindowFeatures * _Nonnull)windowFeatures SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP11PinwheelSDK23PinwheelWrapperDelegate_")
+@protocol PinwheelWrapperDelegate
+- (void)onEventWithName:(NSString * _Nonnull)name event:(NSDictionary<NSString *, id> * _Nonnull)event;
+@end
+
+
+SWIFT_CLASS("_TtC11PinwheelSDK17PinwheelWrapperVC")
+@interface PinwheelWrapperVC : UIViewController
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate sdk:(NSString * _Nonnull)sdk OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 

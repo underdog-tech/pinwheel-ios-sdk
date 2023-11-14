@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ## 2.4.x Releases
 
-- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242)
+- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242) | [2.4.3](#243)
+
+---
+### [2.4.3](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.2)
+
+#### Notes
+
+- Adding support for consumption by Pinwheel's React Native SDK.
 
 ---
 ### [2.4.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.2)
@@ -27,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 We're thrilled to announce the latest version of our SDK! While you'll find that our familiar API contract remains unchanged, there's a host of improvements that make this upgrade indispensable:
 
-- **Enhanced Redundancy**: 🛡️ We've fortified our systems, ensuring smoother recovery from integration failures for <u>~30%</u> of our traffic.
+- **Enhanced Redundancy**: 🛡️ We've fortified our systems, ensuring smoother recovery from integration failures for a significant percentage of our traffic.
 - **Superior Uptime**: 🦾 Reliability is a top priority. This upgrade brings even more robust uptime for DDS integrations.
 - **Increased Conversion**: ↗️ We are leveraging system level features to increase conversion.
 - **Easy Upgrade**: 🥧 No changes were made to the API contract. Easy as pie.

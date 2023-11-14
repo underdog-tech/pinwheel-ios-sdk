@@ -13444,6 +13444,92 @@
         "children": [
           {
             "kind": "Var",
+            "name": "sdk",
+            "printedName": "sdk",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A6ConfigV3sdkSSvp",
+            "mangledName": "$s11PinwheelSDK0A6ConfigV3sdkSSvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV3sdkSSvg",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV3sdkSSvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV3sdkSSvs",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV3sdkSSvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV3sdkSSvM",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV3sdkSSvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "mode",
             "printedName": "mode",
             "children": [
@@ -13597,6 +13683,45 @@
             "declKind": "Constructor",
             "usr": "s:11PinwheelSDK0A6ConfigV4mode11environmentAcA0A4ModeO_AA0A11EnvironmentOtcfc",
             "mangledName": "$s11PinwheelSDK0A6ConfigV4mode11environmentAcA0A4ModeO_AA0A11EnvironmentOtcfc",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(mode:environment:sdk:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelConfig",
+                "printedName": "PinwheelSDK.PinwheelConfig",
+                "usr": "s:11PinwheelSDK0A6ConfigV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelMode",
+                "printedName": "PinwheelSDK.PinwheelMode",
+                "usr": "s:11PinwheelSDK0A4ModeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelEnvironment",
+                "printedName": "PinwheelSDK.PinwheelEnvironment",
+                "usr": "s:11PinwheelSDK0A11EnvironmentO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PinwheelSDK0A6ConfigV4mode11environment3sdkAcA0A4ModeO_AA0A11EnvironmentOSStcfc",
+            "mangledName": "$s11PinwheelSDK0A6ConfigV4mode11environment3sdkAcA0A4ModeO_AA0A11EnvironmentOSStcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "AccessControl"
@@ -14306,6 +14431,677 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PinwheelSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PinwheelWrapperDelegate",
+        "printedName": "PinwheelWrapperDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onEvent",
+            "printedName": "onEvent(name:event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : AnyObject]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate(im)onEventWithName:event:",
+            "mangledName": "$s11PinwheelSDK0A15WrapperDelegateP7onEvent4name5eventySS_SDySSyXlGtF",
+            "moduleName": "PinwheelSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : PinwheelSDK.PinwheelWrapperDelegate>",
+            "sugared_genericSig": "<Self where Self : PinwheelSDK.PinwheelWrapperDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate",
+        "mangledName": "$s11PinwheelSDK0A15WrapperDelegateP",
+        "moduleName": "PinwheelSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PinwheelWrapperVC",
+        "printedName": "PinwheelWrapperVC",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "vc",
+            "printedName": "vc",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "PinwheelSDK.PinwheelViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelViewController",
+                    "printedName": "PinwheelSDK.PinwheelViewController",
+                    "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(py)vc",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC2vcAA0A14ViewControllerCSgvp",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Custom",
+              "HasStorage",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "PinwheelSDK.PinwheelViewController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PinwheelViewController",
+                        "printedName": "PinwheelSDK.PinwheelViewController",
+                        "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelViewController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)vc",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC2vcAA0A14ViewControllerCSgvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "PinwheelSDK.PinwheelViewController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PinwheelViewController",
+                        "printedName": "PinwheelSDK.PinwheelViewController",
+                        "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelViewController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)setVc:",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC2vcAA0A14ViewControllerCSgvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A9WrapperVCC2vcAA0A14ViewControllerCSgvM",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC2vcAA0A14ViewControllerCSgvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperDelegate",
+                "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
+                "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(py)delegate",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC8delegateAA0aC8Delegate_pvp",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "HasStorage",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelWrapperDelegate",
+                    "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
+                    "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)delegate",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC8delegateAA0aC8Delegate_pvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelWrapperDelegate",
+                    "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
+                    "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)setDelegate:",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC8delegateAA0aC8Delegate_pvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A9WrapperVCC8delegateAA0aC8Delegate_pvM",
+                "mangledName": "$s11PinwheelSDK0A9WrapperVCC8delegateAA0aC8Delegate_pvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(token:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperVC",
+                "printedName": "PinwheelSDK.PinwheelWrapperVC",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperDelegate",
+                "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
+                "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegateACSS_AA0aC8Delegate_ptcfc",
+            "moduleName": "PinwheelSDK",
+            "objc_name": "initWithToken:delegate:",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(token:delegate:sdk:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperVC",
+                "printedName": "PinwheelSDK.PinwheelWrapperVC",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperDelegate",
+                "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
+                "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdkACSS_AA0aC8Delegate_pSStcfc",
+            "moduleName": "PinwheelSDK",
+            "objc_name": "initWithToken:delegate:sdk:",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PinwheelSDK.PinwheelWrapperVC?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelWrapperVC",
+                    "printedName": "PinwheelSDK.PinwheelWrapperVC",
+                    "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithCoder:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "PinwheelSDK",
+            "overriding": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Required",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "viewDidLoad",
+            "printedName": "viewDidLoad()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)viewDidLoad",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC11viewDidLoadyyF",
+            "moduleName": "PinwheelSDK",
+            "overriding": true,
+            "isOpen": true,
+            "objc_name": "viewDidLoad",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nibName:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelWrapperVC",
+                "printedName": "PinwheelSDK.PinwheelWrapperVC",
+                "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Bundle?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bundle",
+                    "printedName": "Foundation.Bundle",
+                    "usr": "c:objc(cs)NSBundle"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithNibName:bundle:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "moduleName": "PinwheelSDK",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithNibName:bundle:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "onEvent",
+            "printedName": "onEvent(name:event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelEventType",
+                "printedName": "PinwheelSDK.PinwheelEventType",
+                "usr": "s:11PinwheelSDK0A9EventTypeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PinwheelSDK.PinwheelEventPayload?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelEventPayload",
+                    "printedName": "PinwheelSDK.PinwheelEventPayload",
+                    "usr": "s:11PinwheelSDK0A12EventPayloadP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PinwheelSDK0A9WrapperVCC7onEvent4name5eventyAA0aF4TypeO_AA0aF7Payload_pSgtF",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC7onEvent4name5eventyAA0aF4TypeO_AA0aF7Payload_pSgtF",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC",
+        "mangledName": "$s11PinwheelSDK0A9WrapperVCC",
+        "moduleName": "PinwheelSDK",
+        "isOpen": true,
+        "declAttributes": [
+          "Custom",
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)UIViewController",
+        "superclassNames": [
+          "UIKit.UIViewController",
+          "UIKit.UIResponder",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PinwheelDelegate",
+            "printedName": "PinwheelDelegate",
+            "usr": "s:11PinwheelSDK0A8DelegateP",
+            "mangledName": "$s11PinwheelSDK0A8DelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Function",
+        "name": "convertJSONStringToDictionary",
+        "printedName": "convertJSONStringToDictionary(jsonString:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Optional",
+            "printedName": "[Swift.String : AnyObject]?",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : AnyObject]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "usr": "s:Sq"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:11PinwheelSDK29convertJSONStringToDictionary10jsonStringSDySSyXlGSgSS_tF",
+        "mangledName": "$s11PinwheelSDK29convertJSONStringToDictionary10jsonStringSDySSyXlGSgSS_tF",
+        "moduleName": "PinwheelSDK",
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -14425,9 +15221,9 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 115,
+      "offset": 113,
       "length": 7,
-      "value": "\"2.4.2\""
+      "value": "\"2.4.3\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -14663,9 +15459,23 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 5978,
+      "offset": 5373,
+      "length": 5,
+      "value": "\"ios\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "StringLiteral",
+      "offset": 6175,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "StringLiteral",
+      "offset": 315,
+      "length": 17,
+      "value": "\"PinwheelSDK.PinwheelWrapperVC\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
