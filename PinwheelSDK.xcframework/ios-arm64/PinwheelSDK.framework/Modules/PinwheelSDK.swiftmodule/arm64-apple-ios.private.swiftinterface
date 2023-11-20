@@ -269,13 +269,14 @@ extension PinwheelSDK.PinwheelEnvironment {
 }
 public struct PinwheelConfig {
   public var sdk: Swift.String
+  public var version: Swift.String
   public let mode: PinwheelSDK.PinwheelMode
   public let environment: PinwheelSDK.PinwheelEnvironment
   public var linkURL: Swift.String {
     get
   }
   public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment)
-  public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment, sdk: Swift.String)
+  public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment, sdk: Swift.String, version: Swift.String)
 }
 @objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig)
@@ -292,7 +293,7 @@ public struct PinwheelConfig {
 }
 @objc @objcMembers @_Concurrency.MainActor(unsafe) public class PinwheelWrapperVC : UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate)
-  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, sdk: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, sdk: Swift.String, version: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit

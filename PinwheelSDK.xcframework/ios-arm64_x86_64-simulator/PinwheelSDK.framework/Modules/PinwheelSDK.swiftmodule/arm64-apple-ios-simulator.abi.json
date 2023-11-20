@@ -13530,6 +13530,92 @@
           },
           {
             "kind": "Var",
+            "name": "version",
+            "printedName": "version",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A6ConfigV7versionSSvp",
+            "mangledName": "$s11PinwheelSDK0A6ConfigV7versionSSvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV7versionSSvg",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV7versionSSvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV7versionSSvs",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV7versionSSvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A6ConfigV7versionSSvM",
+                "mangledName": "$s11PinwheelSDK0A6ConfigV7versionSSvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "mode",
             "printedName": "mode",
             "children": [
@@ -13692,7 +13778,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(mode:environment:sdk:)",
+            "printedName": "init(mode:environment:sdk:version:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -13717,11 +13803,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A6ConfigV4mode11environment3sdkAcA0A4ModeO_AA0A11EnvironmentOSStcfc",
-            "mangledName": "$s11PinwheelSDK0A6ConfigV4mode11environment3sdkAcA0A4ModeO_AA0A11EnvironmentOSStcfc",
+            "usr": "s:11PinwheelSDK0A6ConfigV4mode11environment3sdk7versionAcA0A4ModeO_AA0A11EnvironmentOS2Stcfc",
+            "mangledName": "$s11PinwheelSDK0A6ConfigV4mode11environment3sdk7versionAcA0A4ModeO_AA0A11EnvironmentOS2Stcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "AccessControl"
@@ -14766,7 +14858,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:sdk:)",
+            "printedName": "init(token:delegate:sdk:version:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -14791,13 +14883,19 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:",
-            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdkACSS_AA0aC8Delegate_pSStcfc",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:version:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdk7versionACSS_AA0aC8Delegate_pS2Stcfc",
             "moduleName": "PinwheelSDK",
-            "objc_name": "initWithToken:delegate:sdk:",
+            "objc_name": "initWithToken:delegate:sdk:version:",
             "declAttributes": [
               "Custom",
               "AccessControl",
@@ -15223,7 +15321,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"2.4.3\""
+      "value": "\"2.4.4\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -15466,7 +15564,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 6175,
+      "offset": 6263,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
     },
