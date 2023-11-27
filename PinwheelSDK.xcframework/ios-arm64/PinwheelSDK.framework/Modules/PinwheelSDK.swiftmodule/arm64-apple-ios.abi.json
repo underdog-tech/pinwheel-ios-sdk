@@ -15312,7 +15312,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 12314,
+      "offset": 12711,
       "length": 13,
       "value": "\"PinwheelSDK.HeaderURLView\""
     },
@@ -15321,7 +15321,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"2.4.4\""
+      "value": "\"2.4.5\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
