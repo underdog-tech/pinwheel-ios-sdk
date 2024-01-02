@@ -2,31 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## 3.0.x Releases
-
-- `3.0.x` Releases - [3.0.0](#300)
-
-### [3.0.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.0.0)
-
----
-
-This new major version bump introduces an updated API to support partner-based switches.
-
-*Deprecated events have been removed and we have updated the success event to match the current standard switch schema (used in the `direct_deposit_switch.added` webhook and the `input_allocation` event).*
-
-#### Changed
-- The `action` field in `input_allocation` event is now optional.
-- The `params` field in the `success` event uses the `input_allocation` schema with fields `action` and `allocation`.
-
-#### Removed
-- Removed `input_amount` event.
-
-
 ## 2.4.x Releases
 
-- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242) | [2.4.3](#243) | [2.4.4](#244) | [2.4.5](#245)
+- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242) | [2.4.3](#243) | [2.4.4](#244) | [2.4.5](#245) | [2.4.6](#246)
 
 ---
+### [2.4.6](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.6)
+
+#### Notes
+
+- Internal contract changes to standardize UI.
+
 ### [2.4.5](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.5)
 
 #### Notes
