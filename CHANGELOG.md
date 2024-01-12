@@ -30,9 +30,16 @@ This new major version bump introduces an updated API to support partner-based s
 
 ## 2.4.x Releases
 
-- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242) | [2.4.3](#243) | [2.4.4](#244) | [2.4.5](#245) | [2.4.6](#246)
+- `2.4.x` Releases - [2.4.0](#240) | [2.4.1](#241) | [2.4.2](#242) | [2.4.3](#243) | [2.4.4](#244) | [2.4.5](#245) | [2.4.6](#246) | [2.4.7](#247)
 
 ---
+
+### [2.4.7](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.7)
+
+#### Notes
+
+- Expand internal functionality to support a broader range of platforms.
+
 ### [2.4.6](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.6)
 
 #### Notes
