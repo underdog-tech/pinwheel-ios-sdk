@@ -14,11 +14,11 @@
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		WLuW6FWBKAc+4lqPZHU2gIRrzdQ=
+		F/CsGVBQf8oy6cxN1ID99yO/rw0=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		O3GVCODjE+13SLEaNZ4zv7lK10o=
+		GHRMDO2+0Ja/SS7hlzr9Ilzymxw=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		O3GVCODjE+13SLEaNZ4zv7lK10o=
+		GHRMDO2+0Ja/SS7hlzr9Ilzymxw=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		YicPUfwD1TbvYOvggQ9G5E5bKXk=
+		QWBtcmPwnIKXOUXH6RNU56sKJpE=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		WLuW6FWBKAc+4lqPZHU2gIRrzdQ=
+		F/CsGVBQf8oy6cxN1ID99yO/rw0=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		8ymZV8EEOmtyPan653no8IWgYtI=
+		sk6uW6VFdK9FbGxGm5e448hOhH0=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		8ymZV8EEOmtyPan653no8IWgYtI=
+		sk6uW6VFdK9FbGxGm5e448hOhH0=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		c7RJ/C+fOQ2/JL8qHVLLUqU7Jf8=
+		/bisOybrXJ0uE0ngsFNd62CLVu0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,14 +66,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WGtN6EMkUoLBwhacrw2JC3RVAUSRE4SO2v/TAHrWArg=
+			2X6YCxHBj8qMRVVbItA5W1NqxDpgOiOqrxlwH3HwPj0=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Eg0J5A/gRSrze5i2e4ulDkAatJxWmpBKZ5Gh5AtlSn8=
+			L+/oN9edGsssX6FVs52zhbeKL9fXUzTu0joW/urjKbg=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -87,28 +87,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Eg0J5A/gRSrze5i2e4ulDkAatJxWmpBKZ5Gh5AtlSn8=
+			L+/oN9edGsssX6FVs52zhbeKL9fXUzTu0joW/urjKbg=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ayPBouuFKVO+XgPbkeNK1cDhkL8HKh1s/0HdgPYiVNw=
+			r4r50gR1ITVcxMEtW4oXD3aG/eL8srK0bAwGPAjJ8T4=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WGtN6EMkUoLBwhacrw2JC3RVAUSRE4SO2v/TAHrWArg=
+			2X6YCxHBj8qMRVVbItA5W1NqxDpgOiOqrxlwH3HwPj0=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KZt1XB5SDcJtObyg6BVKe664A1NgC3rQpHDr2oA6vrw=
+			mZW+nwD2y/liwAzT7yS1ITS5cJ0zEM6BRosGKiLbU/M=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -122,14 +122,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KZt1XB5SDcJtObyg6BVKe664A1NgC3rQpHDr2oA6vrw=
+			mZW+nwD2y/liwAzT7yS1ITS5cJ0zEM6BRosGKiLbU/M=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dMC0gDJE3/tAvJN7LttVjlIqPCm2ZxnUgHDWW2rizt4=
+			Sw5QwWDZ98IqsmFXogXuOWl9nlyxtCvMCxqS0H9npms=
 			</data>
 		</dict>
 	</dict>

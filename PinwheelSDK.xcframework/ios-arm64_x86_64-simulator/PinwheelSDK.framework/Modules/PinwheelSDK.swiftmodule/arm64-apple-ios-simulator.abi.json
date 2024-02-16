@@ -1151,6 +1151,307 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "PinwheelSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PinwheelAmountPayload",
+        "printedName": "PinwheelAmountPayload",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(unit:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelAmountPayload",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PinwheelSDK0A13AmountPayloadV4unit5valueACSS_Sftcfc",
+            "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4unit5valueACSS_Sftcfc",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "unit",
+            "printedName": "unit",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A13AmountPayloadV4unitSSvp",
+            "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4unitSSvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV4unitSSvg",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4unitSSvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV4unitSSvs",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4unitSSvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV4unitSSvM",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4unitSSvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A13AmountPayloadV5valueSfvp",
+            "mangledName": "$s11PinwheelSDK0A13AmountPayloadV5valueSfvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV5valueSfvg",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV5valueSfvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV5valueSfvs",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV5valueSfvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV5valueSfvM",
+                "mangledName": "$s11PinwheelSDK0A13AmountPayloadV5valueSfvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelAmountPayload",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PinwheelSDK0A13AmountPayloadV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s11PinwheelSDK0A13AmountPayloadV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "PinwheelSDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PinwheelSDK0A13AmountPayloadV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11PinwheelSDK0A13AmountPayloadV6encode2toys7Encoder_p_tKF",
+            "moduleName": "PinwheelSDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11PinwheelSDK0A13AmountPayloadV",
+        "mangledName": "$s11PinwheelSDK0A13AmountPayloadV",
+        "moduleName": "PinwheelSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PinwheelEventPayload",
+            "printedName": "PinwheelEventPayload",
+            "usr": "s:11PinwheelSDK0A12EventPayloadP",
+            "mangledName": "$s11PinwheelSDK0A12EventPayloadP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "PinwheelSDK"
       },
       {
@@ -3892,22 +4193,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6actionSSSgvp",
-            "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6actionSSSgvp",
+            "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6actionSSvp",
+            "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6actionSSvp",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "HasStorage",
@@ -3923,22 +4216,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6actionSSSgvg",
-                "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6actionSSSgvg",
+                "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6actionSSvg",
+                "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6actionSSvg",
                 "moduleName": "PinwheelSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -4018,17 +4303,9 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -4046,8 +4323,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6action10allocationACSSSg_AA0aD0VSgtcfc",
-            "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6action10allocationACSSSg_AA0aD0VSgtcfc",
+            "usr": "s:11PinwheelSDK0A22InputAllocationPayloadV6action10allocationACSS_AA0aD0VSgtcfc",
+            "mangledName": "$s11PinwheelSDK0A22InputAllocationPayloadV6action10allocationACSS_AA0aD0VSgtcfc",
             "moduleName": "PinwheelSDK",
             "implicit": true,
             "init_kind": "Designated"
@@ -4119,6 +4396,391 @@
             "usr": "s:11PinwheelSDK0A12EventPayloadP",
             "mangledName": "$s11PinwheelSDK0A12EventPayloadP"
           },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PinwheelSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PinwheelInputAmountEvent",
+        "printedName": "PinwheelInputAmountEvent",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(type:eventName:payload:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelInputAmountEvent",
+                "printedName": "PinwheelSDK.PinwheelInputAmountEvent",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelAmountPayload",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV4type9eventName7payloadACSS_SSAA0aD7PayloadVtcfc",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4type9eventName7payloadACSS_SSAA0aD7PayloadVtcfc",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV4typeSSvp",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4typeSSvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV4typeSSvg",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4typeSSvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV4typeSSvs",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4typeSSvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV4typeSSvM",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4typeSSvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "eventName",
+            "printedName": "eventName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV9eventNameSSvp",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV9eventNameSSvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV9eventNameSSvg",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV9eventNameSSvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV9eventNameSSvs",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV9eventNameSSvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV9eventNameSSvM",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV9eventNameSSvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "payload",
+            "printedName": "payload",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelAmountPayload",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvp",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvp",
+            "moduleName": "PinwheelSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelAmountPayload",
+                    "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                    "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvg",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvg",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PinwheelAmountPayload",
+                    "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                    "usr": "s:11PinwheelSDK0A13AmountPayloadV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvs",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvs",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvM",
+                "mangledName": "$s11PinwheelSDK0A16InputAmountEventV7payloadAA0aD7PayloadVvM",
+                "moduleName": "PinwheelSDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PinwheelInputAmountEvent",
+                "printedName": "PinwheelSDK.PinwheelInputAmountEvent",
+                "usr": "s:11PinwheelSDK0A16InputAmountEventV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "PinwheelSDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PinwheelSDK0A16InputAmountEventV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s11PinwheelSDK0A16InputAmountEventV6encode2toys7Encoder_p_tKF",
+            "moduleName": "PinwheelSDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:11PinwheelSDK0A16InputAmountEventV",
+        "mangledName": "$s11PinwheelSDK0A16InputAmountEventV",
+        "moduleName": "PinwheelSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
           {
             "kind": "Conformance",
             "name": "Decodable",
@@ -5311,7 +5973,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(action:allocation:)",
+            "printedName": "init(amount:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -5322,35 +5984,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.String?",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PinwheelSDK.PinwheelAllocation?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PinwheelAllocation",
-                    "printedName": "PinwheelSDK.PinwheelAllocation",
-                    "usr": "s:11PinwheelSDK0A10AllocationV"
+                    "name": "PinwheelAmountPayload",
+                    "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                    "usr": "s:11PinwheelSDK0A13AmountPayloadV"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A6ParamsV6action10allocationACSSSg_AA0A10AllocationVSgtcfc",
-            "mangledName": "$s11PinwheelSDK0A6ParamsV6action10allocationACSSSg_AA0A10AllocationVSgtcfc",
+            "usr": "s:11PinwheelSDK0A6ParamsV6amountAcA0A13AmountPayloadVSg_tcfc",
+            "mangledName": "$s11PinwheelSDK0A6ParamsV6amountAcA0A13AmountPayloadVSg_tcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "AccessControl"
@@ -5359,27 +6007,27 @@
           },
           {
             "kind": "Var",
-            "name": "action",
-            "printedName": "action",
+            "name": "amount",
+            "printedName": "amount",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.String?",
+                "printedName": "PinwheelSDK.PinwheelAmountPayload?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "PinwheelAmountPayload",
+                    "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                    "usr": "s:11PinwheelSDK0A13AmountPayloadV"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PinwheelSDK0A6ParamsV6actionSSSgvp",
-            "mangledName": "$s11PinwheelSDK0A6ParamsV6actionSSSgvp",
+            "usr": "s:11PinwheelSDK0A6ParamsV6amountAA0A13AmountPayloadVSgvp",
+            "mangledName": "$s11PinwheelSDK0A6ParamsV6amountAA0A13AmountPayloadVSgvp",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "HasStorage",
@@ -5396,81 +6044,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Swift.String?",
+                    "printedName": "PinwheelSDK.PinwheelAmountPayload?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "PinwheelAmountPayload",
+                        "printedName": "PinwheelSDK.PinwheelAmountPayload",
+                        "usr": "s:11PinwheelSDK0A13AmountPayloadV"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK0A6ParamsV6actionSSSgvg",
-                "mangledName": "$s11PinwheelSDK0A6ParamsV6actionSSSgvg",
-                "moduleName": "PinwheelSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "allocation",
-            "printedName": "allocation",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "PinwheelSDK.PinwheelAllocation?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PinwheelAllocation",
-                    "printedName": "PinwheelSDK.PinwheelAllocation",
-                    "usr": "s:11PinwheelSDK0A10AllocationV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:11PinwheelSDK0A6ParamsV10allocationAA0A10AllocationVSgvp",
-            "mangledName": "$s11PinwheelSDK0A6ParamsV10allocationAA0A10AllocationVSgvp",
-            "moduleName": "PinwheelSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "PinwheelSDK.PinwheelAllocation?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PinwheelAllocation",
-                        "printedName": "PinwheelSDK.PinwheelAllocation",
-                        "usr": "s:11PinwheelSDK0A10AllocationV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK0A6ParamsV10allocationAA0A10AllocationVSgvg",
-                "mangledName": "$s11PinwheelSDK0A6ParamsV10allocationAA0A10AllocationVSgvg",
+                "usr": "s:11PinwheelSDK0A6ParamsV6amountAA0A13AmountPayloadVSgvg",
+                "mangledName": "$s11PinwheelSDK0A6ParamsV6amountAA0A13AmountPayloadVSgvg",
                 "moduleName": "PinwheelSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -14822,7 +15410,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 12572,
+      "offset": 12803,
       "length": 13,
       "value": "\"PinwheelSDK.HeaderURLView\""
     },
@@ -14831,7 +15419,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.0.2\""
+      "value": "\"2.4.8\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -15088,7 +15676,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 6351,
+      "offset": 6337,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
     },
