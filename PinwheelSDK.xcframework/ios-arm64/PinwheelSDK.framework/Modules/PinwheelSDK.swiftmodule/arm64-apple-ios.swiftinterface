@@ -15,13 +15,6 @@ public struct PinwheelAllocation : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public struct PinwheelAmountPayload : PinwheelSDK.PinwheelEventPayload {
-  public init(unit: Swift.String, value: Swift.Float)
-  public var unit: Swift.String
-  public var value: Swift.Float
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
 public struct PinwheelDDFormCreateEvent : Swift.Codable {
   public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelDDFormCreatePayload)
   public let type: Swift.String
@@ -106,16 +99,8 @@ public struct PinwheelInputAllocationEvent : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct PinwheelInputAllocationPayload : PinwheelSDK.PinwheelEventPayload {
-  public let action: Swift.String
+  public let action: Swift.String?
   public let allocation: PinwheelSDK.PinwheelAllocation?
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-public struct PinwheelInputAmountEvent : Swift.Codable {
-  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelAmountPayload)
-  public var type: Swift.String
-  public var eventName: Swift.String
-  public var payload: PinwheelSDK.PinwheelAmountPayload
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -149,8 +134,9 @@ public struct PinwheelLoginPayload : PinwheelSDK.PinwheelEventPayload {
   public init(from decoder: Swift.Decoder) throws
 }
 public struct PinwheelParams : Swift.Codable {
-  public init(amount: PinwheelSDK.PinwheelAmountPayload?)
-  public let amount: PinwheelSDK.PinwheelAmountPayload?
+  public init(action: Swift.String?, allocation: PinwheelSDK.PinwheelAllocation?)
+  public let action: Swift.String?
+  public let allocation: PinwheelSDK.PinwheelAllocation?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }

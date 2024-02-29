@@ -68,7 +68,7 @@ This new major version bump introduces an updated API to support partner-based s
 
 #### Notes
 
-- Expand internal functionality to support a broader range of platforms.
+- Expand internal functionality to support a broader range of platforms and increase conversion rate.
 
 ### [2.4.6](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.4.6)
 
