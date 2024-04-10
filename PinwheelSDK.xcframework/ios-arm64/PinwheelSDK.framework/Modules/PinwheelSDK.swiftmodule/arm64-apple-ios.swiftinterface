@@ -59,7 +59,6 @@ public enum PinwheelEventType : Swift.String {
   case incorrectPlatformGiven
   case login
   case loginAttempt
-  case inputAmount
   case inputAllocation
   case inputRequired
   case screenTransition
@@ -70,6 +69,7 @@ public enum PinwheelEventType : Swift.String {
   case exit
   case success
   case error
+  case otherEvent
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -130,6 +130,37 @@ public struct PinwheelLoginPayload : PinwheelSDK.PinwheelEventPayload {
   public init(accountId: Swift.String, platformId: Swift.String)
   public let accountId: Swift.String
   public let platformId: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelOtherEventPayload : PinwheelSDK.PinwheelEventPayload {
+  public enum OtherEventPayloadValueType : Swift.String, Swift.Codable {
+    case string
+    case number
+    case boolean
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct OtherEventAttribute : Swift.Codable {
+    public let key: Swift.String
+    public let value: Swift.String
+    public let type: PinwheelSDK.PinwheelOtherEventPayload.OtherEventPayloadValueType
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public let name: Swift.String
+  public let payload: Swift.Array<PinwheelSDK.PinwheelOtherEventPayload.OtherEventAttribute>
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PinwheelOtherEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelOtherEventPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelOtherEventPayload
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -290,6 +321,9 @@ extension PinwheelSDK.PinwheelWrapperVC : PinwheelSDK.PinwheelDelegate {
 extension PinwheelSDK.PinwheelEventType : Swift.Equatable {}
 extension PinwheelSDK.PinwheelEventType : Swift.Hashable {}
 extension PinwheelSDK.PinwheelEventType : Swift.RawRepresentable {}
+extension PinwheelSDK.PinwheelOtherEventPayload.OtherEventPayloadValueType : Swift.Equatable {}
+extension PinwheelSDK.PinwheelOtherEventPayload.OtherEventPayloadValueType : Swift.Hashable {}
+extension PinwheelSDK.PinwheelOtherEventPayload.OtherEventPayloadValueType : Swift.RawRepresentable {}
 extension PinwheelSDK.PinwheelMode : Swift.Equatable {}
 extension PinwheelSDK.PinwheelMode : Swift.Hashable {}
 extension PinwheelSDK.PinwheelMode : Swift.RawRepresentable {}
