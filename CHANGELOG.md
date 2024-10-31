@@ -1,13 +1,24 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
+## 3.1.x Releases
+- `3.1.x` Releases - [3.1.0](#310)
+---
+
+### [3.1.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.0)
+
+#### Notes
+
+- Add new message `analytics_request` that allows Link to request for a b64 screenshot
+- Adding `customUserAgent` and `customInitialHeaders` fields to `EdgeRequestPayload`
+- Add delegator to handle camera permissioning requests in edge webview.  
+
 
 ## 3.0.x Releases
 
 - `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301) | [3.0.2](#302) | [3.0.3](#303) | [3.0.4](#304) | [3.0.5](#305)
 
 ---
-
 ### [3.0.5](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.0.5)
 
 #### Notes

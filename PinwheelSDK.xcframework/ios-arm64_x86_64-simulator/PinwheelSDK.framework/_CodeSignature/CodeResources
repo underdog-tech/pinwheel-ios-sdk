@@ -10,11 +10,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4LrP5B++Fr0zwqOHYTSp4AQxoTM=
+		I5XGKhFvidj3Wh9z3iuTMcQ75xI=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Ya1D0IK1ugNUEcFYmcwYfWX5r0E=
+		t/Z6U2oc23FpWfTGkqAu0DQuzRQ=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		29Q+W9OiVc4xI37QS0swrQrfj9g=
+		SVbEEK0bpLgiHWFNHoqSsfGG6cc=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Ya1D0IK1ugNUEcFYmcwYfWX5r0E=
+		t/Z6U2oc23FpWfTGkqAu0DQuzRQ=
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		O6HQYKwHi87uQOVSdIPpz0i7NH4=
+		OEzTv1CEnSPyTNT+LfhzsxenRO4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,7 +66,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GhP4hJx6oSZcpW0+THxLUuPYAF6csykytZeK9Qhw8Ek=
+			5JPvQkvqWFsSdxzxkPmmmq4MnKeCOK9MnLnx38O9SbI=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -94,14 +94,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JHbhBI3wxhLRaJv6g8ul1tpJAxzy1sKCG88u6FVPLkA=
+			eM8In1j7ZsJrRZIFDMd2LaJRnFOGMSK6vOTWtHfxaAw=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GhP4hJx6oSZcpW0+THxLUuPYAF6csykytZeK9Qhw8Ek=
+			5JPvQkvqWFsSdxzxkPmmmq4MnKeCOK9MnLnx38O9SbI=
 			</data>
 		</dict>
 		<key>Modules/PinwheelSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -129,7 +129,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C5Tx3PJwkkzdkN1ZlMSCu0NVCK9xj+WLg5EsIf+Y7tY=
+			cuUSxiHOgST7nXhqXVVNZyBVNGhtLH3j/Wf1qwdcjYk=
 			</data>
 		</dict>
 	</dict>
