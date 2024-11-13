@@ -9791,6 +9791,13 @@
       },
       {
         "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "PinwheelSDK"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -15717,6 +15724,50 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Function",
+            "name": "getCameraAccessGranted",
+            "printedName": "getCameraAccessGranted()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC22getCameraAccessGrantedSSyF",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC22getCameraAccessGrantedSSyF",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getBundleKeysJSON",
+            "printedName": "getBundleKeysJSON()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC17getBundleKeysJSONSSyF",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC17getBundleKeysJSONSSyF",
+            "moduleName": "PinwheelSDK",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(nibName:bundle:)",
@@ -16710,7 +16761,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15728,
+      "offset": 14829,
       "length": 13,
       "value": "\"PinwheelSDK.HeaderURLView\""
     },
@@ -16719,7 +16770,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.1.0\""
+      "value": "\"3.1.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -16892,105 +16943,105 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 216,
+      "offset": 236,
       "length": 14,
       "value": "\"edge_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 252,
+      "offset": 272,
       "length": 12,
       "value": "\"xm_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 294,
+      "offset": 314,
       "length": 20,
       "value": "\"browser_visibility\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 339,
+      "offset": 359,
       "length": 15,
       "value": "\"browser_close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 379,
+      "offset": 399,
       "length": 15,
       "value": "\"setos_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 424,
+      "offset": 444,
       "length": 19,
       "value": "\"analytics_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 216,
+      "offset": 236,
       "length": 14,
       "value": "\"edge_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 252,
+      "offset": 272,
       "length": 12,
       "value": "\"xm_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 294,
+      "offset": 314,
       "length": 20,
       "value": "\"browser_visibility\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 339,
+      "offset": 359,
       "length": 15,
       "value": "\"browser_close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 379,
+      "offset": 399,
       "length": 15,
       "value": "\"setos_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 424,
+      "offset": 444,
       "length": 19,
       "value": "\"analytics_request\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 4273,
+      "offset": 4293,
       "length": 34,
       "value": "\"PinwheelSDK.PinwheelWebKitScriptMessageHandler\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 5904,
+      "offset": 5924,
       "length": 5,
       "value": "\"ios\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "StringLiteral",
-      "offset": 6808,
+      "offset": 6828,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
     },
