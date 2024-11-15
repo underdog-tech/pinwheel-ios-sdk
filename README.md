@@ -26,11 +26,18 @@ end
 
 Please be sure to run `pod update` and use `pod install --repo-update` to ensure you have the most recent version of the SDK installed.
 
+### Configuration
+Some platform integrations may require camera access for verification purposes. Ensure that the `NSCameraUsageDescription` key is included in your `Info.plist`:
+```
+<key>NSCameraUsageDescription</key>
+<string>We need access to your camera for verification purposes.</string>
+```
+
 ### Link Token
 
 To initialize the `PinwheelViewController`, a short-lived Link token will need to be generated first. Your server can generate the Link token by sending a POST request to the `/v1/link_tokens` endpoint with details about the direct depoist update. Your mobile app should fetch the link token from your server. DO NOT ever send this request from the client side and publicly expose your api_secret.
 
-The link token returned is valid for 15 minutes, after which it expires and can no longer be used to initialize the `PinwheelViewController`. The expiration time is returned as a unix timestamp.
+The link token returned is valid for 1 hour, after which it expires and can no longer be used to initialize the `PinwheelViewController`. The expiration time is returned as a unix timestamp.
 
 ### PinwheelViewController
 
@@ -47,7 +54,7 @@ With the `PinwheelViewController`, end-users can select their employer, authenti
 
 ## PinwheelDelegate
 
-The `PinwheelDelegate` protocol is set up such that every event goes through the required `onEvent(name: event:)` handler, and optional convenience methods are provided for the `.exit`, `.success`, `.login`, and `.error` events. Note that the `onEvent(name: event:)` handler will still be called alongside the convenience methods.   
+The `PinwheelDelegate` protocol is set up such that every event goes through the required `onEvent(name: event:)` handler, and optional convenience methods are provided for the `.exit`, `.success`, `.login`, and `.error` events. Note that the `onEvent(name: event:)` handler will still be called alongside the convenience methods.
 
 ### `onEvent(name: PinwheelEventType, event: PinwheelEventPayload)`
 
@@ -84,21 +91,6 @@ Note that setting up the API secret this way is only for demo purposes. In your 
 There are unit tests, and UI tests included in the example project. The unit tests are associated with the PinwheelSDK_Tests scheme, and the UI tests are associated PinwheelSDK_UITests scheme. 
 
 To run the UI tests in AWS Device Farm, you will need to configure `env-vars.sh`, and `Example/Matchfile`.
-
-
-## Dev Workflow Commands
-
- ### Make Feature
-
- The starting point for any dev work being done should be a JIRA ticket. JIRA has automation rules that will handle moving TKTs into the right status, as long as the TKT number is in the branch name.
-
- To handle this for you, we have a `make feature` command that you'll want to use when starting development. From any branch, simply run `make feature` to get started.
- This will ask for a few things:
-
- 1. **JIRA Ticket Numbers**: enter the JIRA ticket number that you're working on (includes project abbreviation and number, i.e. `INT-1643`). This will ask for multiple TKT numbers, if it's just one TKT then press enter when it asks for another one.
- 2. **Name**: A very brief name for the branch, i.e. `paycom-login`.
-
- A new feature branch will then be created with the tkt numbers and name provided.
 
 ## Author
 

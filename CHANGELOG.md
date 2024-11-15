@@ -9,16 +9,20 @@ All notable changes to this project will be documented in this file.
 
 #### Notes
 
-- Check info plist for camera permissioning
+- Internal support changes to improve conversion rates.
 
 ### [3.1.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.0)
 
 #### Notes
 
-- Add new message `analytics_request` that allows Link to request for a b64 screenshot
-- Adding `customUserAgent` and `customInitialHeaders` fields to `EdgeRequestPayload`
-- Add delegator to handle camera permissioning requests in edge webview.  
+This release introduces support for additional platforms and integrations, improving conversion rates and overall functionality.
 
+**Important Note:**
+Some integrations may now require camera access for verification purposes. Ensure that the `NSCameraUsageDescription` key is included in your `Info.plist`:
+```
+<key>NSCameraUsageDescription</key>
+<string>We need access to your camera for verification purposes.</string>
+```
 
 ## 3.0.x Releases
 
