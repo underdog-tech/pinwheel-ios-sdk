@@ -76,22 +76,6 @@ Optional callback for when a user logs in successfully.
 
 Optional callback for when an error occurs.
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first. Then, you'll need to set up an environment variable with your api secret. 
-
-1. `cp env-vars.example.sh env-vars.sh` 
-2. Add your API secret to the newly created file. 
-3. `source ./env-vars.sh`
-
-Note that setting up the API secret this way is only for demo purposes. In your app, you should fetch the Link token from your server, and you should never include your API secret in your app (compiled or otherwise).
-
-## Tests
-
-There are unit tests, and UI tests included in the example project. The unit tests are associated with the PinwheelSDK_Tests scheme, and the UI tests are associated PinwheelSDK_UITests scheme. 
-
-To run the UI tests in AWS Device Farm, you will need to configure `env-vars.sh`, and `Example/Matchfile`.
-
 ## Author
 
 [Pinwheel](https://getpinwheel.com)
