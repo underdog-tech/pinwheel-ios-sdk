@@ -2,8 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 ## 3.1.x Releases
-- `3.1.x` Releases - [3.1.0](#310) | [3.1.1](#301)
+- `3.1.x` Releases - [3.1.0](#310) | [3.1.1](#311) | [3.1.2](#312)
 ---
+
+### [3.1.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.2)
+
+#### Notes
+
+- Internal support changes to improve conversion rates.
 
 ### [3.1.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.1)
 
