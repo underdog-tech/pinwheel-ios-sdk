@@ -1,8 +1,20 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
+
+## 3.2.x Releases
+- `3.2.x` Releases - [3.2.0](#320)
+---
+
+### [3.2.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.2.0)
+
+#### Notes
+
+- Introduces dark mode support for Link, which can be enabled using the new `useDarkMode` parameter in `PinwheelViewController`'s initializer.
+- Internal support changes to improve conversion rates.
+
 ## 3.1.x Releases
-- `3.1.x` Releases - [3.1.0](#310) | [3.1.1](#301)
+- `3.1.x` Releases - [3.1.0](#310) | [3.1.1](#311)
 ---
 
 ### [3.1.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.1)

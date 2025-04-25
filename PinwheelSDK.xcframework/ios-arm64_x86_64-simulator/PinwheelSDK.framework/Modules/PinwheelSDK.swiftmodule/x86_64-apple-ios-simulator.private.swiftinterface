@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import Foundation
+import Security
 import Swift
 import UIKit
 import WebKit
@@ -297,8 +298,8 @@ public struct PinwheelConfig {
   public init(mode: PinwheelSDK.PinwheelMode, environment: PinwheelSDK.PinwheelEnvironment, sdk: Swift.String, version: Swift.String)
 }
 @objc @_Concurrency.MainActor(unsafe) public class PinwheelViewController : UIKit.UIViewController, WebKit.WKUIDelegate, WebKit.WKScriptMessageHandler {
-  @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig)
-  @_Concurrency.MainActor(unsafe) convenience public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate)
+  @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, config: PinwheelSDK.PinwheelConfig, useDarkMode: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) convenience public init(token: Swift.String, delegate: PinwheelSDK.PinwheelDelegate, useDarkMode: Swift.Bool = false)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func loadView()
