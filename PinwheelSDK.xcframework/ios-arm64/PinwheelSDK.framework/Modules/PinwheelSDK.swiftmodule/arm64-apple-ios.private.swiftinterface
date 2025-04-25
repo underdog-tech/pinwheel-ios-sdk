@@ -311,8 +311,8 @@ public struct PinwheelConfig {
   @objc func onEvent(name: Swift.String, event: [Swift.String : Swift.AnyObject])
 }
 @objc @objcMembers @_Concurrency.MainActor(unsafe) public class PinwheelWrapperVC : UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate)
-  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, sdk: Swift.String, version: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, useDarkMode: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public init(token: Swift.String, delegate: PinwheelSDK.PinwheelWrapperDelegate, sdk: Swift.String, version: Swift.String, useDarkMode: Swift.Bool = false)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit

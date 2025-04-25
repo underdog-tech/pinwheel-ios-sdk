@@ -18500,7 +18500,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:)",
+            "printedName": "init(token:delegate:useDarkMode:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -18519,13 +18519,20 @@
                 "name": "PinwheelWrapperDelegate",
                 "printedName": "PinwheelSDK.PinwheelWrapperDelegate",
                 "usr": "c:@M@PinwheelSDK@objc(pl)PinwheelWrapperDelegate"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:",
-            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegateACSS_AA0aC8Delegate_ptcfc",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:useDarkMode:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate11useDarkModeACSS_AA0aC8Delegate_pSbtcfc",
             "moduleName": "PinwheelSDK",
-            "objc_name": "initWithToken:delegate:",
+            "objc_name": "initWithToken:delegate:useDarkMode:",
             "declAttributes": [
               "Custom",
               "AccessControl",
@@ -18536,7 +18543,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:sdk:version:)",
+            "printedName": "init(token:delegate:sdk:version:useDarkMode:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -18567,13 +18574,20 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:version:",
-            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdk7versionACSS_AA0aC8Delegate_pS2Stcfc",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:version:useDarkMode:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdk7version11useDarkModeACSS_AA0aC8Delegate_pS2SSbtcfc",
             "moduleName": "PinwheelSDK",
-            "objc_name": "initWithToken:delegate:sdk:version:",
+            "objc_name": "initWithToken:delegate:sdk:version:useDarkMode:",
             "declAttributes": [
               "Custom",
               "AccessControl",
@@ -19265,7 +19279,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.2.0\""
+      "value": "\"3.2.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -19595,6 +19609,20 @@
       "offset": 8656,
       "length": 22,
       "value": "\"PinwheelSDK.PinwheelViewController\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 524,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 932,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
