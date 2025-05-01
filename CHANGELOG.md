@@ -3,8 +3,16 @@
 All notable changes to this project will be documented in this file.
 
 ## 3.2.x Releases
-- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321)
+
+- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322)
+
 ---
+
+### [3.2.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.2.2)
+
+#### Notes
+
+- Internal security enhancements.
 
 ### [3.2.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.2.1)
 
@@ -20,7 +28,9 @@ All notable changes to this project will be documented in this file.
 - Internal support changes to improve conversion rates.
 
 ## 3.1.x Releases
+
 - `3.1.x` Releases - [3.1.0](#310) | [3.1.1](#311)
+
 ---
 
 ### [3.1.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.1.1)
@@ -37,6 +47,7 @@ This release introduces support for additional platforms and integrations, impro
 
 **Important Note:**
 Some integrations may now require camera access for verification purposes. Ensure that the `NSCameraUsageDescription` key is included in your `Info.plist`:
+
 ```
 <key>NSCameraUsageDescription</key>
 <string>We need access to your camera for verification purposes.</string>
@@ -47,6 +58,7 @@ Some integrations may now require camera access for verification purposes. Ensur
 - `3.0.x` Releases - [3.0.0](#300) | [3.0.1](#301) | [3.0.2](#302) | [3.0.3](#303) | [3.0.4](#304) | [3.0.5](#305)
 
 ---
+
 ### [3.0.5](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.0.5)
 
 #### Notes
@@ -82,15 +94,16 @@ Some integrations may now require camera access for verification purposes. Ensur
 
 This new major version bump introduces an updated API to support partner-based switches.
 
-*Deprecated events have been removed and we have updated the success event to match the current standard switch schema (used in the `direct_deposit_switch.added` webhook and the `input_allocation` event).*
+_Deprecated events have been removed and we have updated the success event to match the current standard switch schema (used in the `direct_deposit_switch.added` webhook and the `input_allocation` event)._
 
 #### Changed
+
 - The `action` field in `input_allocation` event is now optional.
 - The `params` field in the `success` event uses the `input_allocation` schema with fields `action` and `allocation`.
 
 #### Removed
-- Removed `input_amount` event.
 
+- Removed `input_amount` event.
 
 ## 2.4.x Releases
 
@@ -163,14 +176,14 @@ We're thrilled to announce the latest version of our SDK! While you'll find that
 - **Increased Conversion**: ↗️ We are leveraging system level features to increase conversion.
 - **Easy Upgrade**: 🥧 No changes were made to the API contract. Easy as pie.
 
-*Note*: Binary is now published instead of source code.
-
+_Note_: Binary is now published instead of source code.
 
 ## 2.3.x Releases
 
 - `2.3.x` Releases - [2.3.10](#2310) | [2.3.11](#2311) | [2.3.12](#2312) | [2.3.13](#2313) | [2.3.14](#2314) | [2.3.15](#2315)
 
 ---
+
 ### [2.3.15](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/2.3.15)
 
 #### Added
@@ -206,9 +219,11 @@ We're thrilled to announce the latest version of our SDK! While you'll find that
 #### Added
 
 - Added additional safety around local storage access.
+
   - Added by [Robby Abaya](https://github.com/rawbee) in Pull Request [#50](https://github.com/underdog-tech/pinwheel-ios-sdk/pull/62).
 
 - Added additional configuration options to support different Pinwheel environments.
+
   - Added by [Robby Abaya](https://github.com/rawbee) in Pull Request [#50](https://github.com/underdog-tech/pinwheel-ios-sdk/pull/60).
 
 - Added additional device metadata information
