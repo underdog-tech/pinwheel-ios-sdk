@@ -4,9 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## 3.2.x Releases
 
-- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322)
+- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322) | [3.2.3](#323)
 
 ---
+
+### [3.2.3](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.2.3)
+
+#### Notes
+
+- Introduced optional parameters `useAppBoundDomains` and `useAppBoundDomainsForNativeLink` in `PinwheelViewController` to enable app-bound behavior using [WKAppBoundDomains](https://webkit.org/blog/10882/app-bound-domains/).
 
 ### [3.2.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.2.2)
 

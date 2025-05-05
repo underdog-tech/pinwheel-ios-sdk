@@ -283,8 +283,8 @@ SWIFT_PROTOCOL("_TtP11PinwheelSDK23PinwheelWrapperDelegate_")
 
 SWIFT_CLASS("_TtC11PinwheelSDK17PinwheelWrapperVC")
 @interface PinwheelWrapperVC : UIViewController
-- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate useDarkMode:(BOOL)useDarkMode OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate sdk:(NSString * _Nonnull)sdk version:(NSString * _Nonnull)version useDarkMode:(BOOL)useDarkMode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate useDarkMode:(BOOL)useDarkMode useAppBoundDomains:(BOOL)useAppBoundDomains useAppBoundDomainsForNativeLink:(BOOL)useAppBoundDomainsForNativeLink OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token delegate:(id <PinwheelWrapperDelegate> _Nonnull)delegate sdk:(NSString * _Nonnull)sdk version:(NSString * _Nonnull)version useDarkMode:(BOOL)useDarkMode useAppBoundDomains:(BOOL)useAppBoundDomains useAppBoundDomainsForNativeLink:(BOOL)useAppBoundDomainsForNativeLink OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;

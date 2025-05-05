@@ -136,6 +136,31 @@
           },
           {
             "kind": "Var",
+            "name": "useAppBoundDomainsForNativeLink",
+            "printedName": "useAppBoundDomainsForNativeLink",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:11PinwheelSDK24BrowserJobViewControllerC31useAppBoundDomainsForNativeLink33_56EE881EC58210565BFBC90A7798C91ELLSbvp",
+            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC31useAppBoundDomainsForNativeLink33_56EE881EC58210565BFBC90A7798C91ELLSbvp",
+            "moduleName": "PinwheelSDK",
+            "isInternal": true,
+            "declAttributes": [
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 2,
+            "hasStorage": true
+          },
+          {
+            "kind": "Var",
             "name": "webView",
             "printedName": "webView",
             "children": [
@@ -165,7 +190,7 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 2,
+            "fixedbinaryorder": 3,
             "hasStorage": true
           },
           {
@@ -199,7 +224,7 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 3,
+            "fixedbinaryorder": 4,
             "hasStorage": true
           },
           {
@@ -233,7 +258,7 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 4,
+            "fixedbinaryorder": 5,
             "hasStorage": true
           },
           {
@@ -267,7 +292,7 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 5,
+            "fixedbinaryorder": 6,
             "hasStorage": true
           },
           {
@@ -301,7 +326,7 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 6,
+            "fixedbinaryorder": 7,
             "hasStorage": true
           },
           {
@@ -327,13 +352,13 @@
               "HasStorage",
               "AccessControl"
             ],
-            "fixedbinaryorder": 7,
+            "fixedbinaryorder": 8,
             "hasStorage": true
           },
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(event:delegate:)",
+            "printedName": "init(event:delegate:useAppBoundDomainsForNativeLink:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -352,11 +377,17 @@
                 "name": "BrowserJobViewControllerDelegate",
                 "printedName": "PinwheelSDK.BrowserJobViewControllerDelegate",
                 "usr": "s:11PinwheelSDK32BrowserJobViewControllerDelegateP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK24BrowserJobViewControllerC5event8delegateAcA16EdgeRequestEventV_AA0cdeF8Delegate_ptcfc",
-            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC5event8delegateAcA16EdgeRequestEventV_AA0cdeF8Delegate_ptcfc",
+            "usr": "s:11PinwheelSDK24BrowserJobViewControllerC5event8delegate31useAppBoundDomainsForNativeLinkAcA16EdgeRequestEventV_AA0cdeF8Delegate_pSbtcfc",
+            "mangledName": "$s11PinwheelSDK24BrowserJobViewControllerC5event8delegate31useAppBoundDomainsForNativeLinkAcA16EdgeRequestEventV_AA0cdeF8Delegate_pSbtcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "Custom",
@@ -17696,7 +17727,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:config:useDarkMode:)",
+            "printedName": "init(token:delegate:config:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -17728,11 +17759,25 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A14ViewControllerC5token8delegate6config11useDarkModeACSS_AA0A8Delegate_pAA0A6ConfigVSbtcfc",
-            "mangledName": "$s11PinwheelSDK0A14ViewControllerC5token8delegate6config11useDarkModeACSS_AA0A8Delegate_pAA0A6ConfigVSbtcfc",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC5token8delegate6config11useDarkMode0H15AppBoundDomains0hklM13ForNativeLinkACSS_AA0A8Delegate_pAA0A6ConfigVS3btcfc",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC5token8delegate6config11useDarkMode0H15AppBoundDomains0hklM13ForNativeLinkACSS_AA0A8Delegate_pAA0A6ConfigVS3btcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "Custom",
@@ -17743,7 +17788,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:useDarkMode:)",
+            "printedName": "init(token:delegate:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -17769,11 +17814,25 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A14ViewControllerC5token8delegate11useDarkModeACSS_AA0A8Delegate_pSbtcfc",
-            "mangledName": "$s11PinwheelSDK0A14ViewControllerC5token8delegate11useDarkModeACSS_AA0A8Delegate_pSbtcfc",
+            "usr": "s:11PinwheelSDK0A14ViewControllerC5token8delegate11useDarkMode0G15AppBoundDomains0gjkL13ForNativeLinkACSS_AA0A8Delegate_pS3btcfc",
+            "mangledName": "$s11PinwheelSDK0A14ViewControllerC5token8delegate11useDarkMode0G15AppBoundDomains0gjkL13ForNativeLinkACSS_AA0A8Delegate_pS3btcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "Custom",
@@ -18518,7 +18577,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:useDarkMode:)",
+            "printedName": "init(token:delegate:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -18544,13 +18603,27 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:useDarkMode:",
-            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate11useDarkModeACSS_AA0aC8Delegate_pSbtcfc",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate11useDarkMode0G15AppBoundDomains0gjkL13ForNativeLinkACSS_AA0aC8Delegate_pS3btcfc",
             "moduleName": "PinwheelSDK",
-            "objc_name": "initWithToken:delegate:useDarkMode:",
+            "objc_name": "initWithToken:delegate:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:",
             "declAttributes": [
               "Custom",
               "AccessControl",
@@ -18561,7 +18634,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(token:delegate:sdk:version:useDarkMode:)",
+            "printedName": "init(token:delegate:sdk:version:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -18599,13 +18672,27 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:version:useDarkMode:",
-            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdk7version11useDarkModeACSS_AA0aC8Delegate_pS2SSbtcfc",
+            "usr": "c:@M@PinwheelSDK@objc(cs)PinwheelWrapperVC(im)initWithToken:delegate:sdk:version:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:",
+            "mangledName": "$s11PinwheelSDK0A9WrapperVCC5token8delegate3sdk7version11useDarkMode0I15AppBoundDomains0ilmN13ForNativeLinkACSS_AA0aC8Delegate_pS2SS3btcfc",
             "moduleName": "PinwheelSDK",
-            "objc_name": "initWithToken:delegate:sdk:version:useDarkMode:",
+            "objc_name": "initWithToken:delegate:sdk:version:useDarkMode:useAppBoundDomains:useAppBoundDomainsForNativeLink:",
             "declAttributes": [
               "Custom",
               "AccessControl",
@@ -19330,21 +19417,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 1094,
+      "offset": 1162,
       "length": 4,
       "value": "44.0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 713,
+      "offset": 727,
       "length": 24,
       "value": "\"PinwheelSDK.BrowserJobViewController\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/BrowserJobViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14864,
+      "offset": 15512,
       "length": 13,
       "value": "\"PinwheelSDK.HeaderURLView\""
     },
@@ -19353,7 +19440,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.2.2\""
+      "value": "\"3.2.3\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -19666,14 +19753,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "BooleanLiteral",
-      "offset": 9393,
+      "offset": 9512,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "BooleanLiteral",
-      "offset": 10935,
+      "offset": 9554,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9609,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11446,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11488,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11543,
       "length": 5,
       "value": "false"
     },
@@ -19687,14 +19802,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 524,
+      "offset": 549,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 932,
+      "offset": 591,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 646,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1279,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1321,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/PinwheelWrapper.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1376,
       "length": 5,
       "value": "false"
     },
