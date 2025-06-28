@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
   s.author           = { 'Pinwheel Engineering' => 'eng@getpinwheel.com' }
   s.source           = { :git => 'https://github.com/underdog-tech/pinwheel-ios-sdk.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
 
   s.default_subspec  = 'PinwheelLinkSDK'
   s.subspec 'PinwheelLinkSDK' do |ss|
     ss.vendored_frameworks = "PinwheelSDK.xcframework"
-    ss.ios.deployment_target  = '12.0'
+    ss.ios.deployment_target  = '13.0'
   end
 end
