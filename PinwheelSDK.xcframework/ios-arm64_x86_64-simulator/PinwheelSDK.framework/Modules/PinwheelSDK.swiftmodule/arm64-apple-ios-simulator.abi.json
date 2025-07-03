@@ -11716,7 +11716,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.3.0\""
+      "value": "\"3.3.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
