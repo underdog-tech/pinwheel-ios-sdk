@@ -1,0 +1,4 @@
+framework module PinwheelSDK {
+  header "PinwheelSDK-Swift.h"
+  requires objc
+}
