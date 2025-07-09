@@ -12,7 +12,8 @@ All notable changes to this project will be documented in this file.
 
 #### Notes
 
-- Update build to be a dynamic framework
+- Update build to be a dynamic framework.
+- Internal support changes to improve conversion rates.
 
 ### [3.3.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.3.1)
 
