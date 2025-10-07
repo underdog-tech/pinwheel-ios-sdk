@@ -18,6 +18,25 @@ public struct PinwheelAllocation : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct PinwheelBillSwitchEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelBillSwitchPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelBillSwitchPayload
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelBillSwitchPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(platformId: Swift.String, platformName: Swift.String, isGuidedSwitch: Swift.Bool, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int)
+  public let platformId: Swift.String
+  public let platformName: Swift.String
+  public let isGuidedSwitch: Swift.Bool
+  public let frequency: Swift.String
+  public let nextPaymentDate: Swift.String
+  public let amountCents: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct PinwheelDDFormCreateEvent : Swift.Codable {
   public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelDDFormCreatePayload)
   public let type: Swift.String
@@ -73,6 +92,10 @@ public enum PinwheelEventType : Swift.String {
   case success
   case error
   case otherEvent
+  case externalAccountConnected
+  case billSwitchSuccess
+  case billRemoved
+  case merchantLoginSuccess
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -90,6 +113,21 @@ public struct PinwheelExitEvent : Swift.Codable {
 public struct PinwheelExitPayload : PinwheelSDK.PinwheelEventPayload {
   public init(error: PinwheelSDK.PinwheelError?)
   public let error: PinwheelSDK.PinwheelError?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelExternalAccountConnectedEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelExternalAccountConnectedPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelExternalAccountConnectedPayload
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelExternalAccountConnectedPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(institutionName: Swift.String, accountName: Swift.String)
+  public let institutionName: Swift.String
+  public let accountName: Swift.String
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
