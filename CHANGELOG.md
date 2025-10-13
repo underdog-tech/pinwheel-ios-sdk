@@ -4,14 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## 3.x Releases
 
-- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322) | [3.2.3](#323) | [3.3.0](#330) | [3.3.1](#331) | [3.3.2](#332) | [3.4.0](#340)
+- `3.2.x` Releases - [3.2.0](#320) | [3.2.1](#321) | [3.2.2](#322) | [3.2.3](#323) | [3.3.0](#330) | [3.3.1](#331) | [3.3.2](#332) | [3.4.0](#340) | [3.4.1](#341)
 
 ---
+
+### [3.4.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.4.1)
+
+- Fixes exit bug for Bill Switch products.
+- Cosmetic enhacements for Bill Switch products.
 
 ### [3.4.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.4.0)
 
 #### Notes
 
+- **This version contains a bug that prevents user exit from Bill Switch products. Payroll-enabled products (Deposit Switch, Verify, etc.) are unaffected and working normally.**
 - Added support for additional Bill Navigator events.
 
 ### [3.3.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.3.2)
