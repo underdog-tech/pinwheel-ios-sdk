@@ -711,7 +711,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(platformId:platformName:isGuidedSwitch:frequency:nextPaymentDate:amountCents:)",
+            "printedName": "init(platformId:platformName:isIntegratedSwitch:frequency:nextPaymentDate:amountCents:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -757,8 +757,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV10platformId0F4Name08isGuidedD09frequency15nextPaymentDate11amountCentsACSS_SSSbS2SSitcfc",
-            "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV10platformId0F4Name08isGuidedD09frequency15nextPaymentDate11amountCentsACSS_SSSbS2SSitcfc",
+            "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV10platformId0F4Name012isIntegratedD09frequency15nextPaymentDate11amountCentsACSS_SSSbS2SSitcfc",
+            "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV10platformId0F4Name012isIntegratedD09frequency15nextPaymentDate11amountCentsACSS_SSSbS2SSitcfc",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "AccessControl"
@@ -855,8 +855,8 @@
           },
           {
             "kind": "Var",
-            "name": "isGuidedSwitch",
-            "printedName": "isGuidedSwitch",
+            "name": "isIntegratedSwitch",
+            "printedName": "isIntegratedSwitch",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -866,8 +866,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV08isGuidedD0Sbvp",
-            "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV08isGuidedD0Sbvp",
+            "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV012isIntegratedD0Sbvp",
+            "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV012isIntegratedD0Sbvp",
             "moduleName": "PinwheelSDK",
             "declAttributes": [
               "HasStorage",
@@ -889,8 +889,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV08isGuidedD0Sbvg",
-                "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV08isGuidedD0Sbvg",
+                "usr": "s:11PinwheelSDK0A17BillSwitchPayloadV012isIntegratedD0Sbvg",
+                "mangledName": "$s11PinwheelSDK0A17BillSwitchPayloadV012isIntegratedD0Sbvg",
                 "moduleName": "PinwheelSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -13316,7 +13316,7 @@
       "kind": "StringLiteral",
       "offset": 113,
       "length": 7,
-      "value": "\"3.4.1\""
+      "value": "\"3.4.2\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",

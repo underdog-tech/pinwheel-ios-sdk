@@ -27,10 +27,10 @@ public struct PinwheelBillSwitchEvent : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct PinwheelBillSwitchPayload : PinwheelSDK.PinwheelEventPayload {
-  public init(platformId: Swift.String, platformName: Swift.String, isGuidedSwitch: Swift.Bool, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int)
+  public init(platformId: Swift.String, platformName: Swift.String, isIntegratedSwitch: Swift.Bool, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int)
   public let platformId: Swift.String
   public let platformName: Swift.String
-  public let isGuidedSwitch: Swift.Bool
+  public let isIntegratedSwitch: Swift.Bool
   public let frequency: Swift.String
   public let nextPaymentDate: Swift.String
   public let amountCents: Swift.Int
