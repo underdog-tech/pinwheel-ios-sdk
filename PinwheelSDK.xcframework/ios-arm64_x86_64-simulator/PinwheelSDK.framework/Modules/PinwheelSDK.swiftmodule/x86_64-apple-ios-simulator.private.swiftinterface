@@ -334,6 +334,7 @@ public struct PinwheelConfig {
   public var version: Swift.String
   public let mode: PinwheelSDK.PinwheelMode
   public let environment: PinwheelSDK.PinwheelEnvironment
+  public var useSecureOrigin: Swift.Bool
   public var linkURL: Swift.String {
     get
   }

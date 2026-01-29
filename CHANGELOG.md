@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+### [3.5.0](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.5.0)
+
+- Adds useSecureOrigin as an option to the Pinwheel Modal
+
 ### [3.4.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/3.4.2)
 
 - Fixes a bill switch event param.

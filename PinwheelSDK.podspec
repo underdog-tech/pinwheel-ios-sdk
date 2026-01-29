@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PinwheelSDK'
-  s.version          = '3.4.2'
+  s.version          = '3.5.0'
   s.summary          = 'Pinwheel iOS SDK'
   s.swift_version    = '5.0'
 
