@@ -18,6 +18,24 @@ public struct PinwheelAllocation : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct PinwheelBillEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelBillPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelBillPayload
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelBillPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(platformId: Swift.String, platformName: Swift.String, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int)
+  public let platformId: Swift.String
+  public let platformName: Swift.String
+  public let frequency: Swift.String
+  public let nextPaymentDate: Swift.String
+  public let amountCents: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct PinwheelBillSwitchEvent : Swift.Codable {
   public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelBillSwitchPayload)
   public var type: Swift.String
@@ -27,13 +45,58 @@ public struct PinwheelBillSwitchEvent : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct PinwheelBillSwitchPayload : PinwheelSDK.PinwheelEventPayload {
-  public init(platformId: Swift.String, platformName: Swift.String, isIntegratedSwitch: Swift.Bool, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int)
+  public init(platformId: Swift.String, platformName: Swift.String, isIntegratedSwitch: Swift.Bool, frequency: Swift.String, nextPaymentDate: Swift.String, amountCents: Swift.Int, accountId: Swift.String? = nil)
   public let platformId: Swift.String
   public let platformName: Swift.String
   public let isIntegratedSwitch: Swift.Bool
   public let frequency: Swift.String
   public let nextPaymentDate: Swift.String
   public let amountCents: Swift.Int
+  public let accountId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelBillSwitchPlatformsAddedPayload : PinwheelSDK.PinwheelEventPayload {
+  public struct Platform : Swift.Codable {
+    public init(id: Swift.String, name: Swift.String)
+    public let id: Swift.String
+    public let name: Swift.String
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+  public init(platforms: [PinwheelSDK.PinwheelBillSwitchPlatformsAddedPayload.Platform])
+  public let platforms: [PinwheelSDK.PinwheelBillSwitchPlatformsAddedPayload.Platform]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelBillSwitchPlatformsAddedEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelBillSwitchPlatformsAddedPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelBillSwitchPlatformsAddedPayload
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelCalendarSyncPayload : PinwheelSDK.PinwheelEventPayload {
+  public enum CalendarType : Swift.String, Swift.Codable {
+    case google
+    case outlook
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(calendarType: PinwheelSDK.PinwheelCalendarSyncPayload.CalendarType)
+  public let calendarType: PinwheelSDK.PinwheelCalendarSyncPayload.CalendarType
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelCalendarSyncEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelCalendarSyncPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelCalendarSyncPayload
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -94,7 +157,18 @@ public enum PinwheelEventType : Swift.String {
   case otherEvent
   case externalAccountConnected
   case billSwitchSuccess
+  case billSwitchFailure
   case billRemoved
+  case billAdded
+  case billEdited
+  case billMarkedInactive
+  case billSwitchPlatformsAdded
+  case billSwitchPlatformsRemoved
+  case billCancelSuccess
+  case billCancelFailure
+  case calendarSync
+  case customerTermsAccepted
+  case userActivated
   case merchantLoginSuccess
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
@@ -283,6 +357,20 @@ public struct PinwheelTarget : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct PinwheelUserActivatedPayload : PinwheelSDK.PinwheelEventPayload {
+  public init(solutionName: Swift.String)
+  public let solutionName: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PinwheelUserActivatedEvent : Swift.Codable {
+  public init(type: Swift.String, eventName: Swift.String, payload: PinwheelSDK.PinwheelUserActivatedPayload)
+  public var type: Swift.String
+  public var eventName: Swift.String
+  public var payload: PinwheelSDK.PinwheelUserActivatedPayload
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct PinwheelSubscriptionError : Swift.Error {
   public let code: Swift.String
   public let message: Swift.String
@@ -364,6 +452,9 @@ public struct PinwheelConfig {
 extension PinwheelSDK.PinwheelWrapperVC : PinwheelSDK.PinwheelDelegate {
   @_Concurrency.MainActor @preconcurrency public func onEvent(name: PinwheelSDK.PinwheelEventType, event: (any PinwheelSDK.PinwheelEventPayload)?)
 }
+extension PinwheelSDK.PinwheelCalendarSyncPayload.CalendarType : Swift.Equatable {}
+extension PinwheelSDK.PinwheelCalendarSyncPayload.CalendarType : Swift.Hashable {}
+extension PinwheelSDK.PinwheelCalendarSyncPayload.CalendarType : Swift.RawRepresentable {}
 extension PinwheelSDK.PinwheelEventType : Swift.Equatable {}
 extension PinwheelSDK.PinwheelEventType : Swift.Hashable {}
 extension PinwheelSDK.PinwheelEventType : Swift.RawRepresentable {}
