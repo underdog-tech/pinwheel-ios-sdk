@@ -16807,6 +16807,13 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PinwheelSDK"
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -16828,7 +16835,7 @@
       "kind": "StringLiteral",
       "offset": 40,
       "length": 7,
-      "value": "\"4.0.0\""
+      "value": "\"4.0.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
@@ -17141,21 +17148,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "BooleanLiteral",
-      "offset": 12592,
+      "offset": 12688,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "BooleanLiteral",
-      "offset": 12634,
+      "offset": 12730,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Pinwheel.swift",
       "kind": "BooleanLiteral",
-      "offset": 12689,
+      "offset": 12785,
       "length": 5,
       "value": "false"
     },
@@ -17211,9 +17218,58 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
       "kind": "BooleanLiteral",
-      "offset": 128,
+      "offset": 141,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1361,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1366,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1378,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1383,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1394,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1399,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Utils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1411,
+      "length": 1,
+      "value": "1"
     }
   ]
 }
