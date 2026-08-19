@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## 4.x Releases
 
-- `4.0.x` Releases - [4.0.0](#400) | [4.0.1](#401)
+- `4.0.x` Releases - [4.0.0](#400) | [4.0.1](#401) | [4.0.2](#402)
 
 ---
+
+### [4.0.2](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/4.0.2)
+
+- Bumped dependencies.
 
 ### [4.0.1](https://github.com/underdog-tech/pinwheel-ios-sdk/releases/tag/4.0.1)
 

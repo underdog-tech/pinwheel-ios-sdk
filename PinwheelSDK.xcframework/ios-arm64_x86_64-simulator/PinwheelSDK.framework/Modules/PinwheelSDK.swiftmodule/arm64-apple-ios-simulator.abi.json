@@ -16835,7 +16835,7 @@
       "kind": "StringLiteral",
       "offset": 40,
       "length": 7,
-      "value": "\"4.0.1\""
+      "value": "\"4.0.2\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/PinwheelSDK\/Classes\/Events\/PinwheelEventType.swift",
